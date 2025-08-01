@@ -227,7 +227,7 @@ const projectGroups = [
 const Projects = () => {
   const [expandedProject, setExpandedProject] = useState<number | null>(null);
   const [currentPage, setCurrentPage] = useState(0);
-    const navigate = useNavigate();
+  const navigate = useNavigate();
 
   const toggleExpand = (index: number) => {
     setExpandedProject(expandedProject === index ? null : index);
@@ -304,7 +304,7 @@ const Projects = () => {
         </div>
 
         {/* Движущиеся частицы */}
-{[...Array(80)].map((_, i) => (
+{[...Array(200)].map((_, i) => (
   <div 
     key={`particle-${i}`}
     className="absolute w-1.5 h-1.5 bg-primary/20 rounded-full pointer-events-none"
@@ -324,38 +324,34 @@ const Projects = () => {
         
       </div>
 
+
       <Header />
       
       <main className="container mx-auto px-4 py-16 space-y-16 relative z-10">
-        <section className="text-center space-y-8 relative">
-          <div className="absolute -top-20 -left-20 w-40 h-40 rounded-full bg-primary/10 blur-3xl animate-gradient-pulse" />
-          <div className="absolute -bottom-20 -right-20 w-60 h-60 rounded-full bg-accent/10 blur-3xl animate-gradient-pulse animate-delay-2000" />
-          
-          <div className="relative">
-  <div className="inline-flex items-center gap-3 px-4 py-2 bg-muted/50 rounded-full text-sm font-medium mb-4 animate-fade-in-up">
-    <ExternalLink className="h-4 w-4 text-primary" />
-    <span>Наши реализованные проекты</span>
-  </div>
-  <h1 className="text-4xl md:text-6xl font-bold tracking-tight relative">
-    <span className="bg-gradient-to-r from-primary to-primary/70 bg-clip-text text-transparent relative z-10">
-      Наши проекты
-    </span>
-  </h1>
-  <p className="text-xl text-muted-foreground max-w-3xl mx-auto mt-6 relative">
-    <span className="relative z-10">Реализованные решения для государственных и коммерческих организаций</span>
-  </p>
-</div>
+        {/* Hero Section */}
+        <section className="text-center space-y-8 animate-fade-in-up">
+          <div className="inline-flex items-center gap-3 px-4 py-2 bg-muted/50 rounded-full text-sm font-medium mb-4 animate-fade-in-up animation-delay-100">
+            <ExternalLink className="h-4 w-4 text-primary" />
+            <span>Наши реализованные проекты</span>
+          </div>
+          <h1 className="text-4xl md:text-6xl font-bold tracking-tight animate-fade-in-up animation-delay-200">
+            <span className="bg-gradient-to-r from-primary to-primary/70 bg-clip-text text-transparent">
+              Наши проекты
+            </span>
+          </h1>
+          <p className="text-xl text-muted-foreground max-w-3xl mx-auto animate-fade-in-up animation-delay-300">
+            Реализованные решения для государственных и коммерческих организаций
+          </p>
         </section>
 
-        <section className="space-y-8 relative">
+        {/* Projects Grid */}
+        <section className="space-y-8">
           {projectGroups[currentPage].map((project, index) => (
             <Card 
               key={index} 
-              className="border-l-4  hover:shadow-lg transition-all duration-300 animate-fade-in-up bg-background/90 backdrop-blur-sm border-border/50 hover:border-primary/50 group overflow-hidden"
+              className="border-l-4 hover:shadow-lg transition-all duration-300 animate-fade-in-up bg-background/90 backdrop-blur-sm border-border/50 hover:border-primary/50 group overflow-hidden"
               style={{ animationDelay: `${index * 0.1 + 0.5}s` }}
             >
-              <div className="absolute inset-0 bg-gradient-to-r from-primary/0 via-primary/5 to-primary/0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"></div>
-              
               <CardHeader className="pb-0 relative z-10">
                 <div className="flex justify-between items-start gap-4">
                   <div className="flex-1">
@@ -409,7 +405,7 @@ const Projects = () => {
                 </div>
 
                 {expandedProject === index && (
-                  <div className="mt-6 space-y-6 border-t pt-6 animate-fade-in-up">
+                  <div className="mt-6 space-y-6 border-t pt-6">
                     <div>
                       <h3 className="font-semibold mb-3 text-lg">Описание проекта:</h3>
                       <p className="text-muted-foreground">{project.fullDescription}</p>
@@ -420,7 +416,7 @@ const Projects = () => {
                         <h3 className="font-semibold mb-3 text-lg">Результаты:</h3>
                         <ul className="space-y-3">
                           {project.results.map((result, i) => (
-                            <li key={i} className="flex items-start animate-fade-in-up" style={{ animationDelay: `${i * 0.05}s` }}>
+                            <li key={i} className="flex items-start">
                               <span className="inline-block w-2 h-2 bg-primary rounded-full mt-2 mr-2"></span>
                               <span>{result}</span>
                             </li>
@@ -434,7 +430,7 @@ const Projects = () => {
                         <h3 className="font-semibold mb-3 text-lg">Дополнительные заказчики:</h3>
                         <div className="grid md:grid-cols-2 gap-3">
                           {project.clients.map((client, i) => (
-                            <div key={i} className="flex items-start animate-fade-in-up" style={{ animationDelay: `${i * 0.05}s` }}>
+                            <div key={i} className="flex items-start">
                               <span className="inline-block w-2 h-2 bg-primary rounded-full mt-2 mr-2"></span>
                               <span>{client}</span>
                             </div>
@@ -450,8 +446,7 @@ const Projects = () => {
                           <Badge 
                             key={i} 
                             variant="secondary" 
-                            className="text-sm animate-fade-in-up bg-background/80 backdrop-blur-sm" 
-                            style={{ animationDelay: `${i * 0.05}s` }}
+                            className="text-sm bg-background/80 backdrop-blur-sm" 
                           >
                             {tech}
                           </Badge>
@@ -465,7 +460,7 @@ const Projects = () => {
           ))}
         </section>
 
-        <div className="flex justify-between items-center">
+        <div className="flex justify-between items-center animate-fade-in-up">
           <Button 
             variant="outline" 
             className="gap-2" 

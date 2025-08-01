@@ -81,9 +81,7 @@ const Contacts = () => {
             </p>
           </section>
 
-          {/* Остальной контент без изменений */}
           <div className="grid lg:grid-cols-2 gap-8">
-            {/* Left Column - Contact Info */}
             <div className="space-y-8">
               <Card className="bg-background/50 backdrop-blur-sm border-muted/30 hover:shadow-lg transition-all">
                 <CardContent className="p-8 space-y-6">

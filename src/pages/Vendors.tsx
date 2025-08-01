@@ -1,0 +1,410 @@
+import React from 'react';
+import Header from '../components/Header';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { Badge } from '@/components/ui/badge';
+import { Button } from '@/components/ui/button';
+import { Link } from 'react-router-dom';
+import { ArrowRight, Server, Cpu, BatteryFull, Shield, Monitor } from 'lucide-react';
+
+const Vendors = () => {
+  const manufacturers = [
+    {
+      name: 'ООО "АТС-КОНВЕРС"',
+      logo: '/logos/ats-konvers.png',
+      description: 'Наукоемкие разработки и производство систем гарантированного электропитания, устройств повышения качества электроэнергии, электронной защиты оборудования',
+      category: 'Электропитание',
+      products: ['ИБП', 'Стабилизаторы', 'Защита оборудования']
+    },
+    {
+      name: 'AudioCodes',
+      logo: '/logos/audiocodes.png',
+      description: 'Технологии Voice over Packet и оборудование для построения инфраструктуры передачи голоса',
+      category: 'Телефония',
+      products: ['VoIP шлюзы', 'IP-АТС', 'Голосовые шлюзы']
+    },
+    {
+      name: 'БАСТИОН',
+      logo: '/logos/bastion.png',
+      description: 'Разработка и производство профессиональных источников бесперебойного питания и электротехнического оборудования',
+      category: 'Электропитание',
+      products: ['ИБП', 'Стабилизаторы', 'Сетевая защита']
+    },
+    {
+      name: 'CyberPower',
+      logo: '/logos/cyberpower.png',
+      description: 'Разработка систем бесперебойного питания и программных средств мониторинга электропитания',
+      category: 'Электропитание',
+      products: ['ИБП', 'ПО мониторинга', 'Аксессуары']
+    },
+    {
+      name: 'Dahua Technology',
+      logo: '/logos/dahua.png',
+      description: 'Производство систем видеонаблюдения, охранных систем и решений "умный дом"',
+      category: 'Видеонаблюдение',
+      products: ['IP-камеры', 'Видеорегистраторы', 'Аналитика']
+    },
+    {
+      name: 'Delta Computers',
+      logo: '/logos/delta.png',
+      description: 'Отечественный производитель IT-оборудования и ПО с повышенной отказоустойчивостью',
+      category: 'Оборудование',
+      products: ['Серверы', 'СХД', 'Сетевое оборудование']
+    },
+    {
+      name: 'ЭЛТЕКС',
+      logo: '/logos/eltex.png',
+      description: 'Российский разработчик и производитель телекоммуникационного и сетевого оборудования',
+      category: 'Сетевое оборудование',
+      products: ['Коммутаторы', 'Маршрутизаторы', 'IoT контроллеры']
+    },
+    {
+      name: 'Fplus',
+      logo: '/logos/fplus.png',
+      description: 'Технологический кластер решений для построения IT-инфраструктуры',
+      category: 'Инфраструктура',
+      products: ['Серверы', 'СХД', 'Коммутаторы']
+    },
+    {
+      name: 'Huawei',
+      logo: '/logos/huawei.png',
+      description: 'Лидирующий поставщик телекоммуникационных решений для операторов связи',
+      category: 'Телекоммуникации',
+      products: ['Сетевое оборудование', 'Серверы', 'Телефония']
+    },
+    {
+      name: 'ИМПУЛЬС',
+      logo: '/logos/impuls.png',
+      description: 'Разработка и производство систем защиты электропитания с собственным R&D',
+      category: 'Электропитание',
+      products: ['ИБП', 'Стабилизаторы', 'Защитные устройства']
+    },
+    {
+      name: 'IRBIS',
+      logo: '/logos/irbis.png',
+      description: 'Производитель современного оборудования для коммерческого и потребительского рынка',
+      category: 'Оборудование',
+      products: ['ПК', 'Моноблоки', 'Серверы']
+    },
+    {
+      name: 'ISS (SecurOS)',
+      logo: '/logos/iss.png',
+      description: 'Мировой лидер в разработке систем видеонаблюдения и видеоаналитики',
+      category: 'Видеонаблюдение',
+      products: ['Видеокамеры', 'Видеоаналитика', 'Серверы']
+    },
+    {
+      name: 'Kvadra',
+      logo: '/logos/kvadra.png',
+      description: 'Производитель клиентских устройств, совместимых с российским ПО',
+      category: 'Оборудование',
+      products: ['ПК', 'Моноблоки', 'Тонкие клиенты']
+    },
+    {
+      name: 'LightCom',
+      logo: '/logos/lightcom.png',
+      description: 'Российский производитель компьютерного оборудования для госсектора',
+      category: 'Оборудование',
+      products: ['Мониторы', 'Серверы', 'Рабочие станции']
+    },
+    {
+      name: 'NexTouch',
+      logo: '/logos/nextouch.png',
+      description: 'Лидер по производству сенсорных дисплеев в России для образования',
+      category: 'Оборудование',
+      products: ['Интерактивные панели', 'Дисплеи', 'Средства ВТ']
+    },
+    {
+      name: 'Pantum',
+      logo: '/logos/pantum.png',
+      description: 'Производитель доступных и экологичных решений для печати',
+      category: 'Печать',
+      products: ['Принтеры', 'МФУ', 'Расходные материалы']
+    },
+    {
+      name: 'Парус электро',
+      logo: '/logos/parus.png',
+      description: 'Полный цикл работ по системам электропитания инфраструктурного оборудования',
+      category: 'Электропитание',
+      products: ['ИБП', 'Стабилизаторы', 'Распределительные щиты']
+    },
+    {
+      name: 'QTECH',
+      logo: '/logos/qtech.png',
+      description: 'Российский разработчик сетевого и телекоммуникационного оборудования',
+      category: 'Сетевое оборудование',
+      products: ['Коммутаторы', 'Маршрутизаторы', 'Пассивное оборудование']
+    },
+    {
+      name: 'Сайбер Электро',
+      logo: '/logos/cyber-electro.png',
+      description: 'Российский производитель источников бесперебойного питания',
+      category: 'Электропитание',
+      products: ['ИБП', 'Стабилизаторы', 'Сетевые фильтры']
+    },
+    {
+      name: 'Систэм Электрик',
+      logo: '/logos/system-electric.png',
+      description: 'Разработчик решений в области распределения электроэнергии и автоматизации',
+      category: 'Электропитание',
+      products: ['Распределительные щиты', 'Автоматика', 'ПО управления']
+    },
+    {
+      name: 'SberDevices',
+      logo: '/logos/sberdevices.png',
+      description: 'Молодая IT-компания, созданная в 2019 году (входит в группу компаний Сбербанк). Специализируется на разработке умных устройств и программного обеспечения.',
+      category: 'Умные устройства',
+      products: ['Голосовые ассистенты', 'Умные колонки', 'Программные платформы']
+    },
+    {
+      name: 'YADRO',
+      logo: '/logos/yadro.png',
+      description: 'Разработчик высокопроизводительных систем хранения данных и серверного оборудования',
+      category: 'Оборудование',
+      products: ['СХД', 'Серверы', 'Вычислительные системы']
+    },
+    {
+      name: 'Yealink',
+      logo: '/logos/yealink.png',
+      description: 'Производитель решений для IP-коммуникаций, совместимых с SIP и WebRTC',
+      category: 'Телефония',
+      products: ['IP-телефоны', 'ВКС', 'Головные гарнитуры']
+    },
+    {
+      name: 'Yeastar',
+      logo: '/logos/yeastar.png',
+      description: 'Лидер в производстве гибридных IP-АТС и VoIP-шлюзов',
+      category: 'Телефония',
+      products: ['IP-АТС', 'VoIP шлюзы', 'Софтфоны']
+    },
+    {
+      name: 'Zelax',
+      logo: '/logos/zelax.png',
+      description: 'Производитель телекоммуникационного оборудования для корпоративной инфраструктуры',
+      category: 'Сетевое оборудование',
+      products: ['Коммутаторы', 'Маршрутизаторы', 'Шлюзы']
+    },
+    {
+      name: 'Гравитон',
+      logo: '/logos/graviton.png',
+      description: 'Производитель отечественной вычислительной техники для импортозамещения',
+      category: 'Оборудование',
+      products: ['Серверы', 'Рабочие станции', 'Микрокомпьютеры']
+    },
+    {
+      name: 'ФЛАТ-ПРО',
+      logo: '/logos/flat-pro.png',
+      description: 'Разработчик IP телефонов и VOIP шлюзов',
+      category: 'Телефония',
+      products: ['IP-телефоны', 'VoIP шлюзы', 'Софтсвичи']
+    },
+    {
+      name: 'Proway',
+      logo: '/logos/proway.png',
+      description: 'Разработчик и дистрибьютор IT-оборудования',
+      category: 'Оборудование',
+      products: ['Серверы', 'СХД', 'Сетевое оборудование']
+    },
+    {
+      name: 'Ipmatika',
+      logo: '/logos/ipmatika.png',
+      description: 'Разработчик решений в области информационных технологий и автоматизации',
+      category: 'ПО',
+      products: ['ПО автоматизации', 'Системы учета', 'BI решения']
+    },
+    {
+      name: 'RDW',
+      logo: '/logos/RDW-comp.png',
+      description: 'Один из ведущих производителей компьютерной техники в России. Создаёт универсальную и надёжную вычислительную технику с обратной совместимостью, соответствующую требованиям современного мира информационных технологий.',
+      category: 'Компьютерная техника',
+      products: ['Промышленные компьютеры', 'Оборудование для ЦОД', 'Серверы и СХД']
+    },
+    {
+      name: 'NAG (National Instruments)',
+      logo: '/logos/nag.png',
+      description: 'Разработчик решений для автоматизации тестирования, измерений и управления',
+      category: 'Промышленная автоматизация',
+      products: ['Контроллеры', 'Системы сбора данных', 'ПО управления']
+    }
+  ];
+
+  const categories = [...new Set(manufacturers.map(m => m.category))];
+
+  return (
+    <div className="min-h-screen bg-background relative overflow-hidden">
+      <style>
+        {`
+        @keyframes float {
+          0%, 100% { transform: translateY(0) translateX(0) rotate(0deg); }
+          25% { transform: translateY(-20px) translateX(10px) rotate(5deg); }
+          50% { transform: translateY(0px) translateX(20px) rotate(0deg); }
+          75% { transform: translateY(20px) translateX(10px) rotate(-5deg); }
+        }
+        
+        @keyframes gradient-pulse {
+          0%, 100% { opacity: 0.1; }
+          50% { opacity: 0.3; }
+        }
+        
+        @keyframes rotate {
+          from { transform: rotate(0deg); }
+          to { transform: rotate(360deg); }
+        }
+        
+        @keyframes sparkle {
+          0% { transform: scale(0); opacity: 0; }
+          50% { transform: scale(1); opacity: 1; }
+          100% { transform: scale(0); opacity: 0; }
+        }
+        
+        @keyframes fade-in-up {
+          from { opacity: 0; transform: translateY(20px); }
+          to { opacity: 1; transform: translateY(0); }
+        }
+            `}</style>
+
+      {/* Фоновые элементы */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        {/* Анимированные волны */}
+        <div className="absolute inset-0 opacity-10">
+          <div className="absolute top-0 left-0 w-full h-full bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMDAwIDIwMCI+PHBhdGggZmlsbD0ibm9uZSIgc3Ryb2tlPSJyZ2JhKDEyLCA3NCwgMjU1LCAwLjA1KSIgc3Ryb2tlLXdpZHRoPSIyIiBkPSJNLTIsMTI1IEMxNTAsMTAwIDMwMCwxNTAgNTAwLDEwMCBDNzAwLDUwIDg1MCwxNTAgMTAwMiw1MCI+PC9wYXRoPjwvc3ZnPg==')] animate-wave-slow" />
+          <div className="absolute top-0 left-0 w-full h-full bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMDAwIDIwMCI+PHBhdGggZmlsbD0ibm9uZSIgc3Ryb2tlPSJyZ2JhKDEyLCA3NCwgMjU1LCAwLjA1KSIgc3Ryb2tlLXdpZHRoPSIyIiBkPSJNLTIsMTUwIEMxNTAsMTAwIDMwMCwxNTAgNTAwLDc1IEM3MDAsMTUwIDg1MCw1MCAxMDAyLDEyNSI+PC9wYXRoPjwvc3ZnPg==')] animate-wave-medium animation-delay-2000" />
+          <div className="absolute top-0 left-0 w-full h-full bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMDAwIDIwMCI+PHBhdGggZmlsbD0ibm9uZSIgc3Ryb2tlPSJyZ2JhKDEyLCA3NCwgMjU1LCAwLjA1KSIgc3Ryb2tlLXdpZHRoPSIyIiBkPSJNLTIsMTAwIEMxNTAsMTUwIDMwMCw1MCA1MDAsMTI1IEM3MDAsMjAwIDg1MCw3NSAxMDAyLDEwMCI+PC9wYXRoPjwvc3ZnPg==')] animate-wave-fast animation-delay-4000" />
+        </div>
+
+        {/* Парящие геометрические фигуры */}
+        <div className="absolute top-1/4 left-1/4 w-32 h-32 bg-primary/5 rounded-full blur-xl animate-float animation-delay-0" />
+        <div className="absolute bottom-1/4 right-1/4 w-48 h-48 bg-accent/5 rounded-full blur-xl animate-float animation-delay-3000" />
+        <div className="absolute top-1/3 left-3/4 w-24 h-24 bg-primary/5 rounded-full blur-xl animate-float animation-delay-6000" />
+        <div className="absolute top-3/4 left-1/5 w-40 h-40 bg-accent/5 rounded-full blur-xl animate-float animation-delay-9000" />
+
+        {/* Анимированные градиенты */}
+        <div className="absolute inset-0 opacity-10">
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-primary/10 to-transparent animate-pulse-slow" />
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_80%,_var(--tw-gradient-stops))] from-accent/10 to-transparent animate-pulse-medium animation-delay-2000" />
+        </div>
+
+        {/* Движущиеся частицы */}
+        {[...Array(80)].map((_, i) => (
+          <div 
+            key={`particle-${i}`}
+            className="absolute w-1.5 h-1.5 bg-primary/20 rounded-full pointer-events-none"
+            style={{
+              top: `${Math.random() * 100}%`,
+              left: `${Math.random() * 100}%`,
+              animation: `move-diagonal ${10000 + Math.random() * 10000}ms infinite ${Math.random() * 5000}ms`,
+              opacity: 0.1 + Math.random() * 0.2,
+              transform: `scale(${0.5 + Math.random() * 1.5})`
+            }}
+          />
+        ))}
+
+        {/* Дополнительные фоновые элементы */}
+        <div className="absolute top-1/3 right-1/3 w-16 h-16 border-2 border-primary/10 rounded-full animate-rotate-slow" />
+        <div className="absolute bottom-1/3 left-1/3 w-24 h-24 border-2 border-accent/10 rounded-full animate-rotate-reverse" />
+      </div>
+
+      <Header />
+      
+      <main className="container mx-auto px-4 py-16 space-y-16 relative z-10">
+        {/* Hero Section */}
+        <section className="text-center space-y-8 animate-fade-in-up pt-8">
+          <h1 className="text-4xl md:text-6xl font-bold tracking-tight">
+            <span className="bg-gradient-to-r from-primary to-primary/70 bg-clip-text text-transparent">
+              Производители оборудования
+            </span>
+          </h1>
+          <p className="text-xl text-muted-foreground max-w-4xl mx-auto leading-relaxed">
+            Мы сотрудничаем с ведущими российскими и международными производителями оборудования для телекоммуникаций, IT-инфраструктуры и систем безопасности.
+          </p>
+        </section>
+
+        {/* Categories */}
+        <section className="space-y-8">
+          <div className="flex flex-wrap gap-2 justify-center animate-fade-in-up animate-delay-100">
+            {categories.map((category) => (
+              <Badge 
+                key={category} 
+                variant="outline" 
+                className="px-4 py-2 text-sm bg-transparent hover:bg-primary/10 hover:text-primary transition-colors cursor-pointer border-border/50"
+              >
+                {category}
+              </Badge>
+            ))}
+          </div>
+        </section>
+
+        {/* Manufacturers Grid */}
+        <section className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {manufacturers.map((manufacturer, index) => (
+            <Card 
+              key={manufacturer.name} 
+              className="group hover:shadow-lg transition-all duration-300 animate-fade-in-up bg-background/90 backdrop-blur-sm border-border/50 hover:border-primary/30"
+              style={{ animationDelay: `${index * 0.1}s` }}
+            >
+              <CardHeader className="space-y-4">
+                <div className="flex items-center gap-4">
+                  {manufacturer.logo && (
+                    <div className="w-16 h-16 bg-white p-2 rounded-lg border flex items-center justify-center transition-transform group-hover:scale-105 group-hover:shadow-md">
+                      <img 
+                        src={manufacturer.logo} 
+                        alt={`Логотип ${manufacturer.name}`}
+                        className="max-h-full max-w-full object-contain"
+                        loading="lazy"
+                      />
+                    </div>
+                  )}
+                  <div className="space-y-2">
+                    <Badge variant="secondary" className="text-xs bg-secondary/10">
+                      {manufacturer.category}
+                    </Badge>
+                    <CardTitle className="text-lg leading-tight">{manufacturer.name}</CardTitle>
+                  </div>
+                </div>
+              </CardHeader>
+              <CardContent className="space-y-4">
+                <p className="text-muted-foreground">{manufacturer.description}</p>
+                <div className="space-y-2">
+                  <h4 className="text-sm font-medium">Продукция:</h4>
+                  <div className="flex flex-wrap gap-2">
+                    {manufacturer.products.map((product) => (
+                      <Badge 
+                        key={product} 
+                        variant="outline" 
+                        className="text-xs bg-background/80 backdrop-blur-sm"
+                      >
+                        {product}
+                      </Badge>
+                    ))}
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+          ))}
+        </section>
+
+        {/* CTA Section */}
+        <section className="text-center space-y-8 py-16 animate-fade-in-up">
+          <div className="space-y-4">
+            <h2 className="text-3xl md:text-4xl font-bold">Хотите узнать больше?</h2>
+            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+              Наши специалисты помогут подобрать оборудование от этих производителей под ваши задачи.
+            </p>
+          </div>
+          <Button 
+            asChild 
+            size="lg" 
+            className="text-lg px-8 hover:shadow-lg hover:shadow-primary/20 transition-all group"
+          >
+            <Link to="/contacts" className="flex items-center">
+              Получить консультацию
+              <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
+            </Link>
+          </Button>
+        </section>
+      </main>
+    </div>
+  );
+};
+
+export default Vendors;
+;

@@ -13,6 +13,8 @@ const Header = () => {
     { name: 'О нас', href: '/about' },
     { name: 'Наши услуги', href: '/services' },
     { name: 'Наши проекты', href: '/projects' },
+    { name: 'Дистрибьюторы', href: '/Distributors' },
+    { name: 'Вендоры', href: '/Vendors' },
     { name: 'Контакты', href: '/contacts' },
   ];
 

@@ -9,11 +9,9 @@ import About from "./pages/About";
 import Services from "./pages/Services";
 import Projects from "./pages/Projects";
 import Contacts from "./pages/Contacts";
+import Vendors from "./pages/Vendors";
+import Distributors from "./pages/Distributors";
 import NotFound from "./pages/NotFound";
-import "@/styles/globals.css";
-import "@/styles/animations.css";
-
-// Импорт глобальных стилей
 import "@/styles/globals.css";
 import "@/styles/animations.css";
 
@@ -39,6 +37,8 @@ const App = () => (
             <Route path="/services" element={<Services />} />
             <Route path="/projects" element={<Projects />} />
             <Route path="/contacts" element={<Contacts />} />
+            <Route path="/distributors" element={<Distributors />} />
+            <Route path="/vendors" element={<Vendors />} /> {/* Добавьте этот маршрут */}
             <Route path="*" element={<NotFound />} />
           </Routes>
         </BrowserRouter>

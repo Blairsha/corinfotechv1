@@ -1,0 +1,328 @@
+import React from 'react';
+import Header from '../components/Header';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { Badge } from '@/components/ui/badge';
+import { Button } from '@/components/ui/button';
+import { Link } from 'react-router-dom';
+import { ArrowRight, Truck } from 'lucide-react';
+
+const Distributors = () => {
+  const distributors = [
+    {
+      name: 'Treolan',
+      logo: '/logos/treolan.png',
+      description: 'Ведущий дистрибьютор ИТ-решений в России. Компания предоставляет широкий ассортимент оборудования и ПО, поставляя крупнейшим компаниям и госструктурам. Она активно внедряет инновации и обеспечивает квалифицированную поддержку клиентов, что способствует развитию бизнеса.',
+      category: 'ИТ-дистрибуция',
+      products: ['Оборудование', 'ПО', 'Корпоративные решения']
+    },
+    {
+      name: 'CompTek',
+      logo: '/logos/comptek.png',
+      description: 'Динамично развивающаяся компания на российском рынке дистрибуции ИТ-продуктов. Основное направление — поставка оборудования для сетевой безопасности, хранения данных и сетевой инфраструктуры. CompTek обеспечивает высокое качество обслуживания и обучение партнеров, создавая инновационные решения.',
+      category: 'Сетевая инфраструктура',
+      products: ['Безопасность', 'СХД', 'Сетевое оборудование']
+    },
+    {
+      name: 'OCS',
+      logo: '/logos/ocs.png',
+      description: 'Один из крупнейших дистрибьюторов IT-продуктов в России. Компания предлагает программное обеспечение, компьютерную технику и аксессуары. OCS активно развивает сети партнеров, предлагает услуги по системной интеграции и решает задачи на стыке технологий и бизнеса для своих клиентов.',
+      category: 'Компьютерная техника',
+      products: ['ПО', 'Компьютеры', 'Периферия']
+    },
+    {
+      name: 'Марвел-Дистрибуция',
+      logo: '/logos/marvel.png',
+      description: 'Ведущий дистрибьютор IT-продуктов и услуг в России, предлагающий широкий ассортимент товаров. Компания предоставляет техникe и программное обеспечение для бизнеса и организаций. Марвел активно развивает партнерские отношения, поддерживает стартапы и внедряет новейшие технологии.',
+      category: 'ИТ-решения',
+      products: ['Комплексные решения', 'Техника', 'Программное обеспечение']
+    },
+    {
+      name: 'Ресурс-Медиа',
+      logo: '/logos/resource-media.png',
+      description: 'Компания, специализирующаяся на дистрибуции ИТ-продуктов и цифровых решений. Она предлагает широкий спектр программного обеспечения, включая решения для бизнеса и образовательных учреждений. Компания активно поддерживает проекты и инициативы, направленные на обучение и развитие.',
+      category: 'Цифровые решения',
+      products: ['ПО для бизнеса', 'Образовательные решения', 'Цифровизация']
+    },
+    {
+      name: '3Logic Group',
+      logo: '/logos/3logic.png',
+      description: 'Дистрибьютор IT-продукции и облачных решений. Компания предлагает комплексные услуги по внедрению и сопровождению информационных систем, фокусируясь на индивидуальных решениях для клиентов. 3Logic Group поддерживает высокие стандарты качества и активно развивает партнерские каналы.',
+      category: 'Облачные решения',
+      products: ['Облачные сервисы', 'Информационные системы', 'Индивидуальные решения']
+    },
+    {
+      name: 'ELKO',
+      logo: '/logos/elko.png',
+      description: 'Дистрибьютор решений и технологий в области IT, работающий на рынке Европы и СНГ. Компания предлагает разнообразный ассортимент продуктов и услуг, обеспечивая высокое качество обслуживания. ELKO активно развивает инновационные направления, фокусируясь на потребностях клиентов и рынке.',
+      category: 'Международная дистрибуция',
+      products: ['ИТ-оборудование', 'Компоненты', 'Корпоративные решения']
+    }
+  ];
+
+  const categories = [...new Set(distributors.map(d => d.category))];
+
+  return (
+    <div className="min-h-screen bg-background relative overflow-hidden">
+      <style>
+        {`
+          @keyframes float {
+            0%, 100% { transform: translateY(0) translateX(0) rotate(0deg); }
+            25% { transform: translateY(-20px) translateX(10px) rotate(5deg); }
+            50% { transform: translateY(0px) translateX(20px) rotate(0deg); }
+            75% { transform: translateY(20px) translateX(10px) rotate(-5deg); }
+          }
+          
+          @keyframes gradient-pulse {
+            0%, 100% { opacity: 0.1; }
+            50% { opacity: 0.3; }
+          }
+          
+          @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+          }
+          
+          @keyframes rotate-reverse {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(-360deg); }
+          }
+          
+          @keyframes sparkle {
+            0% { transform: scale(0); opacity: 0; }
+            50% { transform: scale(1); opacity: 1; }
+            100% { transform: scale(0); opacity: 0; }
+          }
+          
+          @keyframes fade-in-up {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+          }
+          
+          @keyframes move-diagonal {
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(100vw, -100vh); }
+          }
+          
+          @keyframes wave-slow {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+          }
+          
+          @keyframes wave-medium {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-25%); }
+          }
+          
+          @keyframes wave-fast {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-10%); }
+          }
+          
+          @keyframes pulse-slow {
+            0%, 100% { opacity: 0.1; transform: scale(1); }
+            50% { opacity: 0.3; transform: scale(1.05); }
+          }
+          
+          @keyframes pulse-medium {
+            0%, 100% { opacity: 0.1; transform: scale(1); }
+            50% { opacity: 0.2; transform: scale(1.03); }
+          }
+          
+          .animate-float { animation: float 12s ease-in-out infinite; }
+          .animate-rotate-slow { animation: rotate 60s linear infinite; }
+          .animate-rotate-reverse { animation: rotate-reverse 45s linear infinite; }
+          .animate-wave-slow { animation: wave-slow 30s linear infinite; }
+          .animate-wave-medium { animation: wave-medium 20s linear infinite; }
+          .animate-wave-fast { animation: wave-fast 15s linear infinite; }
+          .animate-pulse-slow { animation: pulse-slow 8s ease-in-out infinite; }
+          .animate-pulse-medium { animation: pulse-medium 6s ease-in-out infinite; }
+          .animate-fade-in-up { animation: fade-in-up 0.8s ease-out forwards; }
+          .animate-delay-100 { animation-delay: 0.1s; }
+          .animate-delay-200 { animation-delay: 0.2s; }
+          .animate-delay-300 { animation-delay: 0.3s; }
+          .animate-delay-500 { animation-delay: 0.5s; }
+          .animate-delay-1000 { animation-delay: 1s; }
+          .animate-delay-2000 { animation-delay: 2s; }
+          .animate-delay-3000 { animation-delay: 3s; }
+        `}
+      </style>
+
+      {/* Фоновые элементы */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        {/* Анимированные волны */}
+        <div className="absolute inset-0 opacity-10">
+          <div className="absolute top-0 left-0 w-full h-full bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMDAwIDIwMCI+PHBhdGggZmlsbD0ibm9uZSIgc3Ryb2tlPSJyZ2JhKDEyLCA3NCwgMjU1LCAwLjA1KSIgc3Ryb2tlLXdpZHRoPSIyIiBkPSJNLTIsMTI1IEMxNTAsMTAwIDMwMCwxNTAgNTAwLDEwMCBDNzAwLDUwIDg1MCwxNTAgMTAwMiw1MCI+PC9wYXRoPjwvc3ZnPg==')] animate-wave-slow" />
+          <div className="absolute top-0 left-0 w-full h-full bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMDAwIDIwMCI+PHBhdGggZmlsbD0ibm9uZSIgc3Ryb2tlPSJyZ2JhKDEyLCA3NCwgMjU1LCAwLjA1KSIgc3Ryb2tlLXdpZHRoPSIyIiBkPSJNLTIsMTUwIEMxNTAsMTAwIDMwMCwxNTAgNTAwLDc1IEM3MDAsMTUwIDg1MCw1MCAxMDAyLDEyNSI+PC9wYXRoPjwvc3ZnPg==')] animate-wave-medium animation-delay-2000" />
+          <div className="absolute top-0 left-0 w-full h-full bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMDAwIDIwMCI+PHBhdGggZmlsbD0ibm9uZSIgc3Ryb2tlPSJyZ2JhKDEyLCA3NCwgMjU1LCAwLjA1KSIgc3Ryb2tlLXdpZHRoPSIyIiBkPSJNLTIsMTAwIEMxNTAsMTUwIDMwMCw1MCA1MDAsMTI1IEM3MDAsMjAwIDg1MCw3NSAxMDAyLDEwMCI+PC9wYXRoPjwvc3ZnPg==')] animate-wave-fast animation-delay-4000" />
+        </div>
+
+        {/* Парящие геометрические фигуры - увеличенные и добавлены новые */}
+        <div className="absolute top-1/4 left-1/4 w-40 h-40 bg-primary/10 rounded-full blur-xl animate-float animation-delay-0" />
+        <div className="absolute bottom-1/4 right-1/4 w-56 h-56 bg-accent/10 rounded-full blur-xl animate-float animation-delay-3000" />
+        <div className="absolute top-1/3 left-3/4 w-32 h-32 bg-primary/10 rounded-full blur-xl animate-float animation-delay-6000" />
+        <div className="absolute top-3/4 left-1/5 w-48 h-48 bg-accent/10 rounded-full blur-xl animate-float animation-delay-9000" />
+        <div className="absolute top-1/5 right-1/5 w-64 h-64 bg-primary/5 rounded-lg blur-xl animate-float animation-delay-5000" />
+        <div className="absolute bottom-1/5 left-1/5 w-72 h-72 bg-accent/5 rounded-lg blur-xl animate-float animation-delay-7000" />
+
+        {/* Анимированные градиенты - усиленные */}
+        <div className="absolute inset-0 opacity-15">
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-primary/15 to-transparent animate-pulse-slow" />
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_80%,_var(--tw-gradient-stops))] from-accent/15 to-transparent animate-pulse-medium animation-delay-2000" />
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_20%,_var(--tw-gradient-stops))] from-primary/10 to-transparent animate-pulse-medium animation-delay-4000" />
+        </div>
+
+        {/* Движущиеся частицы - увеличенные и добавлены новые */}
+        {[...Array(120)].map((_, i) => (
+          <div 
+            key={`particle-${i}`}
+            className="absolute rounded-full pointer-events-none"
+            style={{
+              width: `${2 + Math.random() * 5}px`,
+              height: `${2 + Math.random() * 5}px`,
+              backgroundColor: `rgba(12, 74, 255, ${0.1 + Math.random() * 0.2})`,
+              top: `${Math.random() * 100}%`,
+              left: `${Math.random() * 100}%`,
+              animation: `move-diagonal ${8000 + Math.random() * 12000}ms linear infinite ${Math.random() * 5000}ms`,
+              opacity: 0.2 + Math.random() * 0.3,
+              transform: `scale(${0.8 + Math.random() * 2})`
+            }}
+          />
+        ))}
+
+        {/* Крупные частицы с эффектом свечения */}
+        {[...Array(30)].map((_, i) => (
+          <div 
+            key={`glow-particle-${i}`}
+            className="absolute rounded-full pointer-events-none"
+            style={{
+              width: `${8 + Math.random() * 12}px`,
+              height: `${8 + Math.random() * 12}px`,
+              backgroundColor: `rgba(12, 74, 255, ${0.05})`,
+              boxShadow: `0 0 ${10 + Math.random() * 20}px rgba(12, 74, 255, ${0.2 + Math.random() * 0.3})`,
+              top: `${Math.random() * 100}%`,
+              left: `${Math.random() * 100}%`,
+              animation: `move-diagonal ${15000 + Math.random() * 15000}ms linear infinite ${Math.random() * 10000}ms`,
+              opacity: 0.1 + Math.random() * 0.2,
+            }}
+          />
+        ))}
+
+        {/* Дополнительные фоновые элементы - увеличенные */}
+        <div className="absolute top-1/3 right-1/3 w-24 h-24 border-2 border-primary/15 rounded-full animate-rotate-slow" />
+        <div className="absolute bottom-1/3 left-1/3 w-32 h-32 border-2 border-accent/15 rounded-full animate-rotate-reverse" />
+        <div className="absolute top-2/3 right-2/3 w-40 h-40 border border-primary/10 rounded-full animate-rotate-slow animation-delay-3000" />
+        <div className="absolute bottom-2/3 left-2/3 w-28 h-28 border border-accent/10 rounded-full animate-rotate-reverse animation-delay-2000" />
+
+        {/* Анимированные линии */}
+        <div className="absolute top-1/2 left-0 w-full h-px bg-gradient-to-r from-transparent via-primary/10 to-transparent animate-pulse-medium" />
+        <div className="absolute top-0 left-1/2 h-full w-px bg-gradient-to-b from-transparent via-accent/10 to-transparent animate-pulse-slow animation-delay-2000" />
+      </div>
+
+      <Header />
+      
+      <main className="container mx-auto px-4 py-16 space-y-16 relative z-10">
+        {/* Hero Section */}
+        <section className="text-center space-y-8 animate-fade-in-up pt-8">
+          <div className="inline-flex items-center gap-3 px-4 py-2 bg-muted/50 rounded-full text-sm font-medium mb-4 animate-fade-in">
+            <Truck className="h-4 w-4 text-primary" />
+            <span>Наши партнеры-дистрибьюторы</span>
+          </div>
+          <h1 className="text-4xl md:text-6xl font-bold tracking-tight">
+            <span className="bg-gradient-to-r from-primary to-primary/70 bg-clip-text text-transparent">
+              Дистрибьюторы
+            </span>
+          </h1>
+          <p className="text-xl text-muted-foreground max-w-4xl mx-auto leading-relaxed">
+            Мы сотрудничаем с ведущими дистрибьюторами IT-оборудования и программного обеспечения, что позволяет нам предлагать клиентам широкий ассортимент продукции и комплексные решения.
+          </p>
+        </section>
+
+        {/* Categories */}
+        <section className="space-y-8">
+          <div className="flex flex-wrap gap-2 justify-center animate-fade-in-up animate-delay-100">
+            {categories.map((category) => (
+              <Badge 
+                key={category} 
+                variant="outline" 
+                className="px-4 py-2 text-sm bg-transparent hover:bg-primary/10 hover:text-primary transition-colors cursor-pointer border-border/50"
+              >
+                {category}
+              </Badge>
+            ))}
+          </div>
+        </section>
+
+        {/* Distributors Grid */}
+        <section className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {distributors.map((distributor, index) => (
+            <Card 
+              key={distributor.name} 
+              className="group hover:shadow-lg transition-all duration-300 animate-fade-in-up bg-background/95 backdrop-blur-sm border-border/50 hover:border-primary/30"
+              style={{ animationDelay: `${index * 0.1}s` }}
+            >
+              <CardHeader className="space-y-4">
+                <div className="flex items-center gap-4">
+                  {distributor.logo && (
+                    <div className="w-16 h-16 bg-white p-2 rounded-lg border flex items-center justify-center transition-transform group-hover:scale-105 group-hover:shadow-md">
+                      <img 
+                        src={distributor.logo} 
+                        alt={`Логотип ${distributor.name}`}
+                        className="max-h-full max-w-full object-contain"
+                        loading="lazy"
+                      />
+                    </div>
+                  )}
+                  <div className="space-y-2">
+                    <Badge variant="secondary" className="text-xs bg-secondary/10">
+                      {distributor.category}
+                    </Badge>
+                    <CardTitle className="text-lg leading-tight">{distributor.name}</CardTitle>
+                  </div>
+                </div>
+              </CardHeader>
+              <CardContent className="space-y-4">
+                <p className="text-muted-foreground">{distributor.description}</p>
+                <div className="space-y-2">
+                  <h4 className="text-sm font-medium">Основные направления:</h4>
+                  <div className="flex flex-wrap gap-2">
+                    {distributor.products.map((product) => (
+                      <Badge 
+                        key={product} 
+                        variant="outline" 
+                        className="text-xs bg-background/80 backdrop-blur-sm"
+                      >
+                        {product}
+                      </Badge>
+                    ))}
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+          ))}
+        </section>
+
+        {/* CTA Section */}
+        <section className="text-center space-y-8 py-16 animate-fade-in-up">
+          <div className="space-y-4">
+            <h2 className="text-3xl md:text-4xl font-bold">Хотите узнать больше о сотрудничестве?</h2>
+            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+              Наши специалисты помогут подобрать оптимальные решения от наших партнеров-дистрибьюторов под ваши задачи.
+            </p>
+          </div>
+          <Button 
+            asChild 
+            size="lg" 
+            className="text-lg px-8 hover:shadow-lg hover:shadow-primary/20 transition-all group"
+          >
+            <Link to="/contacts" className="flex items-center">
+              Получить консультацию
+              <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
+            </Link>
+          </Button>
+        </section>
+      </main>
+    </div>
+  );
+};
+
+export default Distributors;
