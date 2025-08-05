@@ -194,7 +194,7 @@ const Vendors = () => {
       name: 'Huawei',
       logo: '/logos/huawei.png',
       description: 'Лидирующий поставщик телекоммуникационных решений для операторов связи',
-      category: 'Телекоммуникации',
+      category: 'Сетевое оборудование',
       products: ['Сетевое оборудование', 'Серверы', 'Телефония']
     },
     {
@@ -227,7 +227,7 @@ const Vendors = () => {
     },
   ];
 
-  // Разделяем вендоров на группы по 10 на страницу
+  // Разделяем вендоров на группы по 15 на страницу
   const vendorsPerPage = 15;
   const vendorGroups = [];
   for (let i = 0; i < allManufacturers.length; i += vendorsPerPage) {
@@ -235,11 +235,11 @@ const Vendors = () => {
   }
 
   const categories = [...new Set(allManufacturers.map(m => m.category))];
-  const [selectedCategory, setSelectedCategory] = useState(null);
+  const [selectedCategories, setSelectedCategories] = useState([]);
   const [currentPage, setCurrentPage] = useState(0);
 
-  const filteredManufacturers = selectedCategory 
-    ? allManufacturers.filter(m => m.category === selectedCategory)
+  const filteredManufacturers = selectedCategories.length > 0
+    ? allManufacturers.filter(m => selectedCategories.includes(m.category))
     : allManufacturers;
 
   // Разделяем отфильтрованных вендоров на группы
@@ -261,13 +261,12 @@ const Vendors = () => {
       case 'Компьютерная техника': return <Laptop className="h-5 w-5" />;
       case 'Умные устройства': return <Smartphone className="h-5 w-5" />;
       case 'Инфраструктура': return <Wifi className="h-5 w-5" />;
-      case 'Телекоммуникации': return <Server className="h-5 w-5" />;
       default: return <Cpu className="h-5 w-5" />;
     }
   };
 
   const nextPage = () => {
-    if (currentPage < (selectedCategory ? filteredVendorGroups.length : vendorGroups.length) - 1) {
+    if (currentPage < (selectedCategories.length ? filteredVendorGroups.length : vendorGroups.length) - 1) {
       setCurrentPage(prev => prev + 1);
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }
@@ -280,13 +279,24 @@ const Vendors = () => {
     }
   };
 
+  const toggleCategory = (category) => {
+    setSelectedCategories(prev => {
+      if (prev.includes(category)) {
+        return prev.filter(c => c !== category);
+      } else {
+        return [...prev, category];
+      }
+    });
+    setCurrentPage(0);
+  };
+
   const resetFilter = () => {
-    setSelectedCategory(null);
+    setSelectedCategories([]);
     setCurrentPage(0);
   };
 
   // Определяем текущую группу для отображения
-  const currentVendors = selectedCategory 
+  const currentVendors = selectedCategories.length > 0
     ? (filteredVendorGroups[currentPage] || [])
     : (vendorGroups[currentPage] || []);
 
@@ -367,7 +377,7 @@ const Vendors = () => {
       <Header />
       
       <main className="container mx-auto px-4 py-16 space-y-16 relative z-10">
-        {/* Раздел */}
+        {/* Раздел заголовка */}
         <section className="text-center space-y-8 animate-fade-in-up pt-8">
           <h1 className="text-4xl md:text-6xl font-bold tracking-tight">
             <span className="bg-gradient-to-r from-primary to-primary/70 bg-clip-text text-transparent">
@@ -379,53 +389,55 @@ const Vendors = () => {
           </p>
         </section>
 
-        {/* Categories */}
-        <section className="space-y-8">
-          <div className="flex flex-wrap gap-2 justify-center animate-fade-in-up animate-delay-100">
-            <Button
-              variant={!selectedCategory ? "default" : "outline"}
-              size="sm"
-              onClick={resetFilter}
-              className="flex items-center gap-2"
-            >
-              <Cpu className="h-4 w-4" />
-              Все производители
-            </Button>
-            
-            {categories.map((category) => (
-              <Button
-                key={category} 
-                variant={selectedCategory === category ? "default" : "outline"}
-                size="sm"
-                onClick={() => {
-                  setSelectedCategory(category);
-                  setCurrentPage(0);
-                }}
-                className="flex items-center gap-2"
-              >
-                {getCategoryIcon(category)}
-                {category}
-              </Button>
-            ))}
-          </div>
-          
-          {selectedCategory && (
-            <div className="text-center">
-              <p className="text-muted-foreground">
-                Показаны производители в категории: <span className="font-semibold text-primary">{selectedCategory}</span>
-                <Button 
-                  variant="ghost" 
-                  size="sm" 
-                  onClick={resetFilter}
-                  className="ml-2"
-                >
-                  Сбросить фильтр
-                </Button>
-              </p>
-            </div>
-          )}
-        </section>
-
+       {/* Categories */}
+<section className="space-y-8">
+  <div className="flex flex-wrap gap-2 justify-center animate-fade-in-up animate-delay-100">
+    <Button
+      variant={selectedCategories.length === 0 ? "default" : "outline"}
+      size="sm"
+      onClick={resetFilter}
+      className="rounded-full flex items-center gap-2"
+    >
+      <Cpu className="h-4 w-4" />
+      Все производители
+    </Button>
+    
+    {categories.map((category) => (
+      <Button
+        key={category} 
+        variant={selectedCategories.includes(category) ? "default" : "outline"}
+        size="sm"
+        onClick={() => toggleCategory(category)}
+        className="rounded-full flex items-center gap-2"
+      >
+        {getCategoryIcon(category)}
+        {category}
+      </Button>
+    ))}
+  </div>
+  
+  {selectedCategories.length > 0 && (
+    <div className="text-center">
+      <p className="text-muted-foreground">
+        Показаны производители в категориях: 
+        <span className="font-semibold text-primary ml-2">
+          {selectedCategories.join(', ')}
+        </span>
+        <Button 
+          variant="ghost" 
+          size="sm" 
+          onClick={resetFilter}
+          className="ml-2 rounded-full"
+        >
+          Сбросить фильтр
+        </Button>
+      </p>
+      <p className="text-sm text-muted-foreground mt-1">
+        {filteredManufacturers.length} производителей найдено
+      </p>
+    </div>
+  )}
+</section>
         {/* Производители сетки */}
         <section className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {currentVendors.map((manufacturer, index) => (
@@ -488,14 +500,14 @@ const Vendors = () => {
           </Button>
           
           <div className="text-sm text-muted-foreground">
-            Страница {currentPage + 1} из {selectedCategory ? filteredVendorGroups.length : vendorGroups.length}
+            Страница {currentPage + 1} из {selectedCategories.length ? filteredVendorGroups.length : vendorGroups.length}
           </div>
           
           <Button 
             variant="outline" 
             className="gap-2" 
             onClick={nextPage}
-            disabled={currentPage === (selectedCategory ? filteredVendorGroups.length : vendorGroups.length) - 1}
+            disabled={currentPage === (selectedCategories.length ? filteredVendorGroups.length : vendorGroups.length) - 1}
           >
             Вперед
             <ChevronRight className="h-4 w-4" />
@@ -527,4 +539,3 @@ const Vendors = () => {
 };
 
 export default Vendors;
-;

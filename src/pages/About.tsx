@@ -1,10 +1,10 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import Header from '../components/Header';
 import { Card, CardContent } from '@/components/ui/card';
 import { 
   Server, Network, Shield, Users, Award, Zap, 
   Circle, Hexagon, FileText, ChevronRight, X,
-  ArrowLeft, ArrowRight, Download
+  ArrowLeft, ArrowRight, Download, ZoomIn, ZoomOut
 } from 'lucide-react';
 import '../styles/animations.css';
 
@@ -21,6 +21,9 @@ import CertSulkan from '../assets/certificates/Xerox Scan_04082025174100-1.png';
 const About = () => {
   const [isCertificatesOpen, setIsCertificatesOpen] = useState(false);
   const [currentCertIndex, setCurrentCertIndex] = useState(0);
+  const [zoomLevel, setZoomLevel] = useState(1);
+  const certificatesRef = useRef(null);
+  const aboutRef = useRef(null);
 
   const certificates = [
     {
@@ -114,9 +117,14 @@ const About = () => {
     }
   ];
 
+  const scrollToSection = (ref) => {
+    ref.current.scrollIntoView({ behavior: 'smooth' });
+  };
+
   const openCertificatesModal = () => {
     setIsCertificatesOpen(true);
     document.body.style.overflow = 'hidden';
+    setZoomLevel(1);
   };
 
   const closeCertificatesModal = () => {
@@ -126,10 +134,12 @@ const About = () => {
 
   const nextCert = () => {
     setCurrentCertIndex((prev) => (prev === certificates.length - 1 ? 0 : prev + 1));
+    setZoomLevel(1);
   };
 
   const prevCert = () => {
     setCurrentCertIndex((prev) => (prev === 0 ? certificates.length - 1 : prev - 1));
+    setZoomLevel(1);
   };
 
   const downloadCert = () => {
@@ -141,9 +151,17 @@ const About = () => {
     document.body.removeChild(link);
   };
 
+  const handleZoomIn = () => {
+    setZoomLevel(prev => Math.min(prev + 0.25, 3));
+  };
+
+  const handleZoomOut = () => {
+    setZoomLevel(prev => Math.max(prev - 0.25, 0.5));
+  };
+
   return (
     <div className="min-h-screen bg-background relative overflow-hidden">
-      {/* Улучшенные фоновые элементы с анимациями */}
+      {/* Фоновые элементы с анимациями */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         {/* Анимированные волны */}
         <div className="absolute inset-0 opacity-10">
@@ -183,10 +201,22 @@ const About = () => {
       
       <main className="container mx-auto px-4 py-16 space-y-24 relative z-10">
         {/* Основной заголовок */}
-        <section className="text-center space-y-8 animate-fade-in-up max-w-4xl mx-auto">
-          <div className="inline-flex items-center gap-3 px-4 py-2 bg-muted/50 rounded-full text-sm font-medium mb-6">
-            <Zap className="h-4 w-4 text-primary" />
-            <span>О компании</span>
+        <section ref={aboutRef} className="text-center space-y-8 animate-fade-in-up max-w-4xl mx-auto">
+          <div className="flex items-center justify-center gap-4">
+            <button 
+              onClick={() => scrollToSection(aboutRef)}
+              className="inline-flex items-center gap-3 px-4 py-2 bg-muted/50 hover:bg-muted/70 rounded-full text-sm font-medium transition-colors"
+            >
+              <Users className="h-4 w-4 text-primary" />
+              <span>О компании</span>
+            </button>
+            <button 
+              onClick={() => scrollToSection(certificatesRef)}
+              className="inline-flex items-center gap-3 px-4 py-2 bg-muted/50 hover:bg-muted/70 rounded-full text-sm font-medium transition-colors"
+            >
+              <FileText className="h-4 w-4 text-primary" />
+              <span>Сертификаты</span>
+            </button>
           </div>
           <h1 className="text-4xl md:text-6xl font-bold tracking-tight">
             <span className="bg-gradient-to-r from-primary to-primary/70 bg-clip-text text-transparent">
@@ -247,14 +277,13 @@ const About = () => {
           
           <div className="relative animate-fade-in animation-delay-200">
             <div className="relative bg-card rounded-3xl p-8 shadow-xl border border-muted/50 overflow-hidden hover:shadow-primary/10 transition-all duration-300 group">
-              {/* Декоративные элементы */}
               <Hexagon className="absolute -top-8 -right-8 h-32 w-32 text-primary/10 rotate-45" />
               <Circle className="absolute -bottom-6 -left-6 h-24 w-24 text-accent/10" />
               
               <div className="grid grid-cols-2 gap-6 relative z-10">
                 {[
-                  { value: "15+", label: "Лет опыта" },
-                  { value: "500+", label: "Проектов" },
+                  { value: "10+", label: "Лет опыта" },
+                  { value: "100+", label: "Проектов" },
                   { value: "100+", label: "Клиентов" },
                   { value: "24/7", label: "Поддержка" }
                 ].map((stat, i) => (
@@ -318,7 +347,7 @@ const About = () => {
         </section>
 
         {/* Сертификаты */}
-        <section className="space-y-12">
+        <section ref={certificatesRef} className="space-y-12">
           <div className="text-center space-y-4 animate-fade-in-up max-w-3xl mx-auto">
             <h2 className="text-3xl md:text-4xl font-bold tracking-tight">
               <span className="bg-gradient-to-r from-primary to-primary/70 bg-clip-text text-transparent">
@@ -402,7 +431,10 @@ const About = () => {
                     <div 
                       key={cert.id}
                       className={`aspect-square rounded-md overflow-hidden cursor-pointer border-2 ${currentCertIndex === index ? 'border-primary' : 'border-transparent'}`}
-                      onClick={() => setCurrentCertIndex(index)}
+                      onClick={() => {
+                        setCurrentCertIndex(index);
+                        setZoomLevel(1);
+                      }}
                     >
                       <img 
                         src={cert.image} 
@@ -423,12 +455,17 @@ const About = () => {
                   <ArrowLeft className="h-6 w-6" />
                 </button>
                 
-                <div className="w-full h-full flex items-center justify-center">
-                  <img 
-                    src={certificates[currentCertIndex].image} 
-                    alt={certificates[currentCertIndex].title}
-                    className="max-w-full max-h-[70vh] object-contain rounded-md shadow-lg"
-                  />
+                <div className="w-full h-full flex items-center justify-center overflow-auto">
+                  <div 
+                    className="transition-transform duration-300"
+                    style={{ transform: `scale(${zoomLevel})` }}
+                  >
+                    <img 
+                      src={certificates[currentCertIndex].image} 
+                      alt={certificates[currentCertIndex].title}
+                      className="max-w-full max-h-[70vh] object-contain rounded-md shadow-lg"
+                    />
+                  </div>
                 </div>
                 
                 <button 
@@ -437,6 +474,24 @@ const About = () => {
                 >
                   <ArrowRight className="h-6 w-6" />
                 </button>
+                
+                {/* Кнопки зума */}
+                <div className="absolute bottom-4 right-4 flex gap-2 z-10">
+                  <button 
+                    className="p-2 rounded-full bg-muted/50 hover:bg-muted transition-colors"
+                    onClick={handleZoomIn}
+                    disabled={zoomLevel >= 3}
+                  >
+                    <ZoomIn className="h-5 w-5" />
+                  </button>
+                  <button 
+                    className="p-2 rounded-full bg-muted/50 hover:bg-muted transition-colors"
+                    onClick={handleZoomOut}
+                    disabled={zoomLevel <= 0.5}
+                  >
+                    <ZoomOut className="h-5 w-5" />
+                  </button>
+                </div>
               </div>
             </div>
           </div>

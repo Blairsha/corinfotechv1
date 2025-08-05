@@ -200,20 +200,19 @@ const Services = () => {
           </p>
         </section>
 
-        {/* Категории */}
-        <section className="space-y-8">
-          <div className="flex flex-wrap gap-2 justify-center animate-fade-in-up animate-delay-100">
-            {categories.map((category) => (
-              <Badge 
-                key={category} 
-                variant="outline" 
-                className="px-4 py-2 text-sm bg-transparent hover:bg-primary/10 hover:text-primary transition-colors cursor-pointer border-border/50"
-              >
-                {category}
-              </Badge>
-            ))}
-          </div>
-        </section>
+       {/* Категории */}
+<section className="space-y-8">
+  <div className="flex flex-wrap gap-2 justify-center animate-fade-in-up animate-delay-100">
+    {categories.map((category) => (
+      <span 
+        key={category} 
+        className="px-4 py-2 text-sm bg-transparent border border-border/50 rounded-full cursor-pointer"
+      >
+        {category}
+      </span>
+    ))}
+  </div>
+</section>
 
         {/* Сетка услуг */}
         <section className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">

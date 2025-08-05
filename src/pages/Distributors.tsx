@@ -51,6 +51,26 @@ const Distributors = () => {
       products: ['Облачные сервисы', 'Информационные системы', 'Индивидуальные решения']
     },
     {
+  name: 'NAG',
+  logo: '/logos/nag.png',
+  description: 'Российский разработчик и поставщик телекоммуникационного оборудования, решений для сетей передачи данных, систем видеонаблюдения и дата-центров. Компания предлагает собственные бренды (SNR, OMNY), проектирование инфраструктуры "под ключ" и сервисное обслуживание.',
+  category: 'Телекоммуникации и сетевое оборудование',
+  products: ['Сетевые коммутаторы', 'IP-видеонаблюдение', 'Серверные шкафы', 'Решения для ЦОД']
+},
+{
+  name: 'PROWAY',
+  logo: '/logos/proway.png',
+  description: 'Многопрофильный IT-дистрибьютор с 30-летним опытом`, специализирующийся на поставках оборудования для автоматизации идентификации, сетевой инфраструктуры, систем хранения данных и решений кибербезопасности. Официальный партнер ведущих вендоров (Positive Technologies, INTEKEY, Рутокен)',
+  category: 'Дистрибуция IT-оборудования',
+  products: [
+    'Серверы и системы хранения',
+    'Сетевое оборудование',
+    'Сканеры и терминалы сбора данных',
+    'Решения для информационной безопасности',
+    'Оборудование для автоматизации складов'
+  ]
+},
+    {
       name: 'ELKO',
       logo: '/logos/elko.png',
       description: 'Дистрибьютор решений и технологий в области IT, работающий на рынке Европы и СНГ. Компания предлагает разнообразный ассортимент продуктов и услуг, обеспечивая высокое качество обслуживания. ELKO активно развивает инновационные направления, фокусируясь на потребностях клиентов и рынке.',
@@ -238,19 +258,18 @@ const Distributors = () => {
         </section>
 
         {/* Категории */}
-        <section className="space-y-8">
-          <div className="flex flex-wrap gap-2 justify-center animate-fade-in-up animate-delay-100">
-            {categories.map((category) => (
-              <Badge 
-                key={category} 
-                variant="outline" 
-                className="px-4 py-2 text-sm bg-transparent hover:bg-primary/10 hover:text-primary transition-colors cursor-pointer border-border/50"
-              >
-                {category}
-              </Badge>
-            ))}
-          </div>
-        </section>
+<section className="space-y-8">
+  <div className="flex flex-wrap gap-2 justify-center animate-fade-in-up animate-delay-100">
+    {categories.map((category) => (
+      <span 
+        key={category} 
+        className="px-4 py-2 text-sm bg-transparent border border-border/50 rounded-full cursor-pointer"
+      >
+        {category}
+      </span>
+    ))}
+  </div>
+</section>
 
         {/* Распределительная сетка*/}
         <section className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
