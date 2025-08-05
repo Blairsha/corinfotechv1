@@ -146,10 +146,10 @@ const Hero = () => {
                   
                   <div className="grid grid-cols-2 gap-6">
                     {[
-                      { value: "95%", label: "Удовлетворенность клиентов" },
+                      { value: "342", label: "Проектов" },
                       { value: "24/7", label: "Техническая поддержка" },
-                      { value: "99.9%", label: "Доступность систем" },
-                      { value: "10+", label: "Лет опыта" }
+                      { value: "100+", label: "Клиентов" },
+                      { value: "15+", label: "Лет опыта" }
                     ].map((stat, i) => (
                       <div 
                         key={i}
