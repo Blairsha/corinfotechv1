@@ -148,9 +148,9 @@ const Services = () => {
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         {/* Анимированные волны */}
         <div className="absolute inset-0 opacity-10">
-          <div className="absolute top-0 left-0 w-full h-full bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMDAwIDIwMCI+PHBhdGggZmlsbD0ibm9uZSIgc3Ryb2tlPSJyZ2JhKDEyLCA3NCwgMjU1LCAwLjA1KSIgc3Ryb2tlLXdpZHRoPSIyIiBkPSJNLTIsMTI1IEMxNTAsMTAwIDMwMCwxNTAgNTAwLDEwMCBDNzAwLDUwIDg1MCwxNTAgMTAwMiw1MCI+PC9wYXRoPjwvc3ZnPg==')] animate-wave-slow" />
-          <div className="absolute top-0 left-0 w-full h-full bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMDAwIDIwMCI+PHBhdGggZmlsbD0ibm9uZSIgc3Ryb2tlPSJyZ2JhKDEyLCA3NCwgMjU1LCAwLjA1KSIgc3Ryb2tlLXdpZHRoPSIyIiBkPSJNLTIsMTUwIEMxNTAsMTAwIDMwMCwxNTAgNTAwLDc1IEM3MDAsMTUwIDg1MCw1MCAxMDAyLDEyNSI+PC9wYXRoPjwvc3ZnPg==')] animate-wave-medium animation-delay-2000" />
-          <div className="absolute top-0 left-0 w-full h-full bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMDAwIDIwMCI+PHBhdGggZmlsbD0ibm9uZSIgc3Ryb2tlPSJyZ2JhKDEyLCA3NCwgMjU1LCAwLjA1KSIgc3Ryb2tlLXdpZHRoPSIyIiBkPSJNLTIsMTAwIEMxNTAsMTUwIDMwMCw1MCA1MDAsMTI1IEM3MDAsMjAwIDg1MCw3NSAxMDAyLDEwMCI+PC9wYXRoPjwvc3ZnPg==')] animate-wave-fast animation-delay-4000" />
+          <div className="absolute top-0 left-0 w-full h-full bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMDAwIDIwMCI+PHBhdGggZmlsbD0ibm9uZSIgc3Ryb2tlPSJyZ2JhKDEyLCA3NCwgMjU1LCAwLjIpIiBzdHJva2Utd2lkdGg9IjMiIGQ9Ik0tMiwxMjUgQzE1MCwxMDAgMzAwLDE1MCA1MDAsMTAwIEM3MDAsNTAgODUwLDE1MCAxMDAyLDUwIj48L3BhdGg+PC9zdmc+')] animate-wave-slow" />
+          <div className="absolute top-0 left-0 w-full h-full bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMDAwIDIwMCI+PHBhdGggZmlsbD0ibm9uZSIgc3Ryb2tlPSJyZ2JhKDEyLCA3NCwgMjU1LCAwLjIpIiBzdHJva2Utd2lkdGg9IjMiIGQ9Ik0tMiwxNTAgQzE1MCwxMDAgMzAwLDE1MCA1MDAsNzUgQzcwMCwxNTAgODUwLDUwIDEwMDIsMTI1Ij48L3BhdGg+PC9zdmc+')] animate-wave-medium animation-delay-2000" />
+<div className="absolute top-0 left-0 w-full h-full bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMDAwIDIwMCI+PHBhdGggZmlsbD0ibm9uZSIgc3Ryb2tlPSJyZ2JhKDEyLCA3NCwgMjU1LCAwLjIpIiBzdHJva2Utd2lkdGg9IjMiIGQ9Ik0tMiwxMDAgQzE1MCwxNTAgMzAwLDUwIDUwMCwxMjUgQzcwMCwyMDAgODUwLDc1IDEwMDIsMTAwIj48L3BhdGg+PC9zdmc+')] animate-wave-fast animation-delay-4000" />
         </div>
 
         {/* Парящие геометрические фигуры */}
@@ -188,7 +188,7 @@ const Services = () => {
       <Header />
       
       <main className="container mx-auto px-4 py-16 space-y-16 relative z-10">
-        {/* Hero Section */}
+        {/* Раздел*/}
         <section className="text-center space-y-8 animate-fade-in-up pt-8">
           <h1 className="text-4xl md:text-6xl font-bold tracking-tight">
             <span className="bg-gradient-to-r from-primary to-primary/70 bg-clip-text text-transparent">
@@ -200,7 +200,7 @@ const Services = () => {
           </p>
         </section>
 
-        {/* Categories */}
+        {/* Категории */}
         <section className="space-y-8">
           <div className="flex flex-wrap gap-2 justify-center animate-fade-in-up animate-delay-100">
             {categories.map((category) => (
@@ -215,7 +215,7 @@ const Services = () => {
           </div>
         </section>
 
-        {/* Services Grid */}
+        {/* Сетка услуг */}
         <section className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {services.map((service, index) => (
             <Card 

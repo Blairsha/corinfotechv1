@@ -146,7 +146,7 @@ const Hero = () => {
                   
                   <div className="grid grid-cols-2 gap-6">
                     {[
-                      { value: "500+", label: "Успешных проектов" },
+                      { value: "95%", label: "Удовлетворенность клиентов" },
                       { value: "24/7", label: "Техническая поддержка" },
                       { value: "99.9%", label: "Доступность систем" },
                       { value: "10+", label: "Лет опыта" }

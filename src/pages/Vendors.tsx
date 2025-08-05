@@ -1,26 +1,26 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Header from '../components/Header';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
-import { ArrowRight, Server, Cpu, BatteryFull, Shield, Monitor } from 'lucide-react';
+import { ArrowRight, Server, Cpu, BatteryFull, Shield, Monitor, Phone, Power, HardDrive, Video, Network, Code, Factory, Printer, Laptop, Smartphone, Wifi, ChevronLeft, ChevronRight } from 'lucide-react';
 
 const Vendors = () => {
-  const manufacturers = [
-    {
-      name: 'ООО "АТС-КОНВЕРС"',
-      logo: '/logos/ats-konvers.png',
-      description: 'Наукоемкие разработки и производство систем гарантированного электропитания, устройств повышения качества электроэнергии, электронной защиты оборудования',
-      category: 'Электропитание',
-      products: ['ИБП', 'Стабилизаторы', 'Защита оборудования']
-    },
+  const allManufacturers = [
     {
       name: 'AudioCodes',
       logo: '/logos/audiocodes.png',
       description: 'Технологии Voice over Packet и оборудование для построения инфраструктуры передачи голоса',
       category: 'Телефония',
       products: ['VoIP шлюзы', 'IP-АТС', 'Голосовые шлюзы']
+    },
+    {
+      name: 'ООО "АТС-КОНВЕРС"',
+      logo: '/logos/ats-konvers.png',
+      description: 'Наукоемкие разработки и производство систем гарантированного электропитания, устройств повышения качества электроэнергии, электронной защиты оборудования',
+      category: 'Электропитание',
+      products: ['ИБП', 'Стабилизаторы', 'Защита оборудования']
     },
     {
       name: 'БАСТИОН',
@@ -30,11 +30,11 @@ const Vendors = () => {
       products: ['ИБП', 'Стабилизаторы', 'Сетевая защита']
     },
     {
-      name: 'CyberPower',
-      logo: '/logos/cyberpower.png',
-      description: 'Разработка систем бесперебойного питания и программных средств мониторинга электропитания',
-      category: 'Электропитание',
-      products: ['ИБП', 'ПО мониторинга', 'Аксессуары']
+      name: 'Гравитон',
+      logo: '/logos/graviton.png',
+      description: 'Производитель отечественной вычислительной техники для импортозамещения',
+      category: 'Оборудование',
+      products: ['Серверы', 'Рабочие станции', 'Микрокомпьютеры']
     },
     {
       name: 'Dahua Technology',
@@ -51,25 +51,11 @@ const Vendors = () => {
       products: ['Серверы', 'СХД', 'Сетевое оборудование']
     },
     {
-      name: 'ЭЛТЕКС',
-      logo: '/logos/eltex.png',
-      description: 'Российский разработчик и производитель телекоммуникационного и сетевого оборудования',
+      name: 'Zelax',
+      logo: '/logos/zelax.png',
+      description: 'Производитель телекоммуникационного оборудования для корпоративной инфраструктуры',
       category: 'Сетевое оборудование',
-      products: ['Коммутаторы', 'Маршрутизаторы', 'IoT контроллеры']
-    },
-    {
-      name: 'Fplus',
-      logo: '/logos/fplus.png',
-      description: 'Технологический кластер решений для построения IT-инфраструктуры',
-      category: 'Инфраструктура',
-      products: ['Серверы', 'СХД', 'Коммутаторы']
-    },
-    {
-      name: 'Huawei',
-      logo: '/logos/huawei.png',
-      description: 'Лидирующий поставщик телекоммуникационных решений для операторов связи',
-      category: 'Телекоммуникации',
-      products: ['Сетевое оборудование', 'Серверы', 'Телефония']
+      products: ['Коммутаторы', 'Маршрутизаторы', 'Шлюзы']
     },
     {
       name: 'ИМПУЛЬС',
@@ -77,6 +63,13 @@ const Vendors = () => {
       description: 'Разработка и производство систем защиты электропитания с собственным R&D',
       category: 'Электропитание',
       products: ['ИБП', 'Стабилизаторы', 'Защитные устройства']
+    },
+    {
+      name: 'Ipmatika',
+      logo: '/logos/ipmatika.png',
+      description: 'Разработчик решений в области информационных технологий и автоматизации',
+      category: 'ПО',
+      products: ['ПО автоматизации', 'Системы учета', 'BI решения']
     },
     {
       name: 'IRBIS',
@@ -93,6 +86,13 @@ const Vendors = () => {
       products: ['Видеокамеры', 'Видеоаналитика', 'Серверы']
     },
     {
+      name: 'CyberPower',
+      logo: '/logos/cyberpower.png',
+      description: 'Разработка систем бесперебойного питания и программных средств мониторинга электропитания',
+      category: 'Электропитание',
+      products: ['ИБП', 'ПО мониторинга', 'Аксессуары']
+    },
+    {
       name: 'Kvadra',
       logo: '/logos/kvadra.png',
       description: 'Производитель клиентских устройств, совместимых с российским ПО',
@@ -100,11 +100,25 @@ const Vendors = () => {
       products: ['ПК', 'Моноблоки', 'Тонкие клиенты']
     },
     {
+      name: 'QTECH',
+      logo: '/logos/qtech.png',
+      description: 'Российский разработчик сетевого и телекоммуникационного оборудования',
+      category: 'Сетевое оборудование',
+      products: ['Коммутаторы', 'Маршрутизаторы', 'Пассивное оборудование']
+    },
+    {
       name: 'LightCom',
       logo: '/logos/lightcom.png',
       description: 'Российский производитель компьютерного оборудования для госсектора',
       category: 'Оборудование',
       products: ['Мониторы', 'Серверы', 'Рабочие станции']
+    },
+    {
+      name: 'NAG (National Instruments)',
+      logo: '/logos/nag.png',
+      description: 'Разработчик решений для автоматизации тестирования, измерений и управления',
+      category: 'Промышленная автоматизация',
+      products: ['Контроллеры', 'Системы сбора данных', 'ПО управления']
     },
     {
       name: 'NexTouch',
@@ -128,11 +142,25 @@ const Vendors = () => {
       products: ['ИБП', 'Стабилизаторы', 'Распределительные щиты']
     },
     {
-      name: 'QTECH',
-      logo: '/logos/qtech.png',
-      description: 'Российский разработчик сетевого и телекоммуникационного оборудования',
-      category: 'Сетевое оборудование',
-      products: ['Коммутаторы', 'Маршрутизаторы', 'Пассивное оборудование']
+      name: 'Proway',
+      logo: '/logos/proway.png',
+      description: 'Разработчик и дистрибьютор IT-оборудования',
+      category: 'Оборудование',
+      products: ['Серверы', 'СХД', 'Сетевое оборудование']
+    },
+    {
+      name: 'RDW',
+      logo: '/logos/RDW-comp.png',
+      description: 'Один из ведущих производителей компьютерной техники в России. Создаёт универсальную и надёжную вычислительную технику с обратной совместимостью, соответствующую требованиям современного мира информационных технологий.',
+      category: 'Компьютерная техника',
+      products: ['Промышленные компьютеры', 'Оборудование для ЦОД', 'Серверы и СХД']
+    },
+    {
+      name: 'SberDevices',
+      logo: '/logos/sberdevices.png',
+      description: 'Молодая IT-компания, созданная в 2019 году (входит в группу компаний Сбербанк). Специализируется на разработке умных устройств и программного обеспечения.',
+      category: 'Умные устройства',
+      products: ['Голосовые ассистенты', 'Умные колонки', 'Программные платформы']
     },
     {
       name: 'Сайбер Электро',
@@ -149,11 +177,32 @@ const Vendors = () => {
       products: ['Распределительные щиты', 'Автоматика', 'ПО управления']
     },
     {
-      name: 'SberDevices',
-      logo: '/logos/sberdevices.png',
-      description: 'Молодая IT-компания, созданная в 2019 году (входит в группу компаний Сбербанк). Специализируется на разработке умных устройств и программного обеспечения.',
-      category: 'Умные устройства',
-      products: ['Голосовые ассистенты', 'Умные колонки', 'Программные платформы']
+      name: 'ФЛАТ-ПРО',
+      logo: '/logos/flat-pro.png',
+      description: 'Разработчик IP телефонов и VOIP шлюзов',
+      category: 'Телефония',
+      products: ['IP-телефоны', 'VoIP шлюзы', 'Софтсвичи']
+    },
+    {
+      name: 'Fplus',
+      logo: '/logos/fplus.png',
+      description: 'Технологический кластер решений для построения IT-инфраструктуры',
+      category: 'Инфраструктура',
+      products: ['Серверы', 'СХД', 'Коммутаторы']
+    },
+    {
+      name: 'Huawei',
+      logo: '/logos/huawei.png',
+      description: 'Лидирующий поставщик телекоммуникационных решений для операторов связи',
+      category: 'Телекоммуникации',
+      products: ['Сетевое оборудование', 'Серверы', 'Телефония']
+    },
+    {
+      name: 'ЭЛТЕКС',
+      logo: '/logos/eltex.png',
+      description: 'Российский разработчик и производитель телекоммуникационного и сетевого оборудования',
+      category: 'Сетевое оборудование',
+      products: ['Коммутаторы', 'Маршрутизаторы', 'IoT контроллеры']
     },
     {
       name: 'YADRO',
@@ -176,58 +225,70 @@ const Vendors = () => {
       category: 'Телефония',
       products: ['IP-АТС', 'VoIP шлюзы', 'Софтфоны']
     },
-    {
-      name: 'Zelax',
-      logo: '/logos/zelax.png',
-      description: 'Производитель телекоммуникационного оборудования для корпоративной инфраструктуры',
-      category: 'Сетевое оборудование',
-      products: ['Коммутаторы', 'Маршрутизаторы', 'Шлюзы']
-    },
-    {
-      name: 'Гравитон',
-      logo: '/logos/graviton.png',
-      description: 'Производитель отечественной вычислительной техники для импортозамещения',
-      category: 'Оборудование',
-      products: ['Серверы', 'Рабочие станции', 'Микрокомпьютеры']
-    },
-    {
-      name: 'ФЛАТ-ПРО',
-      logo: '/logos/flat-pro.png',
-      description: 'Разработчик IP телефонов и VOIP шлюзов',
-      category: 'Телефония',
-      products: ['IP-телефоны', 'VoIP шлюзы', 'Софтсвичи']
-    },
-    {
-      name: 'Proway',
-      logo: '/logos/proway.png',
-      description: 'Разработчик и дистрибьютор IT-оборудования',
-      category: 'Оборудование',
-      products: ['Серверы', 'СХД', 'Сетевое оборудование']
-    },
-    {
-      name: 'Ipmatika',
-      logo: '/logos/ipmatika.png',
-      description: 'Разработчик решений в области информационных технологий и автоматизации',
-      category: 'ПО',
-      products: ['ПО автоматизации', 'Системы учета', 'BI решения']
-    },
-    {
-      name: 'RDW',
-      logo: '/logos/RDW-comp.png',
-      description: 'Один из ведущих производителей компьютерной техники в России. Создаёт универсальную и надёжную вычислительную технику с обратной совместимостью, соответствующую требованиям современного мира информационных технологий.',
-      category: 'Компьютерная техника',
-      products: ['Промышленные компьютеры', 'Оборудование для ЦОД', 'Серверы и СХД']
-    },
-    {
-      name: 'NAG (National Instruments)',
-      logo: '/logos/nag.png',
-      description: 'Разработчик решений для автоматизации тестирования, измерений и управления',
-      category: 'Промышленная автоматизация',
-      products: ['Контроллеры', 'Системы сбора данных', 'ПО управления']
-    }
   ];
 
-  const categories = [...new Set(manufacturers.map(m => m.category))];
+  // Разделяем вендоров на группы по 10 на страницу
+  const vendorsPerPage = 15;
+  const vendorGroups = [];
+  for (let i = 0; i < allManufacturers.length; i += vendorsPerPage) {
+    vendorGroups.push(allManufacturers.slice(i, i + vendorsPerPage));
+  }
+
+  const categories = [...new Set(allManufacturers.map(m => m.category))];
+  const [selectedCategory, setSelectedCategory] = useState(null);
+  const [currentPage, setCurrentPage] = useState(0);
+
+  const filteredManufacturers = selectedCategory 
+    ? allManufacturers.filter(m => m.category === selectedCategory)
+    : allManufacturers;
+
+  // Разделяем отфильтрованных вендоров на группы
+  const filteredVendorGroups = [];
+  for (let i = 0; i < filteredManufacturers.length; i += vendorsPerPage) {
+    filteredVendorGroups.push(filteredManufacturers.slice(i, i + vendorsPerPage));
+  }
+
+  const getCategoryIcon = (category) => {
+    switch(category) {
+      case 'Телефония': return <Phone className="h-5 w-5" />;
+      case 'Электропитание': return <Power className="h-5 w-5" />;
+      case 'Оборудование': return <HardDrive className="h-5 w-5" />;
+      case 'Видеонаблюдение': return <Video className="h-5 w-5" />;
+      case 'Сетевое оборудование': return <Network className="h-5 w-5" />;
+      case 'ПО': return <Code className="h-5 w-5" />;
+      case 'Промышленная автоматизация': return <Factory className="h-5 w-5" />;
+      case 'Печать': return <Printer className="h-5 w-5" />;
+      case 'Компьютерная техника': return <Laptop className="h-5 w-5" />;
+      case 'Умные устройства': return <Smartphone className="h-5 w-5" />;
+      case 'Инфраструктура': return <Wifi className="h-5 w-5" />;
+      case 'Телекоммуникации': return <Server className="h-5 w-5" />;
+      default: return <Cpu className="h-5 w-5" />;
+    }
+  };
+
+  const nextPage = () => {
+    if (currentPage < (selectedCategory ? filteredVendorGroups.length : vendorGroups.length) - 1) {
+      setCurrentPage(prev => prev + 1);
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  };
+
+  const prevPage = () => {
+    if (currentPage > 0) {
+      setCurrentPage(prev => prev - 1);
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  };
+
+  const resetFilter = () => {
+    setSelectedCategory(null);
+    setCurrentPage(0);
+  };
+
+  // Определяем текущую группу для отображения
+  const currentVendors = selectedCategory 
+    ? (filteredVendorGroups[currentPage] || [])
+    : (vendorGroups[currentPage] || []);
 
   return (
     <div className="min-h-screen bg-background relative overflow-hidden">
@@ -266,9 +327,9 @@ const Vendors = () => {
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         {/* Анимированные волны */}
         <div className="absolute inset-0 opacity-10">
-          <div className="absolute top-0 left-0 w-full h-full bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMDAwIDIwMCI+PHBhdGggZmlsbD0ibm9uZSIgc3Ryb2tlPSJyZ2JhKDEyLCA3NCwgMjU1LCAwLjA1KSIgc3Ryb2tlLXdpZHRoPSIyIiBkPSJNLTIsMTI1IEMxNTAsMTAwIDMwMCwxNTAgNTAwLDEwMCBDNzAwLDUwIDg1MCwxNTAgMTAwMiw1MCI+PC9wYXRoPjwvc3ZnPg==')] animate-wave-slow" />
-          <div className="absolute top-0 left-0 w-full h-full bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMDAwIDIwMCI+PHBhdGggZmlsbD0ibm9uZSIgc3Ryb2tlPSJyZ2JhKDEyLCA3NCwgMjU1LCAwLjA1KSIgc3Ryb2tlLXdpZHRoPSIyIiBkPSJNLTIsMTUwIEMxNTAsMTAwIDMwMCwxNTAgNTAwLDc1IEM3MDAsMTUwIDg1MCw1MCAxMDAyLDEyNSI+PC9wYXRoPjwvc3ZnPg==')] animate-wave-medium animation-delay-2000" />
-          <div className="absolute top-0 left-0 w-full h-full bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMDAwIDIwMCI+PHBhdGggZmlsbD0ibm9uZSIgc3Ryb2tlPSJyZ2JhKDEyLCA3NCwgMjU1LCAwLjA1KSIgc3Ryb2tlLXdpZHRoPSIyIiBkPSJNLTIsMTAwIEMxNTAsMTUwIDMwMCw1MCA1MDAsMTI1IEM3MDAsMjAwIDg1MCw3NSAxMDAyLDEwMCI+PC9wYXRoPjwvc3ZnPg==')] animate-wave-fast animation-delay-4000" />
+          <div className="absolute top-0 left-0 w-full h-full bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMDAwIDIwMCI+PHBhdGggZmlsbD0ibm9uZSIgc3Ryb2tlPSJyZ2JhKDEyLCA3NCwgMjU1LCAwLjIpIiBzdHJva2Utd2lkdGg9IjMiIGQ9Ik0tMiwxMjUgQzE1MCwxMDAgMzAwLDE1MCA1MDAsMTAwIEM3MDAsNTAgODUwLDE1MCAxMDAyLDUwIj48L3BhdGg+PC9zdmc+')] animate-wave-slow" />
+          <div className="absolute top-0 left-0 w-full h-full bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMDAwIDIwMCI+PHBhdGggZmlsbD0ibm9uZSIgc3Ryb2tlPSJyZ2JhKDEyLCA3NCwgMjU1LCAwLjIpIiBzdHJva2Utd2lkdGg9IjMiIGQ9Ik0tMiwxNTAgQzE1MCwxMDAgMzAwLDE1MCA1MDAsNzUgQzcwMCwxNTAgODUwLDUwIDEwMDIsMTI1Ij48L3BhdGg+PC9zdmc+')] animate-wave-medium animation-delay-2000" />
+          <div className="absolute top-0 left-0 w-full h-full bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMDAwIDIwMCI+PHBhdGggZmlsbD0ibm9uZSIgc3Ryb2tlPSJyZ2JhKDEyLCA3NCwgMjU1LCAwLjIpIiBzdHJva2Utd2lkdGg9IjMiIGQ9Ik0tMiwxMDAgQzE1MCwxNTAgMzAwLDUwIDUwMCwxMjUgQzcwMCwyMDAgODUwLDc1IDEwMDIsMTAwIj48L3BhdGg+PC9zdmc+')] animate-wave-fast animation-delay-4000" />
         </div>
 
         {/* Парящие геометрические фигуры */}
@@ -306,7 +367,7 @@ const Vendors = () => {
       <Header />
       
       <main className="container mx-auto px-4 py-16 space-y-16 relative z-10">
-        {/* Hero Section */}
+        {/* Раздел */}
         <section className="text-center space-y-8 animate-fade-in-up pt-8">
           <h1 className="text-4xl md:text-6xl font-bold tracking-tight">
             <span className="bg-gradient-to-r from-primary to-primary/70 bg-clip-text text-transparent">
@@ -321,21 +382,53 @@ const Vendors = () => {
         {/* Categories */}
         <section className="space-y-8">
           <div className="flex flex-wrap gap-2 justify-center animate-fade-in-up animate-delay-100">
+            <Button
+              variant={!selectedCategory ? "default" : "outline"}
+              size="sm"
+              onClick={resetFilter}
+              className="flex items-center gap-2"
+            >
+              <Cpu className="h-4 w-4" />
+              Все производители
+            </Button>
+            
             {categories.map((category) => (
-              <Badge 
+              <Button
                 key={category} 
-                variant="outline" 
-                className="px-4 py-2 text-sm bg-transparent hover:bg-primary/10 hover:text-primary transition-colors cursor-pointer border-border/50"
+                variant={selectedCategory === category ? "default" : "outline"}
+                size="sm"
+                onClick={() => {
+                  setSelectedCategory(category);
+                  setCurrentPage(0);
+                }}
+                className="flex items-center gap-2"
               >
+                {getCategoryIcon(category)}
                 {category}
-              </Badge>
+              </Button>
             ))}
           </div>
+          
+          {selectedCategory && (
+            <div className="text-center">
+              <p className="text-muted-foreground">
+                Показаны производители в категории: <span className="font-semibold text-primary">{selectedCategory}</span>
+                <Button 
+                  variant="ghost" 
+                  size="sm" 
+                  onClick={resetFilter}
+                  className="ml-2"
+                >
+                  Сбросить фильтр
+                </Button>
+              </p>
+            </div>
+          )}
         </section>
 
-        {/* Manufacturers Grid */}
+        {/* Производители сетки */}
         <section className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {manufacturers.map((manufacturer, index) => (
+          {currentVendors.map((manufacturer, index) => (
             <Card 
               key={manufacturer.name} 
               className="group hover:shadow-lg transition-all duration-300 animate-fade-in-up bg-background/90 backdrop-blur-sm border-border/50 hover:border-primary/30"
@@ -382,7 +475,34 @@ const Vendors = () => {
           ))}
         </section>
 
-        {/* CTA Section */}
+        {/* Пагинация */}
+        <div className="flex justify-between items-center animate-fade-in-up">
+          <Button 
+            variant="outline" 
+            className="gap-2" 
+            onClick={prevPage}
+            disabled={currentPage === 0}
+          >
+            <ChevronLeft className="h-4 w-4" />
+            Назад
+          </Button>
+          
+          <div className="text-sm text-muted-foreground">
+            Страница {currentPage + 1} из {selectedCategory ? filteredVendorGroups.length : vendorGroups.length}
+          </div>
+          
+          <Button 
+            variant="outline" 
+            className="gap-2" 
+            onClick={nextPage}
+            disabled={currentPage === (selectedCategory ? filteredVendorGroups.length : vendorGroups.length) - 1}
+          >
+            Вперед
+            <ChevronRight className="h-4 w-4" />
+          </Button>
+        </div>
+
+        {/* CTA Раздел */}
         <section className="text-center space-y-8 py-16 animate-fade-in-up">
           <div className="space-y-4">
             <h2 className="text-3xl md:text-4xl font-bold">Хотите узнать больше?</h2>

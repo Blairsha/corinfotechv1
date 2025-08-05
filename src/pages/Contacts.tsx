@@ -27,9 +27,9 @@ const Contacts = () => {
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         {/* Анимированные волны */}
         <div className="absolute inset-0 opacity-10">
-          <div className="absolute top-0 left-0 w-full h-full bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMDAwIDIwMCI+PHBhdGggZmlsbD0ibm9uZSIgc3Ryb2tlPSJyZ2JhKDEyLCA3NCwgMjU1LCAwLjA1KSIgc3Ryb2tlLXdpZHRoPSIyIiBkPSJNLTIsMTI1IEMxNTAsMTAwIDMwMCwxNTAgNTAwLDEwMCBDNzAwLDUwIDg1MCwxNTAgMTAwMiw1MCI+PC9wYXRoPjwvc3ZnPg==')] animate-wave-slow" />
-          <div className="absolute top-0 left-0 w-full h-full bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMDAwIDIwMCI+PHBhdGggZmlsbD0ibm9uZSIgc3Ryb2tlPSJyZ2JhKDEyLCA3NCwgMjU1LCAwLjA1KSIgc3Ryb2tlLXdpZHRoPSIyIiBkPSJNLTIsMTUwIEMxNTAsMTAwIDMwMCwxNTAgNTAwLDc1IEM3MDAsMTUwIDg1MCw1MCAxMDAyLDEyNSI+PC9wYXRoPjwvc3ZnPg==')] animate-wave-medium animation-delay-2000" />
-          <div className="absolute top-0 left-0 w-full h-full bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMDAwIDIwMCI+PHBhdGggZmlsbD0ibm9uZSIgc3Ryb2tlPSJyZ2JhKDEyLCA3NCwgMjU1LCAwLjA1KSIgc3Ryb2tlLXdpZHRoPSIyIiBkPSJNLTIsMTAwIEMxNTAsMTUwIDMwMCw1MCA1MDAsMTI1IEM3MDAsMjAwIDg1MCw3NSAxMDAyLDEwMCI+PC9wYXRoPjwvc3ZnPg==')] animate-wave-fast animation-delay-4000" />
+          <div className="absolute top-0 left-0 w-full h-full bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMDAwIDIwMCI+PHBhdGggZmlsbD0ibm9uZSIgc3Ryb2tlPSJyZ2JhKDEyLCA3NCwgMjU1LCAwLjIpIiBzdHJva2Utd2lkdGg9IjMiIGQ9Ik0tMiwxMjUgQzE1MCwxMDAgMzAwLDE1MCA1MDAsMTAwIEM3MDAsNTAgODUwLDE1MCAxMDAyLDUwIj48L3BhdGg+PC9zdmc+')] animate-wave-slow" />
+          <div className="absolute top-0 left-0 w-full h-full bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMDAwIDIwMCI+PHBhdGggZmlsbD0ibm9uZSIgc3Ryb2tlPSJyZ2JhKDEyLCA3NCwgMjU1LCAwLjIpIiBzdHJva2Utd2lkdGg9IjMiIGQ9Ik0tMiwxNTAgQzE1MCwxMDAgMzAwLDE1MCA1MDAsNzUgQzcwMCwxNTAgODUwLDUwIDEwMDIsMTI1Ij48L3BhdGg+PC9zdmc+')] animate-wave-medium animation-delay-2000" />
+<div className="absolute top-0 left-0 w-full h-full bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMDAwIDIwMCI+PHBhdGggZmlsbD0ibm9uZSIgc3Ryb2tlPSJyZ2JhKDEyLCA3NCwgMjU1LCAwLjIpIiBzdHJva2Utd2lkdGg9IjMiIGQ9Ik0tMiwxMDAgQzE1MCwxNTAgMzAwLDUwIDUwMCwxMjUgQzcwMCwyMDAgODUwLDc1IDEwMDIsMTAwIj48L3BhdGg+PC9zdmc+')] animate-wave-fast animation-delay-4000" />
         </div>
 
         {/* Парящие геометрические фигуры */}
@@ -214,7 +214,7 @@ const Contacts = () => {
             </div>
           </div>
 
-          {/* Additional Info */}
+          {/* Доп инфа */}
           <section className="bg-muted/20 rounded-xl p-8 border border-muted/30 backdrop-blur-sm">
             <div className="text-center space-y-4">
               <h2 className="text-2xl font-bold">Дополнительная информация</h2>

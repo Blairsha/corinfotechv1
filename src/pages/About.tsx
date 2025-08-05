@@ -16,6 +16,7 @@ import LicenseFSB2 from '../assets/certificates/Лицензия-ФСБ-2.png';
 import LicenseFSTEC from '../assets/certificates/Лицензия-ФСТЭК-Серия-КИ-0253-№012744-1.png';
 import PermissionAlphaRegister from '../assets/certificates/РАЗРЕШЕНИЕ-с-19.02.2024-по-18.02.2027-1.png';
 import CertISO from '../assets/certificates/Сертификат-ИСО-с-19.02.24-по-18.02.27-1.png';
+import CertSulkan from '../assets/certificates/Xerox Scan_04082025174100-1.png';
 
 const About = () => {
   const [isCertificatesOpen, setIsCertificatesOpen] = useState(false);
@@ -70,6 +71,13 @@ const About = () => {
       description: "Соответствие системы менеджмента качества ГОСТ Р ИСО 9001-2015",
       image: CertISO,
       date: "19.02.2024 - 18.02.2027"
+    },
+    {
+      id: 8,
+      title: "Сертификат инсталлятора СУЛКАН",
+      description: "Авторизованный инсталлятор структурированных кабельных систем СУЛКАН",
+      image: CertSulkan,
+      date: "до 25 Января 2026 г."
     }
   ];
 
@@ -139,9 +147,9 @@ const About = () => {
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         {/* Анимированные волны */}
         <div className="absolute inset-0 opacity-10">
-          <div className="absolute top-0 left-0 w-full h-full bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMDAwIDIwMCI+PHBhdGggZmlsbD0ibm9uZSIgc3Ryb2tlPSJyZ2JhKDEyLCA3NCwgMjU1LCAwLjA1KSIgc3Ryb2tlLXdpZHRoPSIyIiBkPSJNLTIsMTI1IEMxNTAsMTAwIDMwMCwxNTAgNTAwLDEwMCBDNzAwLDUwIDg1MCwxNTAgMTAwMiw1MCI+PC9wYXRoPjwvc3ZnPg==')] animate-wave-slow" />
-          <div className="absolute top-0 left-0 w-full h-full bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMDAwIDIwMCI+PHBhdGggZmlsbD0ibm9uZSIgc3Ryb2tlPSJyZ2JhKDEyLCA3NCwgMjU1LCAwLjA1KSIgc3Ryb2tlLXdpZHRoPSIyIiBkPSJNLTIsMTUwIEMxNTAsMTAwIDMwMCwxNTAgNTAwLDc1IEM3MDAsMTUwIDg1MCw1MCAxMDAyLDEyNSI+PC9wYXRoPjwvc3ZnPg==')] animate-wave-medium animation-delay-2000" />
-          <div className="absolute top-0 left-0 w-full h-full bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMDAwIDIwMCI+PHBhdGggZmlsbD0ibm9uZSIgc3Ryb2tlPSJyZ2JhKDEyLCA3NCwgMjU1LCAwLjA1KSIgc3Ryb2tlLXdpZHRoPSIyIiBkPSJNLTIsMTAwIEMxNTAsMTUwIDMwMCw1MCA1MDAsMTI1IEM3MDAsMjAwIDg1MCw3NSAxMDAyLDEwMCI+PC9wYXRoPjwvc3ZnPg==')] animate-wave-fast animation-delay-4000" />
+          <div className="absolute top-0 left-0 w-full h-full bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMDAwIDIwMCI+PHBhdGggZmlsbD0ibm9uZSIgc3Ryb2tlPSJyZ2JhKDEyLCA3NCwgMjU1LCAwLjIpIiBzdHJva2Utd2lkdGg9IjMiIGQ9Ik0tMiwxMjUgQzE1MCwxMDAgMzAwLDE1MCA1MDAsMTAwIEM3MDAsNTAgODUwLDE1MCAxMDAyLDUwIj48L3BhdGg+PC9zdmc+')] animate-wave-slow" />
+          <div className="absolute top-0 left-0 w-full h-full bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMDAwIDIwMCI+PHBhdGggZmlsbD0ibm9uZSIgc3Ryb2tlPSJyZ2JhKDEyLCA3NCwgMjU1LCAwLjIpIiBzdHJva2Utd2lkdGg9IjMiIGQ9Ik0tMiwxNTAgQzE1MCwxMDAgMzAwLDE1MCA1MDAsNzUgQzcwMCwxNTAgODUwLDUwIDEwMDIsMTI1Ij48L3BhdGg+PC9zdmc+')] animate-wave-medium animation-delay-2000" />
+          <div className="absolute top-0 left-0 w-full h-full bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMDAwIDIwMCI+PHBhdGggZmlsbD0ibm9uZSIgc3Ryb2tlPSJyZ2JhKDEyLCA3NCwgMjU1LCAwLjIpIiBzdHJva2Utd2lkdGg9IjMiIGQ9Ik0tMiwxMDAgQzE1MCwxNTAgMzAwLDUwIDUwMCwxMjUgQzcwMCwyMDAgODUwLDc1IDEwMDIsMTAwIj48L3BhdGg+PC9zdmc+')] animate-wave-fast animation-delay-4000" />
         </div>
 
         {/* Парящие геометрические фигуры */}
