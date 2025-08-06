@@ -51,25 +51,25 @@ const Distributors = () => {
       products: ['Облачные сервисы', 'Информационные системы', 'Индивидуальные решения']
     },
     {
-  name: 'NAG',
-  logo: '/logos/nag.png',
-  description: 'Российский разработчик и поставщик телекоммуникационного оборудования, решений для сетей передачи данных, систем видеонаблюдения и дата-центров. Компания предлагает собственные бренды (SNR, OMNY), проектирование инфраструктуры "под ключ" и сервисное обслуживание.',
-  category: 'Телекоммуникации и сетевое оборудование',
-  products: ['Сетевые коммутаторы', 'IP-видеонаблюдение', 'Серверные шкафы', 'Решения для ЦОД']
-},
-{
-  name: 'PROWAY',
-  logo: '/logos/proway.png',
-  description: 'Многопрофильный IT-дистрибьютор с 30-летним опытом`, специализирующийся на поставках оборудования для автоматизации идентификации, сетевой инфраструктуры, систем хранения данных и решений кибербезопасности. Официальный партнер ведущих вендоров (Positive Technologies, INTEKEY, Рутокен)',
-  category: 'Дистрибуция IT-оборудования',
-  products: [
-    'Серверы и системы хранения',
-    'Сетевое оборудование',
-    'Сканеры и терминалы сбора данных',
-    'Решения для информационной безопасности',
-    'Оборудование для автоматизации складов'
-  ]
-},
+      name: 'NAG',
+      logo: '/logos/nag.png',
+      description: 'Российский разработчик и поставщик телекоммуникационного оборудования, решений для сетей передачи данных, систем видеонаблюдения и дата-центров. Компания предлагает собственные бренды (SNR, OMNY), проектирование инфраструктуры "под ключ" и сервисное обслуживание.',
+      category: 'Телекоммуникации и сетевое оборудование',
+      products: ['Сетевые коммутаторы', 'IP-видеонаблюдение', 'Серверные шкафы', 'Решения для ЦОД']
+    },
+    {
+      name: 'PROWAY',
+      logo: '/logos/proway.png',
+      description: 'Многопрофильный IT-дистрибьютор с 30-летним опытом`, специализирующийся на поставках оборудования для автоматизации идентификации, сетевой инфраструктуры, систем хранения данных и решений кибербезопасности. Официальный партнер ведущих вендоров (Positive Technologies, INTEKEY, Рутокен)',
+      category: 'Дистрибуция IT-оборудования',
+      products: [
+        'Серверы и системы хранения',
+        'Сетевое оборудование',
+        'Сканеры и терминалы сбора данных',
+        'Решения для информационной безопасности',
+        'Оборудование для автоматизации складов'
+      ]
+    },
     {
       name: 'ELKO',
       logo: '/logos/elko.png',
@@ -173,7 +173,7 @@ const Distributors = () => {
         <div className="absolute inset-0 opacity-10">
           <div className="absolute top-0 left-0 w-full h-full bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMDAwIDIwMCI+PHBhdGggZmlsbD0ibm9uZSIgc3Ryb2tlPSJyZ2JhKDEyLCA3NCwgMjU1LCAwLjIpIiBzdHJva2Utd2lkdGg9IjMiIGQ9Ik0tMiwxMjUgQzE1MCwxMDAgMzAwLDE1MCA1MDAsMTAwIEM3MDAsNTAgODUwLDE1MCAxMDAyLDUwIj48L3BhdGg+PC9zdmc+')] animate-wave-slow" />
           <div className="absolute top-0 left-0 w-full h-full bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMDAwIDIwMCI+PHBhdGggZmlsbD0ibm9uZSIgc3Ryb2tlPSJyZ2JhKDEyLCA3NCwgMjU1LCAwLjIpIiBzdHJva2Utd2lkdGg9IjMiIGQ9Ik0tMiwxNTAgQzE1MCwxMDAgMzAwLDE1MCA1MDAsNzUgQzcwMCwxNTAgODUwLDUwIDEwMDIsMTI1Ij48L3BhdGg+PC9zdmc+')] animate-wave-medium animation-delay-2000" />
-<div className="absolute top-0 left-0 w-full h-full bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMDAwIDIwMCI+PHBhdGggZmlsbD0ibm9uZSIgc3Ryb2tlPSJyZ2JhKDEyLCA3NCwgMjU1LCAwLjIpIiBzdHJva2Utd2lkdGg9IjMiIGQ9Ik0tMiwxMDAgQzE1MCwxNTAgMzAwLDUwIDUwMCwxMjUgQzcwMCwyMDAgODUwLDc1IDEwMDIsMTAwIj48L3BhdGg+PC9zdmc+')] animate-wave-fast animation-delay-4000" />
+          <div className="absolute top-0 left-0 w-full h-full bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMDAwIDIwMCI+PHBhdGggZmlsbD0ibm9uZSIgc3Ryb2tlPSJyZ2JhKDEyLCA3NCwgMjU1LCAwLjIpIiBzdHJva2Utd2lkdGg9IjMiIGQ9Ik0tMiwxMDAgQzE1MCwxNTAgMzAwLDUwIDUwMCwxMjUgQzcwMCwyMDAgODUwLDc1IDEwMDIsMTAwIj48L3BhdGg+PC9zdmc+')] animate-wave-fast animation-delay-4000" />
         </div>
 
         {/* Парящие геометрические фигуры - увеличенные и добавлены новые */}
@@ -258,18 +258,18 @@ const Distributors = () => {
         </section>
 
         {/* Категории */}
-<section className="space-y-8">
-  <div className="flex flex-wrap gap-2 justify-center animate-fade-in-up animate-delay-100">
-    {categories.map((category) => (
-      <span 
-        key={category} 
-        className="px-4 py-2 text-sm bg-transparent border border-border/50 rounded-full cursor-pointer"
-      >
-        {category}
-      </span>
-    ))}
-  </div>
-</section>
+        <section className="space-y-8">
+          <div className="flex flex-wrap gap-2 justify-center animate-fade-in-up animate-delay-100">
+            {categories.map((category) => (
+              <span 
+                key={category} 
+                className="px-4 py-2 text-sm bg-transparent border border-border/50 rounded-full cursor-default"
+              >
+                {category}
+              </span>
+            ))}
+          </div>
+        </section>
 
         {/* Распределительная сетка*/}
         <section className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">

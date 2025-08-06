@@ -11,16 +11,16 @@ const Vendors = () => {
     {
       name: 'AudioCodes',
       logo: '/logos/audiocodes.png',
-      description: 'Технологии Voice over Packet и оборудование для построения инфраструктуры передачи голоса',
-      category: 'Телефония',
-      products: ['VoIP шлюзы', 'IP-АТС', 'Голосовые шлюзы']
+      description: 'Производитель VoIP-шлюзов и решений для интеграции TDM/IP сетей с поддержкой SIP-протокола',
+      category: 'Телефония и VoIP-оборудование',
+      products: ['FXS/FXO шлюзы', 'SBC', 'Цифровые VoIP-шлюзы E1']
     },
     {
       name: 'ООО "АТС-КОНВЕРС"',
       logo: '/logos/ats-konvers.png',
-      description: 'Наукоемкие разработки и производство систем гарантированного электропитания, устройств повышения качества электроэнергии, электронной защиты оборудования',
-      category: 'Электропитание',
-      products: ['ИБП', 'Стабилизаторы', 'Защита оборудования']
+      description: 'Системы защиты от перепадов напряжения и ИБП промышленного класса',
+      category: 'Системы электропитания',
+      products: ['Стабилизаторы 220В', 'Промышленные ИБП', 'Защита серверного оборудования']
     },
     {
       name: 'БАСТИОН',
@@ -32,16 +32,16 @@ const Vendors = () => {
     {
       name: 'Гравитон',
       logo: '/logos/graviton.png',
-      description: 'Производитель отечественной вычислительной техники для импортозамещения',
-      category: 'Оборудование',
-      products: ['Серверы', 'Рабочие станции', 'Микрокомпьютеры']
+      description: 'Российские серверные решения и рабочие станции с локализацией производства',
+      category: 'Серверное оборудование',
+      products: ['Rack-серверы', 'Вычислительные кластеры', 'Отечественные ПК']
     },
     {
       name: 'Dahua Technology',
       logo: '/logos/dahua.png',
-      description: 'Производство систем видеонаблюдения, охранных систем и решений "умный дом"',
-      category: 'Видеонаблюдение',
-      products: ['IP-камеры', 'Видеорегистраторы', 'Аналитика']
+      description: 'Интеллектуальные системы видеоаналитики с распознаванием лиц и температурным скринингом',
+      category: 'Системы безопасности',
+      products: ['Тепловизоры', 'Умные видеокамеры', 'Видеорегистраторы с ИИ']
     },
     {
       name: 'Delta Computers',
@@ -53,9 +53,9 @@ const Vendors = () => {
     {
       name: 'Zelax',
       logo: '/logos/zelax.png',
-      description: 'Производитель телекоммуникационного оборудования для корпоративной инфраструктуры',
-      category: 'Сетевое оборудование',
-      products: ['Коммутаторы', 'Маршрутизаторы', 'Шлюзы']
+      description: 'Мультисервисные коммутаторы для конвергентных сетей передачи данных',
+      category: 'Телекоммуникационное оборудование',
+      products: ['SDH-коммутаторы', 'Маршрутизаторы Carrier-class', 'VoIP-шлюзы']
     },
     {
       name: 'ИМПУЛЬС',
@@ -81,9 +81,9 @@ const Vendors = () => {
     {
       name: 'ISS (SecurOS)',
       logo: '/logos/iss.png',
-      description: 'Мировой лидер в разработке систем видеонаблюдения и видеоаналитики',
-      category: 'Видеонаблюдение',
-      products: ['Видеокамеры', 'Видеоаналитика', 'Серверы']
+      description: 'Платформа видеоаналитики с биометрическим распознаванием и интеграцией с СКУД',
+      category: 'Системы безопасности',
+      products: ['Распознавание лиц', 'Детекция масок', 'Интеграция с PERCo-Web']
     },
     {
       name: 'CyberPower',
@@ -102,9 +102,9 @@ const Vendors = () => {
     {
       name: 'QTECH',
       logo: '/logos/qtech.png',
-      description: 'Российский разработчик сетевого и телекоммуникационного оборудования',
-      category: 'Сетевое оборудование',
-      products: ['Коммутаторы', 'Маршрутизаторы', 'Пассивное оборудование']
+      description: 'Пассивное сетевое оборудование для ЦОД и телекоммуникационных решений',
+      category: 'Сетевая инфраструктура',
+      products: ['SFP+ кабели', 'Кросс-панели', 'Монтажные комплекты']
     },
     {
       name: 'LightCom',
@@ -116,9 +116,9 @@ const Vendors = () => {
     {
       name: 'NAG (National Instruments)',
       logo: '/logos/nag.png',
-      description: 'Разработчик решений для автоматизации тестирования, измерений и управления',
+      description: 'Промышленные контроллеры и системы сбора данных для автоматизации производства',
       category: 'Промышленная автоматизация',
-      products: ['Контроллеры', 'Системы сбора данных', 'ПО управления']
+      products: ['LabVIEW', 'PXI-контроллеры', 'Измерительные системы']
     },
     {
       name: 'NexTouch',
@@ -128,11 +128,11 @@ const Vendors = () => {
       products: ['Интерактивные панели', 'Дисплеи', 'Средства ВТ']
     },
     {
-      name: 'Pantum',
+            name: 'Pantum',
       logo: '/logos/pantum.png',
-      description: 'Производитель доступных и экологичных решений для печати',
-      category: 'Печать',
-      products: ['Принтеры', 'МФУ', 'Расходные материалы']
+      description: 'Энергоэффективные принтеры с замкнутым циклом переработки картриджей',
+      category: 'Офисная техника',
+      products: ['Лазерные МФУ', 'Экосервис картриджей', 'Сетевые принтеры']
     },
     {
       name: 'Парус электро',
@@ -142,89 +142,89 @@ const Vendors = () => {
       products: ['ИБП', 'Стабилизаторы', 'Распределительные щиты']
     },
     {
-      name: 'Proway',
-      logo: '/logos/proway.png',
-      description: 'Разработчик и дистрибьютор IT-оборудования',
-      category: 'Оборудование',
-      products: ['Серверы', 'СХД', 'Сетевое оборудование']
-    },
-    {
-      name: 'RDW',
-      logo: '/logos/RDW-comp.png',
-      description: 'Один из ведущих производителей компьютерной техники в России. Создаёт универсальную и надёжную вычислительную технику с обратной совместимостью, соответствующую требованиям современного мира информационных технологий.',
-      category: 'Компьютерная техника',
-      products: ['Промышленные компьютеры', 'Оборудование для ЦОД', 'Серверы и СХД']
-    },
-    {
-      name: 'SberDevices',
-      logo: '/logos/sberdevices.png',
-      description: 'Молодая IT-компания, созданная в 2019 году (входит в группу компаний Сбербанк). Специализируется на разработке умных устройств и программного обеспечения.',
-      category: 'Умные устройства',
-      products: ['Голосовые ассистенты', 'Умные колонки', 'Программные платформы']
-    },
-    {
-      name: 'Сайбер Электро',
-      logo: '/logos/cyber-electro.png',
-      description: 'Российский производитель источников бесперебойного питания',
-      category: 'Электропитание',
-      products: ['ИБП', 'Стабилизаторы', 'Сетевые фильтры']
-    },
-    {
-      name: 'Систэм Электрик',
-      logo: '/logos/system-electric.png',
-      description: 'Разработчик решений в области распределения электроэнергии и автоматизации',
-      category: 'Электропитание',
-      products: ['Распределительные щиты', 'Автоматика', 'ПО управления']
-    },
-    {
-      name: 'ФЛАТ-ПРО',
-      logo: '/logos/flat-pro.png',
-      description: 'Разработчик IP телефонов и VOIP шлюзов',
-      category: 'Телефония',
-      products: ['IP-телефоны', 'VoIP шлюзы', 'Софтсвичи']
-    },
-    {
-      name: 'Fplus',
-      logo: '/logos/fplus.png',
-      description: 'Технологический кластер решений для построения IT-инфраструктуры',
-      category: 'Инфраструктура',
-      products: ['Серверы', 'СХД', 'Коммутаторы']
-    },
-    {
-      name: 'Huawei',
-      logo: '/logos/huawei.png',
-      description: 'Лидирующий поставщик телекоммуникационных решений для операторов связи',
-      category: 'Сетевое оборудование',
-      products: ['Сетевое оборудование', 'Серверы', 'Телефония']
-    },
-    {
-      name: 'ЭЛТЕКС',
-      logo: '/logos/eltex.png',
-      description: 'Российский разработчик и производитель телекоммуникационного и сетевого оборудования',
-      category: 'Сетевое оборудование',
-      products: ['Коммутаторы', 'Маршрутизаторы', 'IoT контроллеры']
-    },
-    {
-      name: 'YADRO',
-      logo: '/logos/yadro.png',
-      description: 'Разработчик высокопроизводительных систем хранения данных и серверного оборудования',
-      category: 'Оборудование',
-      products: ['СХД', 'Серверы', 'Вычислительные системы']
-    },
-    {
-      name: 'Yealink',
-      logo: '/logos/yealink.png',
-      description: 'Производитель решений для IP-коммуникаций, совместимых с SIP и WebRTC',
-      category: 'Телефония',
-      products: ['IP-телефоны', 'ВКС', 'Головные гарнитуры']
-    },
-    {
-      name: 'Yeastar',
-      logo: '/logos/yeastar.png',
-      description: 'Лидер в производстве гибридных IP-АТС и VoIP-шлюзов',
-      category: 'Телефония',
-      products: ['IP-АТС', 'VoIP шлюзы', 'Софтфоны']
-    },
+  name: 'Proway',
+  logo: '/logos/proway.png',
+  description: 'Российский производитель серверов и систем хранения данных для ЦОД',
+  category: 'Серверное оборудование',
+  products: ['Rack-серверы', 'СХД', 'Кластерные решения']
+},
+{
+  name: 'RDW',
+  logo: '/logos/RDW-comp.png',
+  description: 'Производитель серверов с гибридным бэкплейном для SAS/SATA/NVMe-накопителей, включенных в реестр Минпромторга',
+  category: 'Серверное оборудование',
+  products: ['Серверы для ЦОД', 'Промышленные компьютеры', 'Системы хранения']
+},
+{
+  name: 'SberDevices',
+  logo: '/logos/sberdevices.png',
+  description: 'Производитель smart-TV с miniLED-дисплеями и голосовым ассистентом Салют',
+  category: 'Потребительская электроника',
+  products: ['Телевизоры', 'Умные колонки', 'ОС Салют ТВ']
+},
+{
+  name: 'Сайбер Электро',
+  logo: '/logos/cyber-electro.png',
+  description: 'Профессиональные ИБП для ЦОД и промышленности с сервисными байпасами',
+  category: 'Системы электропитания',
+  products: ['Трехфазные ИБП', 'Модульные системы', 'Шкафы для АКБ']
+},
+{
+  name: 'Систэм Электрик',
+  logo: '/logos/system-electric.png',
+  description: 'Системы автоматизации распределения электроэнергии с цифровым мониторингом',
+  category: 'Энергораспределение и автоматизация',
+  products: ['Умные щиты', 'ПЛК-контроллеры', 'SCADA-системы']
+},
+{
+  name: 'ФЛАТ-ПРО',
+  logo: '/logos/flat-pro.png',
+  description: 'Отечественные IP-телефоны с поддержкой 30 SIP-аккаунтов и русскоязычным интерфейсом',
+  category: 'VoIP-оборудование',
+  products: ['IP-телефоны B10', 'VoIP-шлюзы', 'Система Device Manager']
+},
+{
+  name: 'Fplus',
+  logo: '/logos/fplus.png',
+  description: 'Серверные решения российской сборки с процессорами Intel Xeon Scalable',
+  category: 'Серверное оборудование',
+  products: ['Серверы Восход', 'Кластерные системы', 'Модули расширения']
+},
+{
+  name: 'Huawei',
+  logo: '/logos/huawei.png',
+  description: 'Решения 5.5G и интеллектуальные сети следующего поколения',
+  category:  'Сетевое оборудование',
+  products: ['Маршрутизаторы NetEngine', 'Серверы FusionServer', 'SDN-контроллеры']
+},
+{
+  name: 'ЭЛТЕКС',
+  logo: '/logos/eltex.png',
+  description: 'Беспроводные контроллеры WLC-HW и программные решения SoftWLC',
+  category: 'Беспроводные сети',
+  products: ['Wi-Fi контроллеры', 'POE-коммутаторы', 'IoT-шлюзы']
+},
+{
+  name: 'YADRO',
+  logo: '/logos/yadro.png',
+  description: 'Высокопроизводительные СХД с поддержкой NVMe-oF и RDMA',
+  category: 'Системы хранения данных',
+  products: ['Кластерные СХД', 'Серверы Katana', 'Программные-defined storage']
+},
+{
+  name: 'Yealink',
+  logo: '/logos/yealink.png',
+  description: 'Видеотелефоны для Microsoft Teams и решения гибридной работы',
+  category: 'Видеокоммуникации',
+  products: ['Видеобары MeetingBar', 'Трибкины', 'Сертифицированные устройства']
+},
+{
+  name: 'Yeastar',
+  logo: '/logos/yeastar.png',
+  description: 'Гибридные АТС NeoGate с поддержкой GSM и VoIP-шлюзы FXS/FXO',
+  category: 'VoIP-оборудование',
+  products: ['IP-АТС S300', 'VoIP-шлюзы TG400W', 'Модули расширения']
+}
   ];
 
   // Разделяем вендоров на группы по 15 на страницу
@@ -249,21 +249,41 @@ const Vendors = () => {
   }
 
   const getCategoryIcon = (category) => {
-    switch(category) {
-      case 'Телефония': return <Phone className="h-5 w-5" />;
-      case 'Электропитание': return <Power className="h-5 w-5" />;
-      case 'Оборудование': return <HardDrive className="h-5 w-5" />;
-      case 'Видеонаблюдение': return <Video className="h-5 w-5" />;
-      case 'Сетевое оборудование': return <Network className="h-5 w-5" />;
-      case 'ПО': return <Code className="h-5 w-5" />;
-      case 'Промышленная автоматизация': return <Factory className="h-5 w-5" />;
-      case 'Печать': return <Printer className="h-5 w-5" />;
-      case 'Компьютерная техника': return <Laptop className="h-5 w-5" />;
-      case 'Умные устройства': return <Smartphone className="h-5 w-5" />;
-      case 'Инфраструктура': return <Wifi className="h-5 w-5" />;
-      default: return <Cpu className="h-5 w-5" />;
-    }
-  };
+  switch(category) {
+    case 'Телефония и VoIP-оборудование':
+    case 'VoIP-оборудование':
+      return <Phone className="h-5 w-5" />;
+    case 'Электропитание':
+    case 'Системы электропитания':
+      return <Power className="h-5 w-5" />;
+    case 'Серверное оборудование':
+      return <Server className="h-5 w-5" />;
+    case 'Системы безопасности':
+      return <Shield className="h-5 w-5" />;
+    case 'Оборудование':
+    case 'Компьютерная техника':
+      return <Monitor className="h-5 w-5" />;
+    case 'ПО':
+      return <Code className="h-5 w-5" />;
+    case 'Промышленная автоматизация':
+    case 'Энергораспределение и автоматизация':
+      return <Factory className="h-5 w-5" />;
+    case 'Офисная техника':
+      return <Printer className="h-5 w-5" />;
+    case 'Потребительская электроника':
+      return <Smartphone className="h-5 w-5" />;
+    case 'Сетевая инфраструктура':
+    case 'Телекоммуникационное оборудование':
+    case 'Беспроводные сети':
+      return <Wifi className="h-5 w-5" />;
+    case 'Системы хранения данных':
+      return <HardDrive className="h-5 w-5" />;
+    case 'Видеокоммуникации':
+      return <Video className="h-5 w-5" />;
+    default:
+      return <Cpu className="h-5 w-5" />;
+  }
+};
 
   const nextPage = () => {
     if (currentPage < (selectedCategories.length ? filteredVendorGroups.length : vendorGroups.length) - 1) {
