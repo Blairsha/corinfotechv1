@@ -64,13 +64,7 @@ const Vendors = () => {
       category: 'Электропитание',
       products: ['ИБП', 'Стабилизаторы', 'Защитные устройства']
     },
-    {
-      name: 'Ipmatika',
-      logo: '/logos/ipmatika.png',
-      description: 'Разработчик решений в области информационных технологий и автоматизации',
-      category: 'ПО',
-      products: ['ПО автоматизации', 'Системы учета', 'BI решения']
-    },
+
     {
       name: 'IRBIS',
       logo: '/logos/irbis.png',
@@ -112,13 +106,6 @@ const Vendors = () => {
       description: 'Российский производитель компьютерного оборудования для госсектора',
       category: 'Оборудование',
       products: ['Мониторы', 'Серверы', 'Рабочие станции']
-    },
-    {
-      name: 'NAG (National Instruments)',
-      logo: '/logos/nag.png',
-      description: 'Промышленные контроллеры и системы сбора данных для автоматизации производства',
-      category: 'Промышленная автоматизация',
-      products: ['LabVIEW', 'PXI-контроллеры', 'Измерительные системы']
     },
     {
       name: 'NexTouch',
@@ -263,9 +250,6 @@ const Vendors = () => {
     case 'Оборудование':
     case 'Компьютерная техника':
       return <Monitor className="h-5 w-5" />;
-    case 'ПО':
-      return <Code className="h-5 w-5" />;
-    case 'Промышленная автоматизация':
     case 'Энергораспределение и автоматизация':
       return <Factory className="h-5 w-5" />;
     case 'Офисная техника':

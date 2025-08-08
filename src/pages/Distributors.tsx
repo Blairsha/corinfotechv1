@@ -4,13 +4,14 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
-import { ArrowRight, Truck } from 'lucide-react';
+import { ArrowRight, Truck, ExternalLink } from 'lucide-react';
 
 const Distributors = () => {
   const distributors = [
     {
       name: 'Treolan',
       logo: '/logos/treolan.png',
+      website: 'https://treolan.ru/',
       description: 'Ведущий дистрибьютор ИТ-решений в России. Компания предоставляет широкий ассортимент оборудования и ПО, поставляя крупнейшим компаниям и госструктурам. Она активно внедряет инновации и обеспечивает квалифицированную поддержку клиентов, что способствует развитию бизнеса.',
       category: 'ИТ-дистрибуция',
       products: ['Оборудование', 'ПО', 'Корпоративные решения']
@@ -18,6 +19,7 @@ const Distributors = () => {
     {
       name: 'CompTek',
       logo: '/logos/comptek.png',
+      website: 'https://www.comptek.ru/',
       description: 'Динамично развивающаяся компания на российском рынке дистрибуции ИТ-продуктов. Основное направление — поставка оборудования для сетевой безопасности, хранения данных и сетевой инфраструктуры. CompTek обеспечивает высокое качество обслуживания и обучение партнеров, создавая инновационные решения.',
       category: 'Сетевая инфраструктура',
       products: ['Безопасность', 'СХД', 'Сетевое оборудование']
@@ -25,6 +27,7 @@ const Distributors = () => {
     {
       name: 'OCS',
       logo: '/logos/ocs.png',
+      website: 'https://www.ocs.ru/',
       description: 'Один из крупнейших дистрибьюторов IT-продуктов в России. Компания предлагает программное обеспечение, компьютерную технику и аксессуары. OCS активно развивает сети партнеров, предлагает услуги по системной интеграции и решает задачи на стыке технологий и бизнеса для своих клиентов.',
       category: 'Компьютерная техника',
       products: ['ПО', 'Компьютеры', 'Периферия']
@@ -32,6 +35,7 @@ const Distributors = () => {
     {
       name: 'Марвел-Дистрибуция',
       logo: '/logos/marvel.png',
+      website: 'https://www.marvel.ru/',
       description: 'Ведущий дистрибьютор IT-продуктов и услуг в России, предлагающий широкий ассортимент товаров. Компания предоставляет техникe и программное обеспечение для бизнеса и организаций. Марвел активно развивает партнерские отношения, поддерживает стартапы и внедряет новейшие технологии.',
       category: 'ИТ-решения',
       products: ['Комплексные решения', 'Техника', 'Программное обеспечение']
@@ -39,6 +43,7 @@ const Distributors = () => {
     {
       name: 'Ресурс-Медиа',
       logo: '/logos/resource-media.png',
+      website: 'https://resurs-media.ru/',
       description: 'Компания, специализирующаяся на дистрибуции ИТ-продуктов и цифровых решений. Она предлагает широкий спектр программного обеспечения, включая решения для бизнеса и образовательных учреждений. Компания активно поддерживает проекты и инициативы, направленные на обучение и развитие.',
       category: 'Цифровые решения',
       products: ['ПО для бизнеса', 'Образовательные решения', 'Цифровизация']
@@ -46,6 +51,7 @@ const Distributors = () => {
     {
       name: '3Logic Group',
       logo: '/logos/3logic.png',
+      website: 'https://3logic.ru/',
       description: 'Дистрибьютор IT-продукции и облачных решений. Компания предлагает комплексные услуги по внедрению и сопровождению информационных систем, фокусируясь на индивидуальных решениях для клиентов. 3Logic Group поддерживает высокие стандарты качества и активно развивает партнерские каналы.',
       category: 'Облачные решения',
       products: ['Облачные сервисы', 'Информационные системы', 'Индивидуальные решения']
@@ -53,6 +59,7 @@ const Distributors = () => {
     {
       name: 'NAG',
       logo: '/logos/nag.png',
+      website: 'https://nag.ru/',
       description: 'Российский разработчик и поставщик телекоммуникационного оборудования, решений для сетей передачи данных, систем видеонаблюдения и дата-центров. Компания предлагает собственные бренды (SNR, OMNY), проектирование инфраструктуры "под ключ" и сервисное обслуживание.',
       category: 'Телекоммуникации и сетевое оборудование',
       products: ['Сетевые коммутаторы', 'IP-видеонаблюдение', 'Серверные шкафы', 'Решения для ЦОД']
@@ -60,6 +67,7 @@ const Distributors = () => {
     {
       name: 'PROWAY',
       logo: '/logos/proway.png',
+      website: 'https://proway.tech/',
       description: 'Многопрофильный IT-дистрибьютор с 30-летним опытом`, специализирующийся на поставках оборудования для автоматизации идентификации, сетевой инфраструктуры, систем хранения данных и решений кибербезопасности. Официальный партнер ведущих вендоров (Positive Technologies, INTEKEY, Рутокен)',
       category: 'Дистрибуция IT-оборудования',
       products: [
@@ -73,13 +81,12 @@ const Distributors = () => {
     {
       name: 'ELKO',
       logo: '/logos/elko.png',
+      website: 'https://www.elkogroup.com/',
       description: 'Дистрибьютор решений и технологий в области IT, работающий на рынке Европы и СНГ. Компания предлагает разнообразный ассортимент продуктов и услуг, обеспечивая высокое качество обслуживания. ELKO активно развивает инновационные направления, фокусируясь на потребностях клиентов и рынке.',
       category: 'Международная дистрибуция',
       products: ['ИТ-оборудование', 'Компоненты', 'Корпоративные решения']
     }
   ];
-
-  const categories = [...new Set(distributors.map(d => d.category))];
 
   return (
     <div className="min-h-screen bg-background relative overflow-hidden">
@@ -176,7 +183,7 @@ const Distributors = () => {
           <div className="absolute top-0 left-0 w-full h-full bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMDAwIDIwMCI+PHBhdGggZmlsbD0ibm9uZSIgc3Ryb2tlPSJyZ2JhKDEyLCA3NCwgMjU1LCAwLjIpIiBzdHJva2Utd2lkdGg9IjMiIGQ9Ik0tMiwxMDAgQzE1MCwxNTAgMzAwLDUwIDUwMCwxMjUgQzcwMCwyMDAgODUwLDc1IDEwMDIsMTAwIj48L3BhdGg+PC9zdmc+')] animate-wave-fast animation-delay-4000" />
         </div>
 
-        {/* Парящие геометрические фигуры - увеличенные и добавлены новые */}
+        {/* Парящие геометрические фигуры */}
         <div className="absolute top-1/4 left-1/4 w-40 h-40 bg-primary/10 rounded-full blur-xl animate-float animation-delay-0" />
         <div className="absolute bottom-1/4 right-1/4 w-56 h-56 bg-accent/10 rounded-full blur-xl animate-float animation-delay-3000" />
         <div className="absolute top-1/3 left-3/4 w-32 h-32 bg-primary/10 rounded-full blur-xl animate-float animation-delay-6000" />
@@ -184,14 +191,14 @@ const Distributors = () => {
         <div className="absolute top-1/5 right-1/5 w-64 h-64 bg-primary/5 rounded-lg blur-xl animate-float animation-delay-5000" />
         <div className="absolute bottom-1/5 left-1/5 w-72 h-72 bg-accent/5 rounded-lg blur-xl animate-float animation-delay-7000" />
 
-        {/* Анимированные градиенты - усиленные */}
+        {/* Анимированные градиенты */}
         <div className="absolute inset-0 opacity-15">
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-primary/15 to-transparent animate-pulse-slow" />
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_80%,_var(--tw-gradient-stops))] from-accent/15 to-transparent animate-pulse-medium animation-delay-2000" />
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_20%,_var(--tw-gradient-stops))] from-primary/10 to-transparent animate-pulse-medium animation-delay-4000" />
         </div>
 
-        {/* Движущиеся частицы - увеличенные и добавлены новые */}
+        {/* Движущиеся частицы */}
         {[...Array(120)].map((_, i) => (
           <div 
             key={`particle-${i}`}
@@ -227,7 +234,7 @@ const Distributors = () => {
           />
         ))}
 
-        {/* Дополнительные фоновые элементы - увеличенные */}
+        {/* Дополнительные фоновые элементы */}
         <div className="absolute top-1/3 right-1/3 w-24 h-24 border-2 border-primary/15 rounded-full animate-rotate-slow" />
         <div className="absolute bottom-1/3 left-1/3 w-32 h-32 border-2 border-accent/15 rounded-full animate-rotate-reverse" />
         <div className="absolute top-2/3 right-2/3 w-40 h-40 border border-primary/10 rounded-full animate-rotate-slow animation-delay-3000" />
@@ -257,70 +264,66 @@ const Distributors = () => {
           </p>
         </section>
 
-        {/* Категории */}
-        <section className="space-y-8">
-          <div className="flex flex-wrap gap-2 justify-center animate-fade-in-up animate-delay-100">
-            {categories.map((category) => (
-              <span 
-                key={category} 
-                className="px-4 py-2 text-sm bg-transparent border border-border/50 rounded-full cursor-default"
-              >
-                {category}
-              </span>
-            ))}
-          </div>
-        </section>
-
-        {/* Распределительная сетка*/}
+        {/* Распределительная сетка с ссылками на сайты */}
         <section className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {distributors.map((distributor, index) => (
-            <Card 
+            <a 
               key={distributor.name} 
-              className="group hover:shadow-lg transition-all duration-300 animate-fade-in-up bg-background/95 backdrop-blur-sm border-border/50 hover:border-primary/30"
-              style={{ animationDelay: `${index * 0.1}s` }}
+              href={distributor.website}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="block h-full"
             >
-              <CardHeader className="space-y-4">
-                <div className="flex items-center gap-4">
-                  {distributor.logo && (
-                    <div className="w-16 h-16 bg-white p-2 rounded-lg border flex items-center justify-center transition-transform group-hover:scale-105 group-hover:shadow-md">
-                      <img 
-                        src={distributor.logo} 
-                        alt={`Логотип ${distributor.name}`}
-                        className="max-h-full max-w-full object-contain"
-                        loading="lazy"
-                      />
-                    </div>
-                  )}
-                  <div className="space-y-2">
-                    <Badge variant="secondary" className="text-xs bg-secondary/10">
-                      {distributor.category}
-                    </Badge>
-                    <CardTitle className="text-lg leading-tight">{distributor.name}</CardTitle>
-                  </div>
-                </div>
-              </CardHeader>
-              <CardContent className="space-y-4">
-                <p className="text-muted-foreground">{distributor.description}</p>
-                <div className="space-y-2">
-                  <h4 className="text-sm font-medium">Основные направления:</h4>
-                  <div className="flex flex-wrap gap-2">
-                    {distributor.products.map((product) => (
-                      <Badge 
-                        key={product} 
-                        variant="outline" 
-                        className="text-xs bg-background/80 backdrop-blur-sm"
-                      >
-                        {product}
+              <Card 
+                className="group hover:shadow-lg transition-all duration-300 animate-fade-in-up bg-background/95 backdrop-blur-sm border-border/50 hover:border-primary/30 h-full"
+                style={{ animationDelay: `${index * 0.1}s` }}
+              >
+                <CardHeader className="space-y-4">
+                  <div className="flex items-center gap-4">
+                    {distributor.logo && (
+                      <div className="w-16 h-16 bg-white p-2 rounded-lg border flex items-center justify-center transition-transform group-hover:scale-105 group-hover:shadow-md">
+                        <img 
+                          src={distributor.logo} 
+                          alt={`Логотип ${distributor.name}`}
+                          className="max-h-full max-w-full object-contain"
+                          loading="lazy"
+                        />
+                      </div>
+                    )}
+                    <div className="space-y-2">
+                      <Badge variant="secondary" className="text-xs bg-secondary/10">
+                        {distributor.category}
                       </Badge>
-                    ))}
+                      <CardTitle className="text-lg leading-tight flex items-center gap-2">
+                        {distributor.name}
+                        <ExternalLink className="h-4 w-4 text-muted-foreground opacity-0 group-hover:opacity-100 transition-opacity" />
+                      </CardTitle>
+                    </div>
                   </div>
-                </div>
-              </CardContent>
-            </Card>
+                </CardHeader>
+                <CardContent className="space-y-4">
+                  <p className="text-muted-foreground">{distributor.description}</p>
+                  <div className="space-y-2">
+                    <h4 className="text-sm font-medium">Основные направления:</h4>
+                    <div className="flex flex-wrap gap-2">
+                      {distributor.products.map((product) => (
+                        <Badge 
+                          key={product} 
+                          variant="outline" 
+                          className="text-xs bg-background/80 backdrop-blur-sm"
+                        >
+                          {product}
+                        </Badge>
+                      ))}
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+            </a>
           ))}
         </section>
 
-        {/* CTА Раздел */}
+        {/* CTA Раздел */}
         <section className="text-center space-y-8 py-16 animate-fade-in-up">
           <div className="space-y-4">
             <h2 className="text-3xl md:text-4xl font-bold">Хотите узнать больше о сотрудничестве?</h2>
