@@ -323,25 +323,31 @@ const Distributors = () => {
           ))}
         </section>
 
-        {/* CTA Раздел */}
-        <section className="text-center space-y-8 py-16 animate-fade-in-up">
-          <div className="space-y-4">
-            <h2 className="text-3xl md:text-4xl font-bold">Хотите узнать больше о сотрудничестве?</h2>
-            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-              Наши специалисты помогут подобрать оптимальные решения от наших партнеров-дистрибьюторов под ваши задачи.
-            </p>
-          </div>
-          <Button 
-            asChild 
-            size="lg" 
-            className="text-lg px-8 hover:shadow-lg hover:shadow-primary/20 transition-all group"
-          >
-            <Link to="/contacts" className="flex items-center">
-              Получить консультацию
-              <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
-            </Link>
-          </Button>
-        </section>
+{/* CTA Раздел */}
+<section className="text-center space-y-8 py-16 rounded-xl relative overflow-hidden border border-muted/50 hover:shadow-lg transition-shadow group/cta animate-fade-in-up">
+  {/* Градиентный фон и декоративные элементы */}
+  <div className="absolute inset-0 bg-gradient-to-r from-primary/10 to-blue-600/10 backdrop-blur-sm opacity-100 group-hover/cta:opacity-80 transition-opacity"></div>
+  <div className="absolute -top-20 -right-20 w-40 h-40 rounded-full bg-primary/20 blur-xl animate-gradient-pulse"></div>
+  <div className="absolute -bottom-20 -left-20 w-60 h-60 rounded-full bg-accent/20 blur-xl animate-gradient-pulse animate-delay-2000"></div>
+  
+  {/* Контент */}
+  <div className="relative z-10 space-y-4">
+    <h2 className="text-3xl md:text-4xl font-bold">Интересуетесь сотрудничеством с нашими дистрибьюторами?</h2>
+    <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+      Наши специалисты помогут подобрать оптимальные решения от наших партнеров-дистрибьюторов под ваши задачи.
+    </p>
+    <Button 
+      asChild 
+      size="lg" 
+      className="text-lg px-8 hover:shadow-lg hover:shadow-primary/20 transition-all group/button bg-primary hover:bg-primary/90"
+    >
+      <Link to="/contacts" className="flex items-center">
+        Получить консультацию
+        <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover/button:translate-x-1" />
+      </Link>
+    </Button>
+  </div>
+</section>
       </main>
     </div>
   );

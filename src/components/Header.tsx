@@ -52,7 +52,6 @@ const Header = () => {
             </div>
             <div className="hidden sm:block">
               <div className="font-bold text-lg">КорИнфоТех</div>
-              <div className="text-xs text-muted-foreground">IT Solutions</div>
             </div>
           </Link>
 

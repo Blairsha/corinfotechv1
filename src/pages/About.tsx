@@ -360,7 +360,7 @@ const About = () => {
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {certificates.slice(0, 4).map((cert, index) => (
+            {certificates.map((cert, index) => (
               <div 
                 key={index}
                 className="relative bg-card rounded-xl border border-muted/50 p-6 hover:border-primary/30 transition-all duration-300 animate-fade-in-up hover:shadow-md group overflow-hidden cursor-pointer"
@@ -384,16 +384,6 @@ const About = () => {
                 </div>
               </div>
             ))}
-          </div>
-
-          <div className="text-center animate-fade-in-up">
-            <button 
-              className="inline-flex items-center justify-center px-6 py-3 border border-muted/50 rounded-full text-sm font-medium transition-all hover:bg-primary/10 hover:border-primary/30 hover:shadow-sm group"
-              onClick={openCertificatesModal}
-            >
-              <span>Посмотреть все сертификаты</span>
-              <ChevronRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
-            </button>
           </div>
         </section>
       </main>

@@ -13,13 +13,41 @@ import {
   Mail, 
   Clock, 
   Building,
-  ChevronRight,
-  Zap
+  ChevronRight
 } from 'lucide-react';
 
 const Contacts = () => {
   const [showPhone, setShowPhone] = useState(false);
   const [showEmail, setShowEmail] = useState(false);
+  const [isCalling, setIsCalling] = useState(false);
+  const [isMailing, setIsMailing] = useState(false);
+  
+  const phoneNumber = "8-499-262-54-55";
+  const emailAddress = "info@corinfotech.ru";
+
+  const handleCall = () => {
+    setIsCalling(true);
+    window.location.href = `tel:${phoneNumber}`;
+    setTimeout(() => setIsCalling(false), 3000);
+  };
+
+  const handleEmail = () => {
+    setIsMailing(true);
+    
+    // Пытаемся открыть Gmail в новом окне
+    const gmailUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=${emailAddress}&su=Вопрос по услугам&body=`;
+    const gmailWindow = window.open(gmailUrl, '_blank', 'noopener,noreferrer');
+    
+    // Проверяем, открылось ли окно Gmail
+    const gmailCheck = setInterval(() => {
+      if (!gmailWindow || gmailWindow.closed || typeof gmailWindow.closed === 'undefined') {
+        clearInterval(gmailCheck);
+        // Если Gmail не открылся, используем стандартный mailto
+        window.location.href = `mailto:${emailAddress}?subject=Вопрос по услугам&body=Здравствуйте, у меня вопрос...`;
+      }
+      setIsMailing(false);
+    }, 500);
+  };
 
   return (
     <div className="min-h-screen bg-background relative overflow-hidden">
@@ -29,7 +57,7 @@ const Contacts = () => {
         <div className="absolute inset-0 opacity-10">
           <div className="absolute top-0 left-0 w-full h-full bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMDAwIDIwMCI+PHBhdGggZmlsbD0ibm9uZSIgc3Ryb2tlPSJyZ2JhKDEyLCA3NCwgMjU1LCAwLjIpIiBzdHJva2Utd2lkdGg9IjMiIGQ9Ik0tMiwxMjUgQzE1MCwxMDAgMzAwLDE1MCA1MDAsMTAwIEM3MDAsNTAgODUwLDE1MCAxMDAyLDUwIj48L3BhdGg+PC9zdmc+')] animate-wave-slow" />
           <div className="absolute top-0 left-0 w-full h-full bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMDAwIDIwMCI+PHBhdGggZmlsbD0ibm9uZSIgc3Ryb2tlPSJyZ2JhKDEyLCA3NCwgMjU1LCAwLjIpIiBzdHJva2Utd2lkdGg9IjMiIGQ9Ik0tMiwxNTAgQzE1MCwxMDAgMzAwLDE1MCA1MDAsNzUgQzcwMCwxNTAgODUwLDUwIDEwMDIsMTI1Ij48L3BhdGg+PC9zdmc+')] animate-wave-medium animation-delay-2000" />
-<div className="absolute top-0 left-0 w-full h-full bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMDAwIDIwMCI+PHBhdGggZmlsbD0ibm9uZSIgc3Ryb2tlPSJyZ2JhKDEyLCA3NCwgMjU1LCAwLjIpIiBzdHJva2Utd2lkdGg9IjMiIGQ9Ik0tMiwxMDAgQzE1MCwxNTAgMzAwLDUwIDUwMCwxMjUgQzcwMCwyMDAgODUwLDc1IDEwMDIsMTAwIj48L3BhdGg+PC9zdmc+')] animate-wave-fast animation-delay-4000" />
+          <div className="absolute top-0 left-0 w-full h-full bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMDAwIDIwMCI+PHBhdGggZmlsbD0ibm9uZSIgc3Ryb2tlPSJyZ2JhKDEyLCA3NCwgMjU1LCAwLjIpIiBzdHJva2Utd2lkdGg9IjMiIGQ9Ik0tMiwxMDAgQzE1MCwxNTAgMzAwLDUwIDUwMCwxMjUgQzcwMCwyMDAgODUwLDc1IDEwMDIsMTAwIj48L3BhdGg+PC9zdmc+')] animate-wave-fast animation-delay-4000" />
         </div>
 
         {/* Парящие геометрические фигуры */}
@@ -62,20 +90,20 @@ const Contacts = () => {
       {/* Header */}
       <Header />
 
-      {/* Основной контент - Уменьшен верхний отступ */}
+      {/* Основной контент */}
       <div className="container mx-auto px-4 relative z-10 py-8 md:py-12 mt-8">
         <div className="max-w-7xl mx-auto space-y-12 md:space-y-16">
-          {/* Hero Section - Поднята выше */}
+          {/* Hero Section */}
           <section className="text-center space-y-6 animate-fade-in-up">
             <div className="inline-flex items-center justify-center px-4 py-2 rounded-full bg-muted/50 text-sm font-medium animate-fade-in">
               <MapPin className="h-4 w-4 mr-2 text-primary" />
               Мы находимся в Москве
             </div>
             <h1 className="text-4xl md:text-6xl font-bold tracking-tight">
-            <span className="bg-gradient-to-r from-primary to-primary/70 bg-clip-text text-transparent">
-              Наши контакты
-            </span>
-          </h1>
+              <span className="bg-gradient-to-r from-primary to-primary/70 bg-clip-text text-transparent">
+                Наши контакты
+              </span>
+            </h1>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
               Свяжитесь с нами удобным для вас способом
             </p>
@@ -103,13 +131,13 @@ const Contacts = () => {
                       { 
                         icon: Phone, 
                         title: "Телефон", 
-                        content: "8-499-262-54-55",
+                        content: phoneNumber,
                         action: () => setShowPhone(!showPhone)
                       },
                       { 
                         icon: Mail, 
                         title: "E-mail", 
-                        content: "info@corinfotech.ru",
+                        content: emailAddress,
                         action: () => setShowEmail(!showEmail)
                       },
                       { 
@@ -150,26 +178,54 @@ const Contacts = () => {
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <Button 
                   size="lg" 
-                  className="w-full group"
-                  onClick={() => setShowPhone(!showPhone)}
+                  className="w-full group relative overflow-hidden"
+                  onClick={handleCall}
+                  disabled={isCalling}
                 >
                   <Phone className="mr-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
-                  Позвонить
-                  {showPhone && (
-                    <span className="ml-2 font-medium">8-499-262-54-55</span>
+                  {isCalling ? (
+                    <span className="flex items-center">
+                      <span className="animate-pulse">Набор номера</span>
+                      <span className="ml-2 font-medium">{phoneNumber}</span>
+                    </span>
+                  ) : (
+                    <>
+                      Позвонить
+                      {showPhone && (
+                        <span className="ml-2 font-medium">{phoneNumber}</span>
+                      )}
+                    </>
+                  )}
+                  
+                  {isCalling && (
+                    <span className="absolute inset-0 bg-primary/10 animate-pulse" />
                   )}
                 </Button>
                 
                 <Button 
                   variant="outline" 
                   size="lg" 
-                  className="w-full group"
-                  onClick={() => setShowEmail(!showEmail)}
+                  className="w-full group relative overflow-hidden"
+                  onClick={handleEmail}
+                  disabled={isMailing}
                 >
                   <Mail className="mr-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
-                  Написать
-                  {showEmail && (
-                    <span className="ml-2 font-medium">info@corinfotech.ru</span>
+                  {isMailing ? (
+                    <span className="flex items-center">
+                      <span className="animate-pulse">Открытие почты</span>
+                      <span className="ml-2 font-medium">{emailAddress}</span>
+                    </span>
+                  ) : (
+                    <>
+                      Написать на почту
+                      {showEmail && (
+                        <span className="ml-2 font-medium">{emailAddress}</span>
+                      )}
+                    </>
+                  )}
+                  
+                  {isMailing && (
+                    <span className="absolute inset-0 bg-primary/5 animate-pulse" />
                   )}
                 </Button>
               </div>

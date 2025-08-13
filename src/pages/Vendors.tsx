@@ -4,214 +4,235 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
-import { ArrowRight, Server, Cpu, BatteryFull, Shield, Monitor, Phone, Power, HardDrive, Video, Network, Code, Factory, Printer, Laptop, Smartphone, Wifi, ChevronLeft, ChevronRight } from 'lucide-react';
+import { ArrowRight, Server, Cpu, BatteryFull, Shield, Monitor, Phone, Power, HardDrive, Video, Network, Code, Factory, Printer, Laptop, Smartphone, Wifi, ChevronLeft, ChevronRight, ExternalLink } from 'lucide-react';
 
 const Vendors = () => {
   const allManufacturers = [
     {
       name: 'AudioCodes',
       logo: '/logos/audiocodes.png',
-      description: 'Производитель VoIP-шлюзов и решений для интеграции TDM/IP сетей с поддержкой SIP-протокола',
+      description: 'Мировой лидер в области унифицированных коммуникаций, голосовой связи, контакт центров.',
       category: 'Телефония и VoIP-оборудование',
-      products: ['FXS/FXO шлюзы', 'SBC', 'Цифровые VoIP-шлюзы E1']
+      products: ['IP-телефоны', 'маршрутизаторы', 'Цифровые VoIP-шлюзы E1'],
+      website: 'https://www.audiocodes.com/'
     },
     {
       name: 'ООО "АТС-КОНВЕРС"',
       logo: '/logos/ats-konvers.png',
-      description: 'Системы защиты от перепадов напряжения и ИБП промышленного класса',
+      description: 'Деятельность связана с наукоемкими разработками и производством систем гарантированного электропитания, устройств повышения качества электроэнергии, а также электронной защиты оборудования.',
       category: 'Системы электропитания',
-      products: ['Стабилизаторы 220В', 'Промышленные ИБП', 'Защита серверного оборудования']
+      products: ['Стабилизаторы ', 'ИБП', 'АКБ'],
+      website: 'https://www.atsconvers.ru/'
     },
     {
       name: 'БАСТИОН',
       logo: '/logos/bastion.png',
-      description: 'Разработка и производство профессиональных источников бесперебойного питания и электротехнического оборудования',
+      description: 'Разработка и производство профессиональных источников бесперебойного питания и электротехнического оборудования.',
       category: 'Электропитание',
-      products: ['ИБП', 'Стабилизаторы', 'Сетевая защита']
+      products: ['ИБП', 'Стабилизаторы', 'Сетевая защита', 'АКБ'],
+      website: 'https://bast.ru/'
     },
     {
       name: 'Гравитон',
       logo: '/logos/graviton.png',
-      description: 'Российские серверные решения и рабочие станции с локализацией производства',
+      description: 'занимает одну из лидирующих позиций на российском рынке вычислительной техники.',
       category: 'Серверное оборудование',
-      products: ['Rack-серверы', 'Вычислительные кластеры', 'Отечественные ПК']
+      products: ['Ноутбуки', 'Моноблоки', 'Мини-ПК', 'Рабочие станции', 'Мониторы', 'МФУ', 'Принтер', 'ПК'],
+      website: 'https://graviton.ru/'
     },
     {
       name: 'Dahua Technology',
       logo: '/logos/dahua.png',
-      description: 'Интеллектуальные системы видеоаналитики с распознаванием лиц и температурным скринингом',
+      description: 'Разработка интеллектуальные системы видеоаналитики с распознаванием лиц и температурным скринингом.',
       category: 'Системы безопасности',
-      products: ['Тепловизоры', 'Умные видеокамеры', 'Видеорегистраторы с ИИ']
+      products: ['Камеры видеонаблюдения', 'Системы хранения данных', 'IP-камеры'],
+      website: 'https://www.dahuasecurity.com/'
     },
     {
       name: 'Delta Computers',
       logo: '/logos/delta.png',
-      description: 'Отечественный производитель IT-оборудования и ПО с повышенной отказоустойчивостью',
+      description: 'Российский разработчик и производитель IT-оборудования. В портфеле продуктов Delta Computers — серверы общего назначения, high-end серверы, GPU-решения, коммутаторы, системы хранения, шасси, персональные компьютеры, мониторы, автоматизированные рабочие места, а также сопутствующее программное обеспечение, в том числе микроконтроллерное.',
       category: 'Оборудование',
-      products: ['Серверы', 'СХД', 'Сетевое оборудование']
+      products: ['Персональные компьютеры', 'Моноблоки', 'Мониторы', 'APM'],
+      website: 'https://deltacomputers.ru/'
     },
     {
       name: 'Zelax',
       logo: '/logos/zelax.png',
-      description: 'Мультисервисные коммутаторы для конвергентных сетей передачи данных',
-      category: 'Телекоммуникационное оборудование',
-      products: ['SDH-коммутаторы', 'Маршрутизаторы Carrier-class', 'VoIP-шлюзы']
+      description: 'Ведущий российский разработчик и производитель решений для сетей передачи данных',
+      category: 'Телекоммуникационное оборудование.',
+      products: ['Коммутаторы', 'Маршрутизаторы', 'Шлюзы VoIP, TDMoP, RoIP', 'Модемы'],
+      website: 'https://www.zelax.ru/'
     },
     {
       name: 'ИМПУЛЬС',
       logo: '/logos/impuls.png',
-      description: 'Разработка и производство систем защиты электропитания с собственным R&D',
+      description: 'Разработка и производство систем защиты электропитания.',
       category: 'Электропитание',
-      products: ['ИБП', 'Стабилизаторы', 'Защитные устройства']
+      products: ['ИБП', 'Стабилизаторы'],
+      website: 'https://impuls.energy/'
     },
 
     {
       name: 'IRBIS',
       logo: '/logos/irbis.png',
-      description: 'Производитель современного оборудования для коммерческого и потребительского рынка',
+      description: 'Российский производитель оборудования для коммерческого и потребительского рынка.',
       category: 'Оборудование',
-      products: ['ПК', 'Моноблоки', 'Серверы', 'Мониторы']
+      products: ['ПК', 'Моноблоки', 'Ноутбуки', 'Телевизоры', 'Мониторы'],
+      website: 'https://www.irbis.su/'
     },
     {
       name: 'ISS (SecurOS)',
       logo: '/logos/iss.png',
-      description: 'Платформа видеоаналитики с биометрическим распознаванием и интеграцией с СКУД',
+      description: 'Российский разработчик профессиональных IT-решения для бизнеса и промышленности.',
       category: 'Системы безопасности',
-      products: ['Распознавание лиц', 'Детекция масок', 'Интеграция с PERCo-Web']
+      products: ['Видеосервера', 'Комплексные системы безопасности и технического контроля.'],
+      website: 'https://iss.ru/'
     },
     {
       name: 'CyberPower',
       logo: '/logos/cyberpower.png',
-      description: 'Разработка систем бесперебойного питания и программных средств мониторинга электропитания',
+      description: 'Производитель оборудования для управления электропитанием.',
       category: 'Электропитание',
-      products: ['ИБП', 'ПО мониторинга', 'Аксессуары']
+      products: ['ИБП', 'ПО для управления энергией', 'Защита от скачков напряжения'],
+      website: 'https://www.cyberpower.com/ru/ru'
     },
     {
       name: 'Kvadra',
       logo: '/logos/kvadra.png',
       description: 'Производитель клиентских устройств, совместимых с российским ПО',
       category: 'Оборудование',
-      products: ['ПК', 'Моноблоки', 'Тонкие клиенты']
+      products: ['ПК', 'Моноблоки', 'Планшеты', 'Ноутбуки'],
+      website: 'https://квадра.рф/'
     },
     {
       name: 'QTECH',
       logo: '/logos/qtech.png',
-      description: 'Пассивное сетевое оборудование для ЦОД и телекоммуникационных решений',
+      description: 'Российский разработчик и производитель телекоммуникационного и IT-оборудования.',
       category: 'Сетевая инфраструктура',
-      products: ['SFP+ кабели', 'Кросс-панели', 'Монтажные комплекты']
+      products: ['Коммутаторы', 'Маршрутизаторы', 'Северное оборудование', 'Системы хранения данных', 'ИБП', 'Видеонаблюдения'],
+      website: 'https://www.qtech.ru/'
     },
     {
       name: 'LightCom',
       logo: '/logos/lightcom.png',
-      description: 'Российский производитель компьютерного оборудования для госсектора',
+      description: 'Российский производитель компьютерного оборудования для госсектора и коммерческого сектора.',
       category: 'Оборудование',
-      products: ['Мониторы', 'Серверы', 'Рабочие станции']
+      products: ['Мониторы', 'ПО', 'Персональные компьютеры', 'Рабочие станции', 'Моноблоки'],
+      website: 'https://lightcom.msk.ru/'
     },
     {
       name: 'NexTouch',
       logo: '/logos/nextouch.png',
-      description: 'Лидер по производству сенсорных дисплеев в России для образования',
+      description: 'Крупнейший российский производитель интерактивного оборудования.',
       category: 'Оборудование',
-      products: ['Интерактивные панели', 'Дисплеи', 'Средства ВТ']
+      products: ['Интерактивные панели', 'Дисплеи'],
+      website: 'https://nextouch.ru/'
     },
     {
-            name: 'Pantum',
+      name: 'Pantum',
       logo: '/logos/pantum.png',
-      description: 'Энергоэффективные принтеры с замкнутым циклом переработки картриджей',
+      description: 'Международная китайская компания, которая занимается разработкой, производством и продажей расходных материалов и оборудования для печати.',
       category: 'Офисная техника',
-      products: ['Лазерные МФУ', 'Экосервис картриджей', 'Сетевые принтеры']
+      products: ['МФУ', 'Принтеры'],
+      website: 'https://www.pantum.ru/'
     },
     {
       name: 'Парус электро',
       logo: '/logos/parus.png',
-      description: 'Полный цикл работ по системам электропитания инфраструктурного оборудования',
+      description: 'Российский разработчик и производитель источников бесперебойного питания, зарядных станций электромобилей и другой силовой преобразовательной техники.',
       category: 'Электропитание',
-      products: ['ИБП', 'Стабилизаторы', 'Распределительные щиты']
+      products: ['ИБП', 'АКБ', 'Распределительные щиты'],
+      website: 'https://parus-electro.ru/'
     },
     {
-  name: 'Proway',
-  logo: '/logos/proway.png',
-  description: 'Российский производитель серверов и систем хранения данных для ЦОД',
-  category: 'Серверное оборудование',
-  products: ['Rack-серверы', 'СХД', 'Кластерные решения']
-},
-{
-  name: 'RDW',
-  logo: '/logos/RDW-comp.png',
-  description: 'Производитель серверов с гибридным бэкплейном для SAS/SATA/NVMe-накопителей, включенных в реестр Минпромторга',
-  category: 'Серверное оборудование',
-  products: ['Серверы для ЦОД', 'Промышленные компьютеры', 'Системы хранения']
-},
-{
-  name: 'SberDevices',
-  logo: '/logos/sberdevices.png',
-  description: 'Производитель smart-TV с miniLED-дисплеями и голосовым ассистентом Салют',
-  category: 'Потребительская электроника',
-  products: ['Телевизоры', 'Умные колонки', 'ОС Салют ТВ']
-},
-{
-  name: 'Сайбер Электро',
-  logo: '/logos/cyber-electro.png',
-  description: 'Профессиональные ИБП для ЦОД и промышленности с сервисными байпасами',
-  category: 'Системы электропитания',
-  products: ['Трехфазные ИБП', 'Модульные системы', 'Шкафы для АКБ']
-},
-{
-  name: 'Систэм Электрик',
-  logo: '/logos/system-electric.png',
-  description: 'Системы автоматизации распределения электроэнергии с цифровым мониторингом',
-  category: 'Энергораспределение и автоматизация',
-  products: ['Умные щиты', 'ПЛК-контроллеры', 'SCADA-системы']
-},
-{
-  name: 'ФЛАТ-ПРО',
-  logo: '/logos/flat-pro.png',
-  description: 'Отечественные IP-телефоны с поддержкой 30 SIP-аккаунтов и русскоязычным интерфейсом',
-  category: 'VoIP-оборудование',
-  products: ['IP-телефоны B10', 'VoIP-шлюзы', 'Система Device Manager']
-},
-{
-  name: 'Fplus',
-  logo: '/logos/fplus.png',
-  description: 'Серверные решения российской сборки с процессорами Intel Xeon Scalable',
-  category: 'Серверное оборудование',
-  products: ['Серверы Восход', 'Кластерные системы', 'Модули расширения']
-},
-{
-  name: 'Huawei',
-  logo: '/logos/huawei.png',
-  description: 'Решения 5.5G и интеллектуальные сети следующего поколения',
-  category:  'Сетевое оборудование',
-  products: ['Маршрутизаторы NetEngine', 'Серверы FusionServer', 'SDN-контроллеры']
-},
-{
-  name: 'ЭЛТЕКС',
-  logo: '/logos/eltex.png',
-  description: 'Беспроводные контроллеры WLC-HW и программные решения SoftWLC',
-  category: 'Беспроводные сети',
-  products: ['Wi-Fi контроллеры', 'POE-коммутаторы', 'IoT-шлюзы']
-},
-{
-  name: 'YADRO',
-  logo: '/logos/yadro.png',
-  description: 'Высокопроизводительные СХД с поддержкой NVMe-oF и RDMA',
-  category: 'Системы хранения данных',
-  products: ['Кластерные СХД', 'Серверы Katana', 'Программные-defined storage']
-},
-{
-  name: 'Yealink',
-  logo: '/logos/yealink.png',
-  description: 'Видеотелефоны для Microsoft Teams и решения гибридной работы',
-  category: 'Видеокоммуникации',
-  products: ['Видеобары MeetingBar', 'Трибкины', 'Сертифицированные устройства']
-},
-{
-  name: 'Yeastar',
-  logo: '/logos/yeastar.png',
-  description: 'Гибридные АТС NeoGate с поддержкой GSM и VoIP-шлюзы FXS/FXO',
-  category: 'VoIP-оборудование',
-  products: ['IP-АТС S300', 'VoIP-шлюзы TG400W', 'Модули расширения']
-}
+      name: 'RDW',
+      logo: '/logos/RDW-comp.png',
+      description: 'Производитель серверов с гибридным бэкплейном для SAS/SATA/NVMe-накопителей, включенных в реестр Минпромторга',
+      category: 'Серверное оборудование',
+      products: ['Серверы и СХД', 'Персональные компьютеры', 'Моноблоки', 'Мониторы'],
+      website: 'https://rdwcomp.ru/'
+    },
+    {
+      name: 'SberDevices',
+      logo: '/logos/sberdevices.png',
+      description: 'Российский IT-компания, занимающаяся разработкой и производством умных устройств и программного обеспечения для потребителей и бизнеса.',
+      category: 'Потребительская электроника',
+      products: ['Телевизоры', 'Умные колонки', 'Интерактивные панели'],
+      website: 'https://sberdevices.ru/'
+    },
+    {
+      name: 'Сайбер Электро',
+      logo: '/logos/cyber-electro.png',
+      description: 'Российский бренд, производитель источников бесперебойного питания. Является совокупностью инновационных технологий, энергоэффективности, высокой надежности и производительности.',
+      category: 'Системы электропитания',
+      products: ['ИБП', 'Трехфазные ИБП', 'Модульные системы'],
+      website: 'https://сайберэлектро.рф/'
+    },
+    {
+      name: 'Систэм Электрик',
+      logo: '/logos/system-electric.png',
+      description: 'Российская производственная компания, разработчик и производитель решений в области распределения электроэнергии, автоматизации, инженерной инфраструктуры ЦОД и программного обеспечения.',
+      category: 'Энергораспределение и автоматизация',
+      products: ['ИБП', 'Электроустановочные изделия и аксессуары', 'Модульное оборудоване и щитки', 'Распределение электроэнергии низкого и среднего напряжения'],
+      website: 'https://systeme.ru/'
+    },
+    {
+      name: 'ФЛАТ-ПРО',
+      logo: '/logos/flat-pro.png',
+      description: 'Российский разработчик программно-аппаратных решений в области связи.',
+      category: 'VoIP-оборудование',
+      products: ['IP-телефоны', 'ПО'],
+      website: 'https://flat-pro.ru/'
+    },
+    {
+      name: 'Fplus',
+      logo: '/logos/fplus.png',
+      description: 'Российский производитель инфраструтурного оборудования, входит в одноимённых IT-холдинг.',
+      category: 'Серверное оборудование',
+      products: ['Принтеры', 'МФУ', 'Персональные компьютеры', 'Серверы', 'Системы хранения данных', 'Сетевое оборудование'],
+      website: 'https://fplustech.ru/'
+    },
+    {
+      name: 'Huawei',
+      logo: '/logos/huawei.png',
+      description: 'Китайская компания, один из лидеров в области телекоммуникаций, производитель смартфонов и бытовой электроники.',
+      category:  'Сетевое оборудование',
+      products: ['Смартфоны', 'ПО и лицензии', 'Оборудование для сетей', 'Ноутбуки','Планшеты'],
+      website: 'https://www.huawei.ru/'
+    },
+    {
+      name: 'ЭЛТЕКС',
+      logo: '/logos/eltex.png',
+      description: 'Ведущий российский разработчик и производитель телекоммуникационного оборудования.',
+      category: 'Беспроводные сети',
+      products: ['Коммутаторы', 'Маршрутизаторы', 'Видеонаблюдения и СКУД', 'Wi-Fi оборудование','VoIP - телефония'],
+      website: 'https://eltex-co.ru/'
+    },
+    {
+      name: 'YADRO',
+      logo: '/logos/yadro.png',
+      description: 'Российская IT-компания, производитель IT-оборудования, входит в состав "ИКС-Холдинга".',
+      category: 'Системы хранения данных',
+      products: ['Системы хранения данных', 'Серверы', 'Коммутаторы'],
+      website: 'https://yadro.com/'
+    },
+    {
+      name: 'Yealink',
+      logo: '/logos/yealink.png',
+      description: 'Ведущий мировой производитель абонентского оборудования для IP-телефонии  и видео-конференц-связи.',
+      category: 'Видеокоммуникации',
+      products: ['IP-телефоны', 'Гарнитуры'],
+      website: 'https://www.yea-rus.ru/'
+    },
+    {
+      name: 'Yeastar',
+      logo: '/logos/yeastar.png',
+      description: 'Производитель и разработчик IP-ATC, шлюзов и модулей.',
+      category: 'VoIP-оборудование',
+      products: ['IP-ATC', 'Модули', 'Шлюзы'],
+      website: 'https://yeastar.ru/'
+    }
   ];
 
   // Разделяем вендоров на группы по 15 на страницу
@@ -445,49 +466,59 @@ const Vendors = () => {
         {/* Производители сетки */}
         <section className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {currentVendors.map((manufacturer, index) => (
-            <Card 
+            <a 
               key={manufacturer.name} 
-              className="group hover:shadow-lg transition-all duration-300 animate-fade-in-up bg-background/90 backdrop-blur-sm border-border/50 hover:border-primary/30"
-              style={{ animationDelay: `${index * 0.1}s` }}
+              href={manufacturer.website}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="block h-full"
             >
-              <CardHeader className="space-y-4">
-                <div className="flex items-center gap-4">
-                  {manufacturer.logo && (
-                    <div className="w-16 h-16 bg-white p-2 rounded-lg border flex items-center justify-center transition-transform group-hover:scale-105 group-hover:shadow-md">
-                      <img 
-                        src={manufacturer.logo} 
-                        alt={`Логотип ${manufacturer.name}`}
-                        className="max-h-full max-w-full object-contain"
-                        loading="lazy"
-                      />
-                    </div>
-                  )}
-                  <div className="space-y-2">
-                    <Badge variant="secondary" className="text-xs bg-secondary/10">
-                      {manufacturer.category}
-                    </Badge>
-                    <CardTitle className="text-lg leading-tight">{manufacturer.name}</CardTitle>
-                  </div>
-                </div>
-              </CardHeader>
-              <CardContent className="space-y-4">
-                <p className="text-muted-foreground">{manufacturer.description}</p>
-                <div className="space-y-2">
-                  <h4 className="text-sm font-medium">Продукция:</h4>
-                  <div className="flex flex-wrap gap-2">
-                    {manufacturer.products.map((product) => (
-                      <Badge 
-                        key={product} 
-                        variant="outline" 
-                        className="text-xs bg-background/80 backdrop-blur-sm"
-                      >
-                        {product}
+              <Card 
+                className="group hover:shadow-lg transition-all duration-300 animate-fade-in-up bg-background/90 backdrop-blur-sm border-border/50 hover:border-primary/30 h-full"
+                style={{ animationDelay: `${index * 0.1}s` }}
+              >
+                <CardHeader className="space-y-4">
+                  <div className="flex items-center gap-4">
+                    {manufacturer.logo && (
+                      <div className="w-16 h-16 bg-white p-2 rounded-lg border flex items-center justify-center transition-transform group-hover:scale-105 group-hover:shadow-md">
+                        <img 
+                          src={manufacturer.logo} 
+                          alt={`Логотип ${manufacturer.name}`}
+                          className="max-h-full max-w-full object-contain"
+                          loading="lazy"
+                        />
+                      </div>
+                    )}
+                    <div className="space-y-2">
+                      <Badge variant="secondary" className="text-xs bg-secondary/10">
+                        {manufacturer.category}
                       </Badge>
-                    ))}
+                      <CardTitle className="text-lg leading-tight flex items-center gap-2">
+                        {manufacturer.name}
+                        <ExternalLink className="h-4 w-4 text-muted-foreground opacity-0 group-hover:opacity-100 transition-opacity" />
+                      </CardTitle>
+                    </div>
                   </div>
-                </div>
-              </CardContent>
-            </Card>
+                </CardHeader>
+                <CardContent className="space-y-4">
+                  <p className="text-muted-foreground">{manufacturer.description}</p>
+                  <div className="space-y-2">
+                    <h4 className="text-sm font-medium">Продукция:</h4>
+                    <div className="flex flex-wrap gap-2">
+                      {manufacturer.products.map((product) => (
+                        <Badge 
+                          key={product} 
+                          variant="outline" 
+                          className="text-xs bg-background/80 backdrop-blur-sm"
+                        >
+                          {product}
+                        </Badge>
+                      ))}
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+            </a>
           ))}
         </section>
 

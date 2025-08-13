@@ -1,7 +1,75 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { ArrowRight, Server, Shield, Zap, Circle, Hexagon, Rss } from 'lucide-react';
+
+const AnimatedCounter = ({ value, suffix = '' }: { value: string; suffix?: string }) => {
+  const [displayValue, setDisplayValue] = useState('0');
+  const [isVisible, setIsVisible] = useState(false);
+  const ref = React.useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+          observer.unobserve(entry.target);
+        }
+      },
+      { threshold: 0.1 }
+    );
+
+    if (ref.current) {
+      observer.observe(ref.current);
+    }
+
+    return () => {
+      if (ref.current) {
+        observer.unobserve(ref.current);
+      }
+    };
+  }, []);
+
+  useEffect(() => {
+    if (!isVisible) return;
+
+    // Проверяем, содержит ли значение символы + или /
+    if (value.includes('+') || value.includes('/')) {
+      // Для значений типа "100+" или "24/7" просто устанавливаем значение без анимации
+      setDisplayValue(value);
+      return;
+    }
+
+    const target = parseInt(value.replace(/\D/g, ''), 10);
+    const duration = 2000; // 2 секунды
+    const start = 0;
+    const startTime = Date.now();
+
+    const animate = () => {
+      const elapsed = Date.now() - startTime;
+      const progress = Math.min(elapsed / duration, 1);
+      const current = Math.floor(progress * (target - start) + start);
+      
+      setDisplayValue(current.toString());
+      
+      if (progress < 1) {
+        requestAnimationFrame(animate);
+      } else {
+        setDisplayValue(value); // Убедимся, что финальное значение точное
+      }
+    };
+
+    requestAnimationFrame(animate);
+  }, [isVisible, value]);
+
+  return (
+    <div ref={ref}>
+      <div className="text-3xl font-bold text-primary">
+        {displayValue}{suffix}
+      </div>
+    </div>
+  );
+};
 
 const Hero = () => {
   const navigate = useNavigate();
@@ -146,16 +214,16 @@ const Hero = () => {
                   
                   <div className="grid grid-cols-2 gap-6">
                     {[
-                      { value: "342", label: "Проектов" },
-                      { value: "24/7", label: "Техническая поддержка" },
-                      { value: "100+", label: "Клиентов" },
-                      { value: "15+", label: "Лет опыта" }
+                      { value: "342", label: "Проектов", suffix: "" },
+                      { value: "24/7", label: "Техническая поддержка", suffix: "" },
+                      { value: "100", label: "Клиентов", suffix: "+" },
+                      { value: "15", label: "Лет опыта", suffix: "+" }
                     ].map((stat, i) => (
                       <div 
                         key={i}
                         className="text-center p-4 bg-muted/30 hover:bg-muted/50 rounded-xl border border-muted/50 transition-all cursor-default"
                       >
-                        <div className="text-3xl font-bold text-primary">{stat.value}</div>
+                        <AnimatedCounter value={stat.value} suffix={stat.suffix} />
                         <div className="text-sm text-muted-foreground">{stat.label}</div>
                       </div>
                     ))}

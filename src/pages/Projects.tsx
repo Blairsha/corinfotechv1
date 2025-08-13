@@ -233,21 +233,25 @@ const Projects = () => {
     setExpandedProject(expandedProject === index ? null : index);
   };
 
-  const nextPage = () => {
-    if (currentPage < projectGroups.length - 1) {
-      setCurrentPage(prev => prev + 1);
-      setExpandedProject(null);
+const nextPage = () => {
+  if (currentPage < projectGroups.length - 1) {
+    setCurrentPage(prev => prev + 1);
+    setExpandedProject(null);
+    setTimeout(() => {
       window.scrollTo({ top: 0, behavior: 'smooth' });
-    }
-  };
+    }, 50);
+  }
+};
 
-  const prevPage = () => {
-    if (currentPage > 0) {
-      setCurrentPage(prev => prev - 1);
-      setExpandedProject(null);
+const prevPage = () => {
+  if (currentPage > 0) {
+    setCurrentPage(prev => prev - 1);
+    setExpandedProject(null);
+    setTimeout(() => {
       window.scrollTo({ top: 0, behavior: 'smooth' });
-    }
-  };
+    }, 50);
+  }
+};
 
   return (
     <div className="min-h-screen bg-background relative overflow-hidden">
@@ -288,7 +292,7 @@ const Projects = () => {
         <div className="absolute inset-0 opacity-10">
           <div className="absolute top-0 left-0 w-full h-full bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMDAwIDIwMCI+PHBhdGggZmlsbD0ibm9uZSIgc3Ryb2tlPSJyZ2JhKDEyLCA3NCwgMjU1LCAwLjIpIiBzdHJva2Utd2lkdGg9IjMiIGQ9Ik0tMiwxMjUgQzE1MCwxMDAgMzAwLDE1MCA1MDAsMTAwIEM3MDAsNTAgODUwLDE1MCAxMDAyLDUwIj48L3BhdGg+PC9zdmc+')] animate-wave-slow" />
           <div className="absolute top-0 left-0 w-full h-full bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMDAwIDIwMCI+PHBhdGggZmlsbD0ibm9uZSIgc3Ryb2tlPSJyZ2JhKDEyLCA3NCwgMjU1LCAwLjIpIiBzdHJva2Utd2lkdGg9IjMiIGQ9Ik0tMiwxNTAgQzE1MCwxMDAgMzAwLDE1MCA1MDAsNzUgQzcwMCwxNTAgODUwLDUwIDEwMDIsMTI1Ij48L3BhdGg+PC9zdmc+')] animate-wave-medium animation-delay-2000" />
-<div className="absolute top-0 left-0 w-full h-full bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMDAwIDIwMCI+PHBhdGggZmlsbD0ibm9uZSIgc3Ryb2tlPSJyZ2JhKDEyLCA3NCwgMjU1LCAwLjIpIiBzdHJva2Utd2lkdGg9IjMiIGQ9Ik0tMiwxMDAgQzE1MCwxNTAgMzAwLDUwIDUwMCwxMjUgQzcwMCwyMDAgODUwLDc1IDEwMDIsMTAwIj48L3BhdGg+PC9zdmc+')] animate-wave-fast animation-delay-4000" />
+          <div className="absolute top-0 left-0 w-full h-full bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMDAwIDIwMCI+PHBhdGggZmlsbD0ibm9uZSIgc3Ryb2tlPSJyZ2JhKDEyLCA3NCwgMjU1LCAwLjIpIiBzdHJva2Utd2lkdGg9IjMiIGQ9Ik0tMiwxMDAgQzE1MCwxNTAgMzAwLDUwIDUwMCwxMjUgQzcwMCwyMDAgODUwLDc1IDEwMDIsMTAwIj48L3BhdGg+PC9zdmc+')] animate-wave-fast animation-delay-4000" />
         </div>
 
         {/* Парящие геометрические фигуры */}
@@ -304,36 +308,30 @@ const Projects = () => {
         </div>
 
         {/* Движущиеся частицы */}
-{[...Array(200)].map((_, i) => (
-  <div 
-    key={`particle-${i}`}
-    className="absolute w-1.5 h-1.5 bg-primary/20 rounded-full pointer-events-none"
-    style={{
-      top: `${Math.random() * 100}%`,
-      left: `${Math.random() * 100}%`,
-      animation: `move-diagonal ${10000 + Math.random() * 10000}ms infinite ${Math.random() * 5000}ms`,
-      opacity: 0.1 + Math.random() * 0.2,
-      transform: `scale(${0.5 + Math.random() * 1.5})`
-    }}
-  />
-))}
+        {[...Array(200)].map((_, i) => (
+          <div 
+            key={`particle-${i}`}
+            className="absolute w-1.5 h-1.5 bg-primary/20 rounded-full pointer-events-none"
+            style={{
+              top: `${Math.random() * 100}%`,
+              left: `${Math.random() * 100}%`,
+              animation: `move-diagonal ${10000 + Math.random() * 10000}ms infinite ${Math.random() * 5000}ms`,
+              opacity: 0.1 + Math.random() * 0.2,
+              transform: `scale(${0.5 + Math.random() * 1.5})`
+            }}
+          />
+        ))}
 
         {/* Дополнительные фоновые элементы */}
         <div className="absolute top-1/3 right-1/3 w-16 h-16 border-2 border-primary/10 rounded-full animate-rotate-slow" />
         <div className="absolute bottom-1/3 left-1/3 w-24 h-24 border-2 border-accent/10 rounded-full animate-rotate-reverse" />
-        
       </div>
-
 
       <Header />
       
       <main className="container mx-auto px-4 py-16 space-y-16 relative z-10">
         {/* Раздел проекта */}
         <section className="text-center space-y-8 animate-fade-in-up">
-          <div className="inline-flex items-center gap-3 px-4 py-2 bg-muted/50 rounded-full text-sm font-medium mb-4 animate-fade-in-up animation-delay-100">
-            <ExternalLink className="h-4 w-4 text-primary" />
-            <span>Наши реализованные проекты</span>
-          </div>
           <h1 className="text-4xl md:text-6xl font-bold tracking-tight animate-fade-in-up animation-delay-200">
             <span className="bg-gradient-to-r from-primary to-primary/70 bg-clip-text text-transparent">
               Наши проекты
@@ -344,7 +342,7 @@ const Projects = () => {
           </p>
         </section>
 
-        {/* Сетка проектов (не трогать)*/}
+        {/* Сетка проектов */}
         <section className="space-y-8">
           {projectGroups[currentPage].map((project, index) => (
             <Card 
