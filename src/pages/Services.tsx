@@ -487,7 +487,7 @@ const Services = () => {
                   </div>
                 </div>
                 
-                {/* Уменьшенная правая панель с изображением */}
+                {/* правая панель с изображением */} 
                 <div className="bg-gradient-to-br from-primary/5 to-blue-600/10 p-6 lg:p-8 flex flex-col">
                   <div className="flex-1 flex items-center justify-center">
                    <img 
@@ -496,7 +496,6 @@ const Services = () => {
   className="w-full h-full object-cover rounded-lg"
 />
                   </div>
-                  
                   <div className="mt-6 space-y-3">
                     <Button 
                       size="lg" 
@@ -525,6 +524,7 @@ const Services = () => {
         </DialogContent>
       </Dialog>
     </div>
+    
   );
 };
 

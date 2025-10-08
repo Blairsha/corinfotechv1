@@ -9,20 +9,20 @@ import { ArrowRight, Server, Cpu, BatteryFull, Shield, Monitor, Phone, Power, Ha
 const Vendors = () => {
   const allManufacturers = [
     {
+      name: 'АТС-КОНВЕРС',
+      logo: '/logos/ats-konvers.png',
+      description: 'Деятельность связана с наукоемкими разработками и производством систем гарантированного электропитания, устройств повышения качества электроэнергии, а также электронной защиты оборудования.',
+      category: 'Системы электропитания',
+      products: ['ИБП', 'Стабилизаторы', 'Преобразователи напряжения', 'АКБ'],
+      website: 'https://www.atsconvers.ru/'
+    },
+    {
       name: 'AudioCodes',
       logo: '/logos/audiocodes.png',
       description: 'Мировой лидер в области унифицированных коммуникаций, голосовой связи, контакт центров.',
       category: 'Телефония и VoIP-оборудование',
       products: ['Медиа-шлюзы', 'Медиа-серверы', 'IP-телефоны'],
       website: 'https://www.audiocodes.com/'
-    },
-    {
-      name: '"АТС-КОНВЕРС"',
-      logo: '/logos/ats-konvers.png',
-      description: 'Деятельность связана с наукоемкими разработками и производством систем гарантированного электропитания, устройств повышения качества электроэнергии, а также электронной защиты оборудования.',
-      category: 'Системы электропитания',
-      products: ['ИБП', 'Стабилизаторы', 'Преобразователи напряжения', 'АКБ'],
-      website: 'https://www.atsconvers.ru/'
     },
     {
       name: 'БАСТИОН',
@@ -57,6 +57,14 @@ const Vendors = () => {
       website: 'https://deltacomputers.ru/'
     },
     {
+      name: 'CyberPower',
+      logo: '/logos/cyberpower.png',
+      description: 'Производитель оборудования для управления электропитанием.',
+      category: 'Электропитание',
+      products: ['ИБП', 'ПО для управления энергией', 'Защита от скачков напряжения'],
+      website: 'https://www.cyberpower.com/ru/ru'
+    },
+    {
       name: 'Zelax',
       logo: '/logos/zelax.png',
       description: 'Ведущий российский разработчик и производитель решений для сетей передачи данных',
@@ -72,7 +80,6 @@ const Vendors = () => {
       products: ['ИБП', 'Стабилизаторы'],
       website: 'https://impuls.energy/'
     },
-
     {
       name: 'IRBIS',
       logo: '/logos/irbis.png',
@@ -88,14 +95,6 @@ const Vendors = () => {
       category: 'Системы безопасности',
       products: ['Видеосервера', 'Комплексные системы безопасности и технического контроля.'],
       website: 'https://iss.ru/'
-    },
-    {
-      name: 'CyberPower',
-      logo: '/logos/cyberpower.png',
-      description: 'Производитель оборудования для управления электропитанием.',
-      category: 'Электропитание',
-      products: ['ИБП', 'ПО для управления энергией', 'Защита от скачков напряжения'],
-      website: 'https://www.cyberpower.com/ru/ru'
     },
     {
       name: 'Kvadra',
@@ -233,7 +232,17 @@ const Vendors = () => {
       products: ['IP-ATC', 'Модули', 'Шлюзы'],
       website: 'https://yeastar.ru/'
     }
-  ];
+  ].sort((a, b) => {
+    // Сначала сравниваем по кириллице/латинице
+    const isACyrillic = /[а-яё]/i.test(a.name[0]);
+    const isBCyrillic = /[а-яё]/i.test(b.name[0]);
+    
+    if (isACyrillic && !isBCyrillic) return -1;
+    if (!isACyrillic && isBCyrillic) return 1;
+    
+    // Если оба на одном алфавите, сортируем по алфавиту
+    return a.name.localeCompare(b.name, 'ru');
+  });
 
   // Разделяем вендоров на группы по 15 на страницу
   const vendorsPerPage = 15;
