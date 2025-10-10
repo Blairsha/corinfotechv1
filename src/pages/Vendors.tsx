@@ -12,7 +12,7 @@ const Vendors = () => {
       name: 'АТС-КОНВЕРС',
       logo: '/logos/ats-konvers.png',
       description: 'Деятельность связана с наукоемкими разработками и производством систем гарантированного электропитания, устройств повышения качества электроэнергии, а также электронной защиты оборудования.',
-      category: 'Системы электропитания',
+      
       products: ['ИБП', 'Стабилизаторы', 'Преобразователи напряжения', 'АКБ'],
       website: 'https://www.atsconvers.ru/'
     },
@@ -20,7 +20,7 @@ const Vendors = () => {
       name: 'AudioCodes',
       logo: '/logos/audiocodes.png',
       description: 'Мировой лидер в области унифицированных коммуникаций, голосовой связи, контакт центров.',
-      category: 'Телефония и VoIP-оборудование',
+     
       products: ['Медиа-шлюзы', 'Медиа-серверы', 'IP-телефоны'],
       website: 'https://www.audiocodes.com/'
     },
@@ -28,7 +28,7 @@ const Vendors = () => {
       name: 'БАСТИОН',
       logo: '/logos/bastion.png',
       description: 'Разработка и производство профессиональных источников бесперебойного питания и электротехнического оборудования.',
-      category: 'Электропитание',
+      
       products: ['ИБП', 'Стабилизаторы', 'Сетевая защита', 'АКБ'],
       website: 'https://bast.ru/'
     },
@@ -36,7 +36,7 @@ const Vendors = () => {
       name: 'Гравитон',
       logo: '/logos/graviton.png',
       description: 'занимает одну из лидирующих позиций на российском рынке вычислительной техники.',
-      category: 'Вычислительная техника',
+    
       products: ['Серверы', 'СХД', 'Промышленные компьютеры', 'ПК', 'Ноутбуки', 'Мониторы', 'Моноблоки', 'Печатная техника'],
       website: 'https://graviton.ru/'
     },
@@ -44,7 +44,7 @@ const Vendors = () => {
       name: 'Dahua Technology',
       logo: '/logos/dahua.png',
       description: 'Разработка интеллектуальные системы видеоаналитики с распознаванием лиц и температурным скринингом.',
-      category: 'Системы безопасности',
+     
       products: ['Камеры видеонаблюдения', 'Видео-регистраторы ', 'Сигнализация', 'Видеостены', 'Конференцсвязь', 'Сетевое оборудование'],
       website: 'https://www.dahuasecurity.com/'
     },
@@ -52,7 +52,7 @@ const Vendors = () => {
       name: 'Delta Computers',
       logo: '/logos/delta.png',
       description: 'Российский разработчик и производитель IT-оборудования. В портфеле продуктов Delta Computers — серверы общего назначения, high-end серверы, GPU-решения, коммутаторы, системы хранения, шасси, персональные компьютеры, мониторы, автоматизированные рабочие места, а также сопутствующее программное обеспечение, в том числе микроконтроллерное.',
-      category: 'Вычислительная техника',
+     
       products: ['Серверы', 'СХД', 'Коммутаторы', 'ПК', 'Мониторы', 'Моноблоки'],
       website: 'https://deltacomputers.ru/'
     },
@@ -60,7 +60,7 @@ const Vendors = () => {
       name: 'CyberPower',
       logo: '/logos/cyberpower.png',
       description: 'Производитель оборудования для управления электропитанием.',
-      category: 'Электропитание',
+      
       products: ['ИБП', 'ПО для управления энергией', 'Защита от скачков напряжения'],
       website: 'https://www.cyberpower.com/ru/ru'
     },
@@ -68,7 +68,7 @@ const Vendors = () => {
       name: 'Zelax',
       logo: '/logos/zelax.png',
       description: 'Ведущий российский разработчик и производитель решений для сетей передачи данных',
-      category: 'Телекоммуникационное оборудование.',
+      
       products: ['Коммутаторы', 'Маршрутизаторы', 'Шлюзы VoIP, TDMoP, RoIP', 'Модемы'],
       website: 'https://www.zelax.ru/'
     },
@@ -76,7 +76,7 @@ const Vendors = () => {
       name: 'ИМПУЛЬС',
       logo: '/logos/impuls.png',
       description: 'Разработка и производство систем защиты электропитания.',
-      category: 'Электропитание',
+      
       products: ['ИБП', 'Стабилизаторы'],
       website: 'https://impuls.energy/'
     },
@@ -84,7 +84,7 @@ const Vendors = () => {
       name: 'IRBIS',
       logo: '/logos/irbis.png',
       description: 'Российский производитель оборудования для корпоративного и потребительского рынка.',
-      category: 'Оборудование',
+
       products: ['ПК', 'Моноблоки', 'Ноутбуки', 'Телевизоры', 'Мониторы'],
       website: 'https://www.irbis.su/'
     },
@@ -92,7 +92,7 @@ const Vendors = () => {
       name: 'ISS (SecurOS)',
       logo: '/logos/iss.png',
       description: 'Российский разработчик профессиональных IT-решения для бизнеса и промышленности.',
-      category: 'Системы безопасности',
+
       products: ['Видеосервера', 'Комплексные системы безопасности и технического контроля.'],
       website: 'https://iss.ru/'
     },
@@ -100,7 +100,7 @@ const Vendors = () => {
       name: 'Kvadra',
       logo: '/logos/kvadra.png',
       description: 'Российский производитель клиентских устройств',
-      category: 'Вычислительная техника',
+
       products: ['ПК', 'Моноблоки', 'Планшеты', 'Ноутбуки'],
       website: 'https://квадра.рф/'
     },
@@ -108,7 +108,7 @@ const Vendors = () => {
       name: 'QTECH',
       logo: '/logos/qtech.png',
       description: 'Российский разработчик и производитель телекоммуникационного и IT-оборудования.',
-      category: 'Сетевая инфраструктура',
+ 
       products: ['Коммутаторы', 'Маршрутизаторы', 'Северное оборудование', 'Системы хранения данных', 'ИБП', 'Видеонаблюдения'],
       website: 'https://www.qtech.ru/'
     },
@@ -116,7 +116,7 @@ const Vendors = () => {
       name: 'LightCom',
       logo: '/logos/lightcom.png',
       description: 'Российский производитель компьютерного оборудования для госсектора и коммерческого сектора.',
-      category: 'Оборудование',
+ 
       products: ['Мониторы', 'Персональные компьютеры', 'Рабочие станции', 'Моноблоки'],
       website: 'https://lightcom.msk.ru/'
     },
@@ -124,7 +124,7 @@ const Vendors = () => {
       name: 'NexTouch',
       logo: '/logos/nextouch.png',
       description: 'Крупнейший российский производитель интерактивного оборудования.',
-      category: 'Оборудование',
+
       products: ['Интерактивные панели', 'Дисплеи'],
       website: 'https://nextouch.ru/'
     },
@@ -132,7 +132,6 @@ const Vendors = () => {
       name: 'Pantum',
       logo: '/logos/pantum.png',
       description: 'Международная китайская компания, которая занимается разработкой, производством и продажей расходных материалов и оборудования для печати.',
-      category: 'Печатная техника',
       products: ['МФУ', 'Принтеры'],
       website: 'https://www.pantum.ru/'
     },
@@ -140,7 +139,6 @@ const Vendors = () => {
       name: 'Парус электро',
       logo: '/logos/parus.png',
       description: 'Российский разработчик и производитель источников бесперебойного питания, зарядных станций электромобилей и другой силовой преобразовательной техники.',
-      category: 'Электропитание',
       products: ['ИБП', 'АКБ', 'Распределительные щиты'],
       website: 'https://parus-electro.ru/'
     },
@@ -148,7 +146,7 @@ const Vendors = () => {
       name: 'RDW',
       logo: '/logos/RDW-comp.png',
       description: 'Российский производитель вычислительной техники',
-      category: 'Вычислительная техника',
+      
       products: ['Серверы и СХД', 'Персональные компьютеры', 'Моноблоки', 'Мониторы'],
       website: 'https://rdwcomp.ru/'
     },
@@ -156,7 +154,7 @@ const Vendors = () => {
       name: 'SberDevices',
       logo: '/logos/sberdevices.png',
       description: 'Российский IT-компания, занимающаяся разработкой и производством умных устройств и программного обеспечения для потребителей и бизнеса.',
-      category: 'Потребительская электроника',
+     
       products: ['Телевизоры', 'Умные колонки', 'Интерактивные панели'],
       website: 'https://sberdevices.ru/'
     },
@@ -164,7 +162,7 @@ const Vendors = () => {
       name: 'Сайбер Электро',
       logo: '/logos/cyber-electro.png',
       description: 'Российский бренд, производитель источников бесперебойного питания. Является совокупностью инновационных технологий, энергоэффективности, высокой надежности и производительности.',
-      category: 'Системы электропитания',
+    
       products: ['ИБП', 'Трехфазные ИБП', 'Модульные системы'],
       website: 'https://сайберэлектро.рф/'
     },
@@ -172,7 +170,7 @@ const Vendors = () => {
       name: 'Систэм Электрик',
       logo: '/logos/system-electric.png',
       description: 'Российская производственная компания, разработчик и производитель решений в области распределения электроэнергии, автоматизации, инженерной инфраструктуры ЦОД и программного обеспечения.',
-      category: 'Энергораспределение и автоматизация',
+     
       products: ['ИБП', 'Электроустановочные изделия и аксессуары', 'Модульное оборудоване и щитки', 'Распределение электроэнергии низкого и среднего напряжения'],
       website: 'https://systeme.ru/'
     },
@@ -180,7 +178,7 @@ const Vendors = () => {
       name: 'ФЛАТ-ПРО',
       logo: '/logos/flat-pro.png',
       description: 'Российский разработчик программно-аппаратных решений в области связи.',
-      category: 'VoIP-оборудование',
+      
       products: ['ПО', 'IP-телефоны', 'VOIP шлюзы'],
       website: 'https://flat-pro.ru/'
     },
@@ -188,7 +186,7 @@ const Vendors = () => {
       name: 'Fplus',
       logo: '/logos/fplus.png',
       description: 'Российский производитель инфраструтурного оборудования, входит в одноимённых IT-холдинг.',
-      category: 'Серверное оборудование',
+      
       products: ['Принтеры', 'МФУ', 'Персональные компьютеры', 'Серверы', 'Системы хранения данных', 'Сетевое оборудование'],
       website: 'https://fplustech.ru/'
     },
@@ -196,7 +194,7 @@ const Vendors = () => {
       name: 'Huawei',
       logo: '/logos/huawei.png',
       description: 'Китайская компания, один из лидеров в области телекоммуникаций, производитель смартфонов и бытовой электроники.',
-      category:  'Сетевое оборудование',
+     
       products: ['Смартфоны', 'ПО и лицензии', 'Оборудование для сетей', 'Ноутбуки','Планшеты'],
       website: 'https://www.huawei.ru/'
     },
@@ -204,7 +202,7 @@ const Vendors = () => {
       name: 'ЭЛТЕКС',
       logo: '/logos/eltex.png',
       description: 'Ведущий российский разработчик и производитель телекоммуникационного оборудования.',
-      category: 'Беспроводные сети',
+    
       products: ['Коммутаторы', 'Маршрутизаторы', 'Видеонаблюдения и СКУД', 'Wi-Fi оборудование','VoIP - телефония'],
       website: 'https://eltex-co.ru/'
     },
@@ -212,7 +210,7 @@ const Vendors = () => {
       name: 'YADRO',
       logo: '/logos/yadro.png',
       description: 'Российская IT-компания, производитель IT-оборудования, входит в состав "ИКС-Холдинга".',
-      category: 'Системы хранения данных',
+      
       products: ['Системы хранения данных', 'Серверы', 'Коммутаторы'],
       website: 'https://yadro.com/'
     },
@@ -220,7 +218,7 @@ const Vendors = () => {
       name: 'Yealink',
       logo: '/logos/yealink.png',
       description: 'Ведущий мировой производитель абонентского оборудования для IP-телефонии  и видео-конференц-связи.',
-      category: 'Видеокоммуникации',
+     
       products: ['IP-телефоны', 'Гарнитуры'],
       website: 'https://www.yea-rus.ru/'
     },
@@ -228,7 +226,7 @@ const Vendors = () => {
       name: 'Yeastar',
       logo: '/logos/yeastar.png',
       description: 'Производитель и разработчик IP-ATC, шлюзов и модулей.',
-      category: 'VoIP-оборудование',
+     
       products: ['IP-ATC', 'Модули', 'Шлюзы'],
       website: 'https://yeastar.ru/'
     }
@@ -524,31 +522,32 @@ const Vendors = () => {
         </section>
 
         {/* Пагинация */}
-        <div className="flex justify-between items-center animate-fade-in-up">
-          <Button 
-            variant="outline" 
-            className="gap-2" 
-            onClick={prevPage}
-            disabled={currentPage === 0}
-          >
-            <ChevronLeft className="h-4 w-4" />
-            Назад
-          </Button>
-          
-          <div className="text-sm text-muted-foreground">
-            Страница {currentPage + 1} из {vendorGroups.length}
-          </div>
-          
-          <Button 
-            variant="outline" 
-            className="gap-2" 
-            onClick={nextPage}
-            disabled={currentPage === vendorGroups.length - 1}
-          >
-            Вперед
-            <ChevronRight className="h-4 w-4" />
-          </Button>
-        </div>
+
+<div className="flex justify-between items-center animate-fade-in-up">
+  <Button 
+    variant="outline" 
+    className="gap-2 px-6 py-3 text-base h-auto min-h-[48px]" 
+    onClick={prevPage}
+    disabled={currentPage === 0}
+  >
+    <ChevronLeft className="h-5 w-5" />
+    Назад
+  </Button>
+  
+  <div className="text-base text-muted-foreground font-medium">
+    Страница {currentPage + 1} из {vendorGroups.length}
+  </div>
+  
+  <Button 
+    variant="outline" 
+    className="gap-2 px-6 py-3 text-base h-auto min-h-[48px]" 
+    onClick={nextPage}
+    disabled={currentPage === vendorGroups.length - 1}
+  >
+    Вперед
+    <ChevronRight className="h-5 w-5" />
+  </Button>
+</div>
 
         {/* CTA Раздел */}
         <section className="text-center space-y-6 py-12 rounded-xl relative overflow-hidden border border-muted/50 hover:shadow-lg transition-shadow group/cta">
@@ -557,7 +556,6 @@ const Vendors = () => {
           <div className="absolute -bottom-20 -left-20 w-60 h-60 rounded-full bg-accent/20 blur-xl animate-pulse-medium animation-delay-2000"></div>
           
           <div className="relative z-10">
-            <h2 className="text-3xl font-bold">Хотите узнать больше?</h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto mt-4">
               Наши специалисты помогут подобрать оборудование от этих производителей под ваши задачи
             </p>

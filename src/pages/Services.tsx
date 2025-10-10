@@ -183,11 +183,6 @@ const Services = () => {
             padding: 1rem;
           }
           
-          .mobile-modal-image {
-            height: 150px;
-            min-height: 150px;
-          }
-          
           .mobile-modal-actions {
             padding: 1rem;
             background: rgba(0, 0, 0, 0.02);
@@ -367,15 +362,6 @@ const Services = () => {
                 </div>
               </div>
               
-              {/* Изображение для мобильной версии */}
-              <div className="sm:hidden mobile-modal-image bg-gradient-to-br from-primary/5 to-blue-600/10 p-4 flex items-center justify-center">
-                <img 
-  src={selectedService.image} 
-  alt={selectedService.title}
-  className="w-full h-full object-cover rounded-lg"
-/>
-              </div>
-              
               {/* Кнопки действий для мобильной версии */}
               <div className="sm:hidden mobile-modal-actions space-y-2 border-t">
                 <Button 
@@ -399,7 +385,7 @@ const Services = () => {
                 </Button>
               </div>
 
-              {/* Десктопная версия - горизонтальный layout с уменьшенным изображением */}
+              {/* Десктопная версия - горизонтальный layout без изображения */}
               <div className="hidden sm:grid sm:grid-cols-[2fr_1fr] h-full">
                 <div className="p-8 lg:p-10 overflow-y-auto max-h-[85vh]">
                   <div className="flex items-start mb-8">
@@ -487,16 +473,9 @@ const Services = () => {
                   </div>
                 </div>
                 
-                {/* правая панель с изображением */} 
-                <div className="bg-gradient-to-br from-primary/5 to-blue-600/10 p-6 lg:p-8 flex flex-col">
-                  <div className="flex-1 flex items-center justify-center">
-                   <img 
-  src={selectedService.image} 
-  alt={selectedService.title}
-  className="w-full h-full object-cover rounded-lg"
-/>
-                  </div>
-                  <div className="mt-6 space-y-3">
+                {/* Правая панель без изображения - только кнопки по центру */}
+                <div className="bg-gradient-to-br from-primary/5 to-blue-600/10 p-6 lg:p-8 flex flex-col justify-center items-center">
+                  <div className="w-full max-w-xs space-y-4">
                     <Button 
                       size="lg" 
                       className="w-full text-lg group/button hover:shadow-md transition-all bg-primary hover:bg-primary/90 h-12"
@@ -524,7 +503,6 @@ const Services = () => {
         </DialogContent>
       </Dialog>
     </div>
-    
   );
 };
 

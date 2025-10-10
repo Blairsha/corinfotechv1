@@ -39,16 +39,16 @@ const Contacts = () => {
   const handleEmail = () => {
     setIsMailing(true);
     
-    // Пытаемся открыть Gmail в новом окне
-    const gmailUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=${emailAddress}&su=Вопрос по услугам&body=`;
+    // Открываем Gmail без темы письма
+    const gmailUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=${emailAddress}`;
     const gmailWindow = window.open(gmailUrl, '_blank', 'noopener,noreferrer');
     
     // Проверяем, открылось ли окно Gmail
     const gmailCheck = setInterval(() => {
       if (!gmailWindow || gmailWindow.closed || typeof gmailWindow.closed === 'undefined') {
         clearInterval(gmailCheck);
-        // Если Gmail не открылся, используем стандартный mailto
-        window.location.href = `mailto:${emailAddress}?subject=Вопрос по услугам&body=Здравствуйте, у меня вопрос...`;
+        // Если Gmail не открылся, используем стандартный mailto без темы
+        window.location.href = `mailto:${emailAddress}`;
       }
       setIsMailing(false);
     }, 500);
@@ -120,10 +120,7 @@ const Contacts = () => {
         <div className="max-w-7xl mx-auto space-y-12 md:space-y-16">
           {/* Hero Section */}
           <section className="text-center space-y-6 animate-fade-in-up">
-            <div className="inline-flex items-center justify-center px-4 py-2 rounded-full bg-muted/50 text-sm font-medium animate-fade-in">
-              <MapPin className="h-4 w-4 mr-2 text-primary" />
-              Мы находимся в Москве
-            </div>
+           
             <h1 className="text-4xl md:text-6xl font-bold tracking-tight">
               <span className="bg-gradient-to-r from-primary to-primary/70 bg-clip-text text-transparent">
                 Наши контакты
@@ -144,14 +141,9 @@ const Contacts = () => {
                     {[
                       { 
                         icon: MapPin, 
-                        title: "Фактический адрес", 
+                        title: "Юридический адрес", 
                         content: address,
                         link: "https://yandex.ru/maps/-/CDBQjBd3"
-                      },
-                      { 
-                        icon: Building, 
-                        title: "Адрес для корреспонденции", 
-                        content: "107174, г. Москва, ул. Каланчевская 2/1, стр.1"
                       },
                       { 
                         icon: Phone, 
@@ -312,30 +304,13 @@ const Contacts = () => {
             <div className="absolute -bottom-20 -left-20 w-60 h-60 rounded-full bg-accent/20 blur-xl animate-pulse-medium animation-delay-2000"></div>
             
             <div className="relative z-10">
-              <h2 className="text-3xl font-bold">Дополнительная информация</h2>
               <p className="text-lg text-muted-foreground max-w-2xl mx-auto mt-4">
                 Для получения дополнительной информации о наших услугах или сотрудничестве, 
                 пожалуйста, свяжитесь с нами по указанным контактам. Наши специалисты всегда 
                 готовы помочь вам с решением ваших задач.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center mt-6">
-                <Button 
-                  size="lg" 
-                  className="px-8 text-lg group/button hover:shadow-md transition-all bg-primary hover:bg-primary/90"
-                  onClick={handleCall}
-                >
-                  <Phone className="mr-2 h-5 w-5" />
-                  Позвонить нам
-                </Button>
-                <Button 
-                  size="lg" 
-                  variant="outline"
-                  className="px-8 text-lg group/button hover:shadow-md transition-all"
-                  onClick={handleEmail}
-                >
-                  <Mail className="mr-2 h-5 w-5" />
-                  Написать письмо
-                </Button>
+                
               </div>
             </div>
           </section>

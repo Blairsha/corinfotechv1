@@ -614,31 +614,30 @@ const Projects = () => {
         </section>
 
         {/* Пагинация */}
-        <div className="flex flex-col md:flex-row justify-between items-center gap-4 md:gap-0 animate-fade-in-up mobile-pagination-stack">
-          <Button 
-            variant="outline" 
-            className="gap-2 focus:ring-0 focus:ring-offset-0 focus:outline-none w-full md:w-auto justify-center mobile-pagination-buttons" 
-            onClick={prevPage}
-            disabled={currentPage === 0}
-          >
-            <ChevronLeft className="h-4 w-4" />
-            Предыдущие проекты
-          </Button>
-          
-          <div className="text-sm text-muted-foreground text-center mobile-text-center">
-            Страница {currentPage + 1} из {projectGroups.length}
-          </div>
-          
-          <Button 
-            variant="outline" 
-            className="gap-2 focus:ring-0 focus:ring-offset-0 focus:outline-none w-full md:w-auto justify-center mobile-pagination-buttons" 
-            onClick={nextPage}
-            disabled={currentPage === projectGroups.length - 1}
-          >
-            Следующие проекты
-            <ChevronRight className="h-4 w-4" />
-          </Button>
-        </div>
+
+<div className="flex flex-col md:flex-row justify-between items-center gap-4 md:gap-6 animate-fade-in-up mobile-pagination-stack">
+  <Button 
+    className="gap-3 focus:ring-0 focus:ring-offset-0 focus:outline-none w-full md:w-[300px] justify-center mobile-pagination-buttons text-lg md:text-xl py-5 md:py-7 px-8 md:px-12 h-auto min-h-[60px] md:min-h-[80px] bg-primary hover:bg-primary/90 text-primary-foreground shadow-lg hover:shadow-xl transition-all duration-300 font-bold border-0" 
+    onClick={prevPage}
+    disabled={currentPage === 0}
+  >
+    <ChevronLeft className="h-7 w-7 md:h-8 md:w-8" />
+    <span className="whitespace-nowrap">Предыдущие проекты</span>
+  </Button>
+  
+  <div className="text-xl md:text-2xl text-muted-foreground text-center mobile-text-center font-bold bg-background/80 backdrop-blur-sm py-4 px-8 rounded-lg border-2">
+    Страница {currentPage + 1} из {projectGroups.length}
+  </div>
+  
+  <Button 
+    className="gap-3 focus:ring-0 focus:ring-offset-0 focus:outline-none w-full md:w-[300px] justify-center mobile-pagination-buttons text-lg md:text-xl py-5 md:py-7 px-8 md:px-12 h-auto min-h-[60px] md:min-h-[80px] bg-primary hover:bg-primary/90 text-primary-foreground shadow-lg hover:shadow-xl transition-all duration-300 font-bold border-0" 
+    onClick={nextPage}
+    disabled={currentPage === projectGroups.length - 1}
+  >
+    <span className="whitespace-nowrap">Следующие проекты</span>
+    <ChevronRight className="h-7 w-7 md:h-8 md:w-8" />
+  </Button>
+</div>
 
         {/* CTA секция */}
         <section className="text-center space-y-4 md:space-y-6 py-6 md:py-12 rounded-xl relative overflow-hidden border border-muted/50 hover:shadow-lg transition-shadow group/cta mobile-cta-padding">
