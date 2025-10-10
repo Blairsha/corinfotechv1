@@ -11,7 +11,7 @@ const Header = () => {
   const location = useLocation();
 
   const navigation = [
-    { name: 'О нас', href: '/' }, // Теперь "О нас" ведет на главную страницу (/)
+    { name: 'О нас', href: '/' }, 
     { name: 'Направления', href: '/services' },
     { name: 'Проекты', href: '/projects' },
     { name: 'Дистрибьюторы', href: '/Distributors' },
@@ -39,7 +39,7 @@ const Header = () => {
         
         {/* Основная навигация */}
         <div className="flex items-center justify-between py-4">
-          {/* Логотип теперь ведет на /home (Hero страница) */}
+
           <Link to="/home" className="flex items-center space-x-2">
             <div className="relative w-16 h-16 rounded-lg flex items-center justify-center">
               <div className="absolute inset-0 bg-blue-600/40 rounded-full blur-md transform scale-110" />
